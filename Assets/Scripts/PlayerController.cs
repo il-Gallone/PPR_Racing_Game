@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float acceleration;
     public float handling;
     public float speedThreshold;
-    public float torqueThreshold;
 
     public float maxHP;
     public float maxEnergy;
@@ -34,8 +33,8 @@ public class PlayerController : MonoBehaviour
         if (energy > 0)
         {
             rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical"));
-            rigid2D.AddTorque(handling * Time.deltaTime * -Input.GetAxis("Horizontal"));
-            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical")) + handling * Mathf.Abs(Input.GetAxis("Horizontal")) * 0.1f) * Time.deltaTime;
+            rigid2D.angularVelocity = (handling * -Input.GetAxis("Horizontal"));
+            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical")) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
         }
         if (rigid2D.velocity.magnitude > speedThreshold)
         {
@@ -44,14 +43,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             rigid2D.drag = 1;
-        }
-        if(Mathf.Abs(rigid2D.angularVelocity) > torqueThreshold)
-        {
-            rigid2D.angularDrag = Mathf.Abs(rigid2D.angularVelocity) - torqueThreshold+1f;
-        }
-        else
-        {
-            rigid2D.angularDrag = 1f;
         }
     }
 
