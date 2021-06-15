@@ -14,16 +14,23 @@ public class Resource : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             // resource gets damaged depending on the weapon
-            energy *= collision.GetComponent<BulletController>().miningPrecision;
-            health *= collision.GetComponent<BulletController>().miningPrecision;
+            GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
+            pickup.GetComponent<ResourcePickup>().hpGiven = health * collision.GetComponent<BulletController>().miningPrecision;
+            pickup.GetComponent<ResourcePickup>().energyGiven = energy * collision.GetComponent<BulletController>().miningPrecision;
+            float totalResources = energy + health;
+            SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
+            for(int i =0; i<renderers.Length; i++)
+            {
+                renderers[i].color = new Color(health/totalResources, energy/totalResources, energy/totalResources);
+            }
+            // add explosion before destroying?
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
 
 
 
-        // add explosion before destroying?
 
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
 
     }
 }

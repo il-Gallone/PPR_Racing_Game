@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 0
   health: 10
+  pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
 --- !u!1 &4244507619682923002
 GameObject:
   m_ObjectHideFlags: 0

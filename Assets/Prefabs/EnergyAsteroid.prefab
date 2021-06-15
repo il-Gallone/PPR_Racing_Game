@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52ca2b30bd79974697a587723ad8817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 10
+  energy: 100
   health: 0
+  pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
 --- !u!1 &6247749006587157532
 GameObject:
   m_ObjectHideFlags: 0
