@@ -15,8 +15,6 @@ public class WeaponController : MonoBehaviour
     public float shootInterval = .5f, minSpread = 0f, maxSpread = 0f;
     public int projectileCount = 1;
 
-
-
     float timeSinceLastShot;
 
     private void Update()
