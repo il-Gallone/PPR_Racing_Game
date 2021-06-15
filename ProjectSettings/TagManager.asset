@@ -8,6 +8,7 @@ TagManager:
   - RepairAsteroid
   - Bullet
   - Objective
+  - SpriteManager
   layers:
   - Default
   - TransparentFX

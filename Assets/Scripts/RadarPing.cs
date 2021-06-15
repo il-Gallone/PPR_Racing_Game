@@ -37,7 +37,7 @@ public class RadarPing : MonoBehaviour
         if (directed)
         {
             Vector2 direction = (radarObject.position - targetCamera.position);
-            transform.position = direction * 9.5f / direction.magnitude;
+            transform.position = (Vector2)targetCamera.position + direction * 9.5f / direction.magnitude;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
             transform.eulerAngles = new Vector3(0, 0, angle);
         }

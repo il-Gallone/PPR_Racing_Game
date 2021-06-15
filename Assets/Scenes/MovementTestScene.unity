@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30980393, g: 0.1764706, b: 0, a: 1}
+  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1059,6 +1059,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136013823}
   m_CullTransparentMesh: 1
+--- !u!1 &1327906376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327906378}
+  - component: {fileID: 1327906377}
+  m_Layer: 0
+  m_Name: SpriteManager
+  m_TagString: SpriteManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1327906377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327906376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bc953d63dc2c44b8cb23e68674ccd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroids:
+  - {fileID: 21300000, guid: fa04e6be34af33f428e82013d7e6e5f9, type: 3}
+  - {fileID: 21300000, guid: 9644daee6b47c7c46b8882b98bc94f56, type: 3}
+  - {fileID: 21300000, guid: a02eb64fbb94d344d99592c647f53b17, type: 3}
+  logos:
+  - {fileID: 21300000, guid: e7af561dc6d2c274e999c6edc0778977, type: 3}
+  - {fileID: 21300000, guid: 5ba02bcfd49ec5b4086e88cf53f6b993, type: 3}
+  - {fileID: 21300000, guid: 741ced45f51005f49908cfa67ee31a15, type: 3}
+  - {fileID: 21300000, guid: e43b1e5e60a5333448b55dd938256656, type: 3}
+--- !u!4 &1327906378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327906376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.22627094, y: -0.051842447, z: -0.73029405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376078318
 GameObject:
   m_ObjectHideFlags: 0
