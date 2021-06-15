@@ -256,6 +256,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
+      propertyPath: maxSpread
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
+      propertyPath: minSpread
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
 --- !u!1 &705594051
@@ -514,6 +522,7 @@ GameObject:
   - component: {fileID: 1514824483}
   - component: {fileID: 1514824482}
   - component: {fileID: 1514824481}
+  - component: {fileID: 1514824484}
   - component: {fileID: 1514824480}
   - component: {fileID: 1514824479}
   m_Layer: 0
@@ -642,6 +651,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514824484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514824478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028be04613fe8db47beb8d0ada955344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyAsteroid: {fileID: 6247749006519979375, guid: e62dc6b9aa1d577428478fd91cda6a4a, type: 3}
+  repairAsteroid: {fileID: 4244507619607968452, guid: b57fdc47f6704a645a124f999acd8708, type: 3}
+  maxDistX: 20
+  maxDistY: 20
 --- !u!4 &1782772159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8378328000686705304, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
