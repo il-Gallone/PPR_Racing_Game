@@ -7,13 +7,13 @@ public class ResourceManager : MonoBehaviour
     public GameObject energyAsteroid, repairAsteroid, objective;
 
     public float maxDistX = 20f, maxDistY = 20f; // max distance the object can spawn away from the player
+    public int energyCount = 20, repairCount = 20, objectiveCount = 10;
 
     void Start()
     {
-        RandomlySpawnObjects(energyAsteroid, 10);
-        RandomlySpawnObjects(repairAsteroid, 10);
-        RandomlySpawnObjects(objective, 5);
-
+        RandomlySpawnObjects(energyAsteroid, energyCount);
+        RandomlySpawnObjects(repairAsteroid, repairCount);
+        RandomlySpawnObjects(objective, objectiveCount);
     }
 
     void RandomlySpawnObjects(GameObject objectToSpawn, int objectCount) 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public float HP;
     public float energy;
 
+    int objectiveCount = 0;
+
+    public Text objectiveCountText;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,18 @@ public class PlayerController : MonoBehaviour
         else
         {
             rigid2D.angularDrag = 1f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Objective"))
+        {
+            objectiveCount++;
+
+            Destroy(collision.gameObject);
+
+            objectiveCountText.text = "Objectives: " + objectiveCount;
         }
     }
 }
