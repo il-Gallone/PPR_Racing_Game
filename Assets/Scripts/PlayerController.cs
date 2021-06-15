@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical"));
             rigid2D.angularVelocity = (handling * -Input.GetAxis("Horizontal"));
-            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical")) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
+            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical")*0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
         }
         if (rigid2D.velocity.magnitude > speedThreshold)
         {
