@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public GameObject energyAsteroid, repairAsteroid;
+    public GameObject energyAsteroid, repairAsteroid, objective;
 
     public float maxDistX = 20f, maxDistY = 20f; // max distance the object can spawn away from the player
 
@@ -12,6 +12,8 @@ public class ResourceManager : MonoBehaviour
     {
         RandomlySpawnObjects(energyAsteroid, 10);
         RandomlySpawnObjects(repairAsteroid, 10);
+        RandomlySpawnObjects(objective, 5);
+
     }
 
     void RandomlySpawnObjects(GameObject objectToSpawn, int objectCount) 

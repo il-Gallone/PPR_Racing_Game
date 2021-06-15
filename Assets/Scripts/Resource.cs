@@ -16,7 +16,7 @@ public class Resource : MonoBehaviour
             health *= collision.GetComponent<BulletController>().miningPrecision;
         }
 
-        // add to player energy/health here?
+        // add to player energy/health here? + text popups?
         if (tag == "EnergyAsteroid")
         {
 
