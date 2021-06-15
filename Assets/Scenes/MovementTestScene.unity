@@ -570,6 +570,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
+      propertyPath: maxSpread
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
+      propertyPath: minSpread
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
 --- !u!1 &692888235
@@ -1117,6 +1125,7 @@ GameObject:
   - component: {fileID: 1514824483}
   - component: {fileID: 1514824482}
   - component: {fileID: 1514824481}
+  - component: {fileID: 1514824484}
   - component: {fileID: 1514824480}
   - component: {fileID: 1514824479}
   m_Layer: 0

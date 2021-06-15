@@ -12,7 +12,11 @@ public class WeaponController : MonoBehaviour
 
     public bool automatic = true;
 
-    public float shootInterval = .5f;
+    public float shootInterval = .5f, minSpread = 0f, maxSpread = 0f;
+    public int projectileCount = 1;
+
+
+
     float timeSinceLastShot;
 
     private void Update()
@@ -33,11 +37,18 @@ public class WeaponController : MonoBehaviour
 
         if (automatic && timeSinceLastShot >= shootInterval && Input.GetButton("Fire1")) // for automatic fire
         {
-            shoot();
+            for (int i = 0; i < projectileCount; i++)
+            {
+                shoot();
+            }
+            
         }
         if (timeSinceLastShot >= shootInterval && Input.GetButtonDown("Fire1"))          // for semi-auto
         {
-            shoot();
+            for(int i = 0; i < projectileCount; i++)
+            {
+                shoot();
+            }
         }
     }
 
@@ -45,7 +56,11 @@ public class WeaponController : MonoBehaviour
     {
         timeSinceLastShot = 0;
 
+        float spread = Random.Range(minSpread, maxSpread);
+
         GameObject bullet = Instantiate(bulletPrefab, shootPos.position, shootPos.rotation);
+
+        bullet.transform.Rotate(0, 0, spread);
 
         //print("shoot");
     }
