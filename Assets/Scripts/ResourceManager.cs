@@ -6,8 +6,7 @@ public class ResourceManager : MonoBehaviour
 {
     public GameObject energyAsteroid, repairAsteroid, objective;
 
-    public float maxDistX = 20f, maxDistY = 20f; // max distance the object can spawn away from the player
-    public float minDistX = 5, minDistY = 5; //min distance the object can spawn away from the player
+    public float minRadius = 1f, maxRadius = 20f; //Minimum and Maximum Radius for spawning objects
     public int energyCount = 20, repairCount = 20, objectiveCount = 10;
 
     void Start()
@@ -21,11 +20,11 @@ public class ResourceManager : MonoBehaviour
     {
         for (int i = 0; i < objectCount; i++)
         {
-            float randomDistX = Random.Range(minDistX, maxDistX) * (1 + 2 * Random.Range(-1, 1));
-            float randomDistY = Random.Range(minDistX, maxDistY) * (1 + 2 * Random.Range(-1, 1));
-            Vector3 randomPos = new Vector3(randomDistX, randomDistY, 0);
+            Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+            direction /= direction.magnitude;
+            Vector3 randomPos = direction * Random.Range(minRadius, maxRadius);
 
-            GameObject newObject = Instantiate(objectToSpawn, randomPos, Quaternion.identity);
+            Instantiate(objectToSpawn, randomPos, Quaternion.identity);
         }
     }
 }
