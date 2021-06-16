@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.drag = 1;
         }
+        if (Vector3.Distance(transform.position, Vector3.zero) > GameManager.instance.levelLimits)
+        {
+            {
+                HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits)*Time.deltaTime;
+            }
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

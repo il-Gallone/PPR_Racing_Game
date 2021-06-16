@@ -23,6 +23,14 @@ public class Asteroid : MonoBehaviour
         rigid2D.angularVelocity = Random.Range(-45f, 45f);
     }
 
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position, Vector3.zero) > GameManager.instance.levelLimits + 5)
+        {
+            transform.position -= transform.position / transform.position.magnitude * (GameManager.instance.levelLimits + 5)*2;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))

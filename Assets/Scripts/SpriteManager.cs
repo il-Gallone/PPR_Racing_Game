@@ -14,6 +14,6 @@ public class SpriteManager : MonoBehaviour
     void Awake()
     {
         levelLogo = logos[Random.Range(0, logos.Length)];
-        logoColour = new Color(Random.Range(0, 2), Random.Range(0, 2), Random.Range(0, 2), 0.6f);
+        logoColour = new Color(Random.Range(0, 2), Random.Range(0, 2), Random.Range(0, 2), 0.8f) *0.8f;
     }
 }
