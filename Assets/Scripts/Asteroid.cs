@@ -9,6 +9,8 @@ public class Asteroid : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public Rigidbody2D rigid2D;
+
     public GameObject pickupPrefab;
 
     private void Start()
@@ -16,6 +18,9 @@ public class Asteroid : MonoBehaviour
         SpriteManager spriteManager = GameObject.FindGameObjectWithTag("SpriteManager").GetComponent<SpriteManager>();
         spriteRenderer.sprite = spriteManager.asteroids[Random.Range(0, spriteManager.asteroids.Length)];
         transform.eulerAngles = new Vector3(0, 0, Random.Range(-180, 180));
+        rigid2D.velocity = new Vector2(Random.Range(-0.2f,0.2f),Random.Range(-0.2f, 0.2f));
+        rigid2D.velocity /= gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+        rigid2D.angularVelocity = Random.Range(-45f, 45f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

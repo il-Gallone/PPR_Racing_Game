@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6247749006519979374}
   - component: {fileID: 6247749006519979373}
   - component: {fileID: 5571558193317631842}
+  - component: {fileID: -5829335715039321260}
   m_Layer: 0
   m_Name: EnergyAsteroid
   m_TagString: EnergyAsteroid
@@ -65,7 +66,29 @@ MonoBehaviour:
   energy: 500
   health: 0
   spriteRenderer: {fileID: 6057292815949263836}
+  rigid2D: {fileID: -5829335715039321260}
   pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
+--- !u!50 &-5829335715039321260
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247749006519979375}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6247749008014983250
 GameObject:
   m_ObjectHideFlags: 0

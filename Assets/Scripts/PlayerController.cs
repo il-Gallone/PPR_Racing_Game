@@ -45,7 +45,10 @@ public class PlayerController : MonoBehaviour
             rigid2D.drag = 1;
         }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HP -= collision.relativeVelocity.magnitude* 5;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Objective"))
