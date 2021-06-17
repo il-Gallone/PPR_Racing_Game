@@ -6825,10 +6825,8 @@ MonoBehaviour:
   energyAsteroid: {fileID: 6247749006519979375, guid: e62dc6b9aa1d577428478fd91cda6a4a, type: 3}
   repairAsteroid: {fileID: 4244507619607968452, guid: b57fdc47f6704a645a124f999acd8708, type: 3}
   objective: {fileID: 1333194738571058419, guid: 369948f8493bb6f44ab7b239e4b2ef71, type: 3}
-  maxDistX: 20
-  maxDistY: 20
-  minDistX: 1
-  minDistY: 1
+  minRadius: 3
+  maxRadius: 20
   energyCount: 25
   repairCount: 20
   objectiveCount: 10
