@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical"));
             rigid2D.angularVelocity = (handling * -Input.GetAxis("Horizontal"));
-            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical")*0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
+            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
         }
         if (rigid2D.velocity.magnitude > speedThreshold)
         {
@@ -47,8 +47,12 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(transform.position, Vector3.zero) > GameManager.instance.levelLimits)
         {
             {
-                HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits)*Time.deltaTime;
+                HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits) * Time.deltaTime;
             }
+        }
+        if (HP <= 0 || energy <= 0)
+        {
+            SceneController.UpdateScene(3);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,6 +64,10 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Objective"))
         {
             objectiveCount++;
+            if(objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
+            {
+                SceneController.UpdateScene(2);
+            }
 
             Destroy(collision.gameObject);
 

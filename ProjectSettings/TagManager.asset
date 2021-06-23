@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Objective
   - SpriteManager
+  - ResourceManager
   layers:
   - Default
   - TransparentFX
