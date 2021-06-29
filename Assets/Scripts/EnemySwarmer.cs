@@ -54,6 +54,10 @@ public class EnemySwarmer : EnemyBase
 
     public void UpdateSwarm(bool updateCaller)
     {
+        if (HP <= 0)
+        {
+            tag = "DeadEnemy";
+        }
         swarm = GameObject.FindGameObjectsWithTag("Swarmer");
         if (updateCaller)
         {
@@ -62,5 +66,14 @@ public class EnemySwarmer : EnemyBase
                 swarm[i].GetComponent<EnemySwarmer>().UpdateSwarm(false);
             }
         }
+        if (gameObject.CompareTag("DeadEnemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public override void HPReachedZero()
+    {
+        UpdateSwarm(true);
     }
 }

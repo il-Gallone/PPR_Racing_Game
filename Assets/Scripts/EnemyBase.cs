@@ -16,4 +16,18 @@ public class EnemyBase : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Bullet"))
+        {
+            HP -= collision.gameObject.GetComponent<BulletController>().damage;
+            Destroy(collision.gameObject);
+            if (HP <= 0)
+            {
+                HPReachedZero();
+            }
+        }
+    }
 }
