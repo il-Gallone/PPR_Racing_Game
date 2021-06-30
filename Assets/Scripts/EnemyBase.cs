@@ -29,5 +29,13 @@ public class EnemyBase : MonoBehaviour
                 HPReachedZero();
             }
         }
+        if (collision.CompareTag("Explosion"))
+        {
+            HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
+            if (HP <= 0)
+            {
+                HPReachedZero();
+            }
+        }
     }
 }

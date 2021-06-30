@@ -78,5 +78,9 @@ public class PlayerController : MonoBehaviour
             HP -= collision.gameObject.GetComponent<BulletController>().damage;
             Destroy(collision.gameObject);
         }
+        if (collision.CompareTag("Explosion"))
+        {
+            HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
+        }
     }
 }
