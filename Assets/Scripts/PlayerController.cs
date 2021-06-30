@@ -73,5 +73,10 @@ public class PlayerController : MonoBehaviour
 
             objectiveCountText.text = "Objectives: " + objectiveCount;
         }
+        if(collision.CompareTag("EnemyBullet"))
+        {
+            HP -= collision.gameObject.GetComponent<BulletController>().damage;
+            Destroy(collision.gameObject);
+        }
     }
 }

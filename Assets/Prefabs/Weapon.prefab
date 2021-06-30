@@ -157,11 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6e154f2e99f75408bc3b33343a858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 5
+  turnSpeed: 35
   bulletPrefab: {fileID: 1309626514988571176, guid: e3d01255e9625664c81f41f6ba9752d9, type: 3}
   shootPos: {fileID: 772265428}
+  isPlayerWeapon: 1
   automatic: 1
   shootInterval: 0.5
   minSpread: 0
   maxSpread: 0
   projectileCount: 1
+  timeSinceLastShot: 0

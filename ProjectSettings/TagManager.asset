@@ -11,6 +11,8 @@ TagManager:
   - SpriteManager
   - ResourceManager
   - Swarmer
+  - EnemyBullet
+  - DeadEnemy
   layers:
   - Default
   - TransparentFX

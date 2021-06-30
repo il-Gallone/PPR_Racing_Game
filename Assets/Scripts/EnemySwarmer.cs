@@ -50,6 +50,18 @@ public class EnemySwarmer : EnemyBase
         if (angleDif > 180) angleDif -= 360;
         else if (angleDif < -180) angleDif += 360;
         rigid2D.angularVelocity = handling * angleDif * Time.deltaTime;
+
+        float weaponForwardAngle = Mathf.Atan2(weapon.transform.up.y, weapon.transform.up.x) * Mathf.Rad2Deg;
+        float targetAngle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+        float weaponAngleDif = targetAngle - weaponForwardAngle;
+        if (weaponAngleDif > 180) weaponAngleDif -= 360;
+        else if (weaponAngleDif < -180) weaponAngleDif += 360;
+        weapon.transform.eulerAngles += new Vector3(0, 0, Mathf.Sign(weaponAngleDif) * weapon.GetComponent<WeaponController>().turnSpeed)*Time.deltaTime;
+        if (weapon.GetComponent<WeaponController>().shootInterval < weapon.GetComponent<WeaponController>().timeSinceLastShot && 
+            Vector3.Distance(target.transform.position, transform.position) < attackRadius + 2)
+        {
+            weapon.GetComponent<WeaponController>().shoot();
+        }
     }
 
     public void UpdateSwarm(bool updateCaller)
