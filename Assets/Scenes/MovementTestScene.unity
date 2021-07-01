@@ -784,11 +784,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
       propertyPath: maxSpread
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
       propertyPath: minSpread
-      value: -5
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765430873968858209, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
+      propertyPath: projectileCount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8507e381039c1314ba1750cc4db30dc2, type: 3}
