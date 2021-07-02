@@ -10,6 +10,10 @@ TagManager:
   - Objective
   - SpriteManager
   - ResourceManager
+  - Swarmer
+  - EnemyBullet
+  - DeadEnemy
+  - Explosion
   layers:
   - Default
   - TransparentFX
