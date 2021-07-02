@@ -19,12 +19,19 @@ public class PlayerController : MonoBehaviour
 
     public Text objectiveCountText;
 
+    //public GameObject currentWeapon;
+    public GameObject[] availableWeapons;
+
     // Start is called before the first frame update
     void Start()
     {
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
         HP = maxHP;
         energy = maxEnergy;
+
+        // set selected weapon - make sure availableWeapons is in correct order
+        //currentWeapon = availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
+        GameObject.Instantiate(availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")], transform);
     }
 
     // Update is called once per frame

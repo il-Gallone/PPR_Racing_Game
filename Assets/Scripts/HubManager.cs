@@ -11,6 +11,8 @@ public class HubManager : MonoBehaviour
 
     public int upgradeCost = 50, maxArmour = 4, maxEngine = 4;
 
+    //public GameObject shipStatusUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,17 @@ public class HubManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerArmourLevel", 0);
 
         UpdateHubStats();
+    }
+
+    public void ToggleUI(GameObject UI)
+    {
+        if (UI.activeInHierarchy)
+        {
+            UI.SetActive(false);
+        } else
+        {
+            UI.SetActive(true);
+        }
     }
 
     public void UpgradeEngine()
