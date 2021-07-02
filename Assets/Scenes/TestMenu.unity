@@ -563,7 +563,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 450777428}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1558831169}
+        m_TargetAssemblyTypeName: HubManager, Assembly-CSharp
+        m_MethodName: UpgradeEngine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &450777428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,11 +1671,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapTotal: {fileID: 879726275}
   weapon: {fileID: 353798298}
+  engine: {fileID: 1384954120}
+  armour: {fileID: 1160160433}
   weapons:
   - Rifle
   - Shotgun
   - Machinegun
   upgradeCost: 50
+  maxArmour: 4
+  maxEngine: 4
 --- !u!4 &1558831171
 Transform:
   m_ObjectHideFlags: 0
@@ -2620,7 +2636,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2126546018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1558831169}
+        m_TargetAssemblyTypeName: HubManager, Assembly-CSharp
+        m_MethodName: UpgradeArmour
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2126546018
 MonoBehaviour:
   m_ObjectHideFlags: 0
