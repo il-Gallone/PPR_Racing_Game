@@ -655,6 +655,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1558831169}
+        m_TargetAssemblyTypeName: HubManager, Assembly-CSharp
+        m_MethodName: UpdateHubStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &318368965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2645,6 +2657,10 @@ MonoBehaviour:
   weapon: {fileID: 353798298}
   engine: {fileID: 1384954120}
   armour: {fileID: 1160160433}
+  scrapTotal2: {fileID: 200514567}
+  weaponParts: {fileID: 392606331}
+  engineParts: {fileID: 1085488333}
+  armourParts: {fileID: 644814263}
   weapons:
   - Rifle
   - Shotgun
@@ -3321,6 +3337,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1558831169}
+        m_TargetAssemblyTypeName: HubManager, Assembly-CSharp
+        m_MethodName: UpdateInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1558831169}
         m_TargetAssemblyTypeName: HubManager, Assembly-CSharp
         m_MethodName: DisableAllUI

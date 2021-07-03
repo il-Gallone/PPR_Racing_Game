@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HubManager : MonoBehaviour
 {
     public Text scrapTotal, weapon, engine, armour;
+    public Text scrapTotal2, weaponParts, engineParts, armourParts;
 
     public string[] weapons;
 
@@ -86,12 +87,20 @@ public class HubManager : MonoBehaviour
         scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
     }
 
-    void UpdateHubStats()
+    public void UpdateHubStats()
     {
         scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
         weapon.text = "Weapon: " + weapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
         engine.text = "Engine: " + PlayerPrefs.GetInt("PlayerEngineLevel");
         armour.text = "Armour: " + PlayerPrefs.GetInt("PlayerArmourLevel");
+    }
+
+    public void UpdateInventory()
+    {
+        scrapTotal2.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
+        weaponParts.text = "Weapon Parts: " + PlayerPrefs.GetInt("PlayerWeaponUpgrades");
+        engineParts.text = "Engine Parts: " + PlayerPrefs.GetInt("PlayerEngineUpgrades");
+        armourParts.text = "Armour Parts: " + PlayerPrefs.GetInt("PlayerArmourUpgrades");
     }
 
 
