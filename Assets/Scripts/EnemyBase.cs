@@ -12,8 +12,16 @@ public class EnemyBase : MonoBehaviour
     public GameObject weapon;
     public Rigidbody2D rigid2D;
 
+    private void Start()
+    {
+        EnemyManager.numOfEnemiesInScene++;
+    }
+
     public virtual void HPReachedZero()
     {
+        EnemyManager.numOfEnemiesInScene--;
+        print(EnemyManager.numOfEnemiesInScene);
+
         Destroy(gameObject);
     }
 

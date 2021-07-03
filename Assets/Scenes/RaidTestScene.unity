@@ -567,8 +567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnemies: 8
   minSpawnRadius: 5
-  maxSpawnRadius: 15
-  timeUntilSpawn: 10
+  maxSpawnRadius: 30
+  timeUntilSpawn: 30
   enemyPrefab: {fileID: 8231631030132169303, guid: 9e0be642ae27e954f94dd072b75783ca, type: 3}
 --- !u!4 &367465290
 Transform:

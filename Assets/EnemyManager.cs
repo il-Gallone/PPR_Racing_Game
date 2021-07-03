@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    int enemies = 1;
-    public int maxEnemies = 10;
+    public static int numOfEnemiesInScene = 0;
+
+    int enemiesToSpawn = 1;
+    public int maxEnemiesSpawned = 5;  // max enemies spawned at once
+    public int maxEnemiesAllowed = 10; // max enemies in scene
     public float minSpawnRadius = 10f, maxSpawnRadius = 20f;
 
     float timer;
@@ -16,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         RandomlySpawnObjects(enemyPrefab, 1);
-        enemies++;
+        enemiesToSpawn++;
     }
 
     // Update is called once per frame
@@ -28,9 +31,11 @@ public class EnemyManager : MonoBehaviour
         {
             timer = 0f;
 
-            RandomlySpawnObjects(enemyPrefab, enemies);
-            if (enemies < maxEnemies)
-                enemies++;
+            RandomlySpawnObjects(enemyPrefab, enemiesToSpawn);
+            if (enemiesToSpawn < maxEnemiesSpawned)
+                enemiesToSpawn++;
+
+            print(numOfEnemiesInScene);
         }
     }
 
@@ -38,11 +43,15 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < objectCount; i++)
         {
-            Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-            direction /= direction.magnitude;
-            Vector3 randomPos = direction * Random.Range(minSpawnRadius, maxSpawnRadius);
+            if (numOfEnemiesInScene < maxEnemiesAllowed)
+            {
+                Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+                direction /= direction.magnitude;
+                Vector3 randomPos = direction * Random.Range(minSpawnRadius, maxSpawnRadius);
 
-            Instantiate(objectToSpawn, randomPos, Quaternion.identity);
+                Instantiate(objectToSpawn, randomPos, Quaternion.identity);
+            }
+            
         }
     }
 }
