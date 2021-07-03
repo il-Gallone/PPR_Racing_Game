@@ -15,13 +15,17 @@ public class EnemyBase : MonoBehaviour
     private void Start()
     {
         EnemyManager.numOfEnemiesInScene++;
+        //print(EnemyManager.numOfEnemiesInScene);
+    }
+
+    private void OnDestroy()
+    {
+        EnemyManager.numOfEnemiesInScene--;
+        //print(EnemyManager.numOfEnemiesInScene);
     }
 
     public virtual void HPReachedZero()
     {
-        EnemyManager.numOfEnemiesInScene--;
-        print(EnemyManager.numOfEnemiesInScene);
-
         Destroy(gameObject);
     }
 

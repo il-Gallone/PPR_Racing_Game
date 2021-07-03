@@ -16,6 +16,13 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+    Transform player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
     private void Start()
     {
         RandomlySpawnObjects(enemyPrefab, 1);
@@ -35,7 +42,7 @@ public class EnemyManager : MonoBehaviour
             if (enemiesToSpawn < maxEnemiesSpawned)
                 enemiesToSpawn++;
 
-            print(numOfEnemiesInScene);
+            //print(numOfEnemiesInScene);
         }
     }
 
@@ -49,7 +56,8 @@ public class EnemyManager : MonoBehaviour
                 direction /= direction.magnitude;
                 Vector3 randomPos = direction * Random.Range(minSpawnRadius, maxSpawnRadius);
 
-                Instantiate(objectToSpawn, randomPos, Quaternion.identity);
+                Instantiate(objectToSpawn, player.position + randomPos, Quaternion.identity);
+                // add player position to randomPos
             }
             
         }
