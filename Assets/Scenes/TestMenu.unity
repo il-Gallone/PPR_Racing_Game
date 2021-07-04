@@ -2665,7 +2665,7 @@ MonoBehaviour:
   - Rifle
   - Shotgun
   - Machinegun
-  upgradeCost: 50
+  upgradeCost: 100
   maxArmour: 4
   maxEngine: 4
   UIarray:
