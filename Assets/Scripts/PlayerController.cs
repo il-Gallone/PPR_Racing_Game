@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public float handling;
     public float speedThreshold;
 
+    public float engineMultiplier = 1;
+    public float armourMultiplier = 1;
+
     public float maxHP;
     public float maxEnergy;
     public float HP;
@@ -25,13 +28,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        engineMultiplier = 1 + PlayerPrefs.GetInt("PlayerEngineLevel")*0.1f;
+        armourMultiplier = 1 + PlayerPrefs.GetInt("PlayerArmourLevel")*0.1f;
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
+        maxHP *= armourMultiplier;
+        maxEnergy *= engineMultiplier;
         HP = maxHP;
         energy = maxEnergy;
 
         // set selected weapon - make sure availableWeapons is in correct order
         //currentWeapon = availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
-        GameObject.Instantiate(availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")], transform);
+        Instantiate(availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")], transform);
     }
 
     // Update is called once per frame
@@ -39,13 +46,13 @@ public class PlayerController : MonoBehaviour
     {
         if (energy > 0)
         {
-            rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical"));
-            rigid2D.angularVelocity = (handling * -Input.GetAxis("Horizontal"));
-            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime;
+            rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical")*engineMultiplier);
+            rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal")*engineMultiplier;
+            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime/engineMultiplier;
         }
-        if (rigid2D.velocity.magnitude > speedThreshold)
+        if (rigid2D.velocity.magnitude > speedThreshold*engineMultiplier)
         {
-            rigid2D.drag = Mathf.Pow(2, (rigid2D.velocity.magnitude - speedThreshold) * 0.01f + 1);
+            rigid2D.drag = Mathf.Pow(2, (rigid2D.velocity.magnitude - speedThreshold*engineMultiplier) * 0.01f + 1);
         }
         else
         {
@@ -59,21 +66,46 @@ public class PlayerController : MonoBehaviour
         }
         if (HP <= 0 || energy <= 0)
         {
-            SceneController.UpdateScene(3);
+            GameManager.instance.scrapCollected = 0;
+            GameManager.instance.weaponPartsCollected = 0;
+            GameManager.instance.enginePartsCollected = 0;
+            GameManager.instance.armourPartsCollected = 0;
+            SceneController.UpdateScene(0);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HP -= collision.relativeVelocity.magnitude* 5;
+        HP -= collision.relativeVelocity.magnitude* 5/armourMultiplier;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Objective"))
         {
             objectiveCount++;
-            if(objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
+            int partChance = Random.Range(0, 3);
+            if(partChance == 0)
             {
-                SceneController.UpdateScene(2);
+                GameManager.instance.weaponPartsCollected++;
+            }
+            if (partChance == 1)
+            {
+                GameManager.instance.enginePartsCollected++;
+            }
+            if (partChance == 2)
+            {
+                GameManager.instance.armourPartsCollected++;
+            }
+            if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
+            {
+                PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") + GameManager.instance.scrapCollected);
+                PlayerPrefs.SetInt("PlayerEngineUpgrades", PlayerPrefs.GetInt("PlayerEngineUpgrades")+GameManager.instance.enginePartsCollected);
+                PlayerPrefs.SetInt("PlayerWeaponUpgrades", PlayerPrefs.GetInt("PlayerWeaponUpgrades") + GameManager.instance.weaponPartsCollected);
+                PlayerPrefs.SetInt("PlayerArmourUpgrades", PlayerPrefs.GetInt("PlayerArmourUpgrades") + GameManager.instance.armourPartsCollected);
+                GameManager.instance.scrapCollected = 0;
+                GameManager.instance.weaponPartsCollected = 0;
+                GameManager.instance.enginePartsCollected = 0;
+                GameManager.instance.armourPartsCollected = 0;
+                SceneController.UpdateScene(0);
             }
 
             Destroy(collision.gameObject);
@@ -82,12 +114,12 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.CompareTag("EnemyBullet"))
         {
-            HP -= collision.gameObject.GetComponent<BulletController>().damage;
+            HP -= collision.gameObject.GetComponent<BulletController>().damage / armourMultiplier;
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Explosion"))
         {
-            HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
+            HP -= collision.gameObject.GetComponent<ExplosionController>().damage / armourMultiplier;
         }
     }
 }

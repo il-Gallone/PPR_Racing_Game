@@ -615,6 +615,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLimits: 25
+  scrapCollected: 0
+  weaponPartsCollected: 0
+  enginePartsCollected: 0
+  armourPartsCollected: 0
 --- !u!4 &386819625
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,6 +1406,8 @@ MonoBehaviour:
   acceleration: 100
   handling: 90
   speedThreshold: 1000
+  engineMultiplier: 1
+  armourMultiplier: 1
   maxHP: 100
   maxEnergy: 2000
   HP: 0
@@ -6780,7 +6786,7 @@ MonoBehaviour:
   maxRadius: 20
   energyCount: 25
   repairCount: 20
-  objectiveCount: 3
+  objectiveCount: 10
 --- !u!4 &1938565823
 Transform:
   m_ObjectHideFlags: 0

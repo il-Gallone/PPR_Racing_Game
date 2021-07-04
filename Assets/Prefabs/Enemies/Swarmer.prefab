@@ -242,6 +242,7 @@ MonoBehaviour:
   target: {fileID: 0}
   weapon: {fileID: 6478009347882148217}
   rigid2D: {fileID: 8719738390542017153}
+  scrapPrefab: {fileID: 235766316531808700, guid: 4c22dce62019f554785c2f78d2f76694, type: 3}
   swarm: []
   attackRadius: 4
 --- !u!50 &8719738390542017153

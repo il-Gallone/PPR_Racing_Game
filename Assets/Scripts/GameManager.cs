@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public float levelLimits;
 
+    public int scrapCollected = 0;
+    public int weaponPartsCollected = 0;
+    public int enginePartsCollected = 0;
+    public int armourPartsCollected = 0;
+
     // Start is called before the first frame update
     void Awake()
     {

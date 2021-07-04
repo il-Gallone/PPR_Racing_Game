@@ -18,14 +18,26 @@ public class HubManager : MonoBehaviour
     void Start()
     {
         //for testing
-        PlayerPrefs.SetInt("PlayerScrapTotal", 500);
-        PlayerPrefs.SetInt("PlayerWeaponUpgrades", 500);
-        PlayerPrefs.SetInt("PlayerEngineUpgrades", 500);
-        PlayerPrefs.SetInt("PlayerArmourUpgrades", 500);
+        //PlayerPrefs.SetInt("PlayerScrapTotal", 500);
+        //PlayerPrefs.SetInt("PlayerWeaponUpgrades", 500);
+        //PlayerPrefs.SetInt("PlayerEngineUpgrades", 500);
+        //PlayerPrefs.SetInt("PlayerArmourUpgrades", 500);
 
-        PlayerPrefs.SetInt("PlayerTotalWeapons", 0);
-        PlayerPrefs.SetInt("PlayerEngineLevel", 0);
-        PlayerPrefs.SetInt("PlayerArmourLevel", 0);
+        //PlayerPrefs.SetInt("PlayerTotalWeapons", 0);
+        //PlayerPrefs.SetInt("PlayerEngineLevel", 0);
+        //PlayerPrefs.SetInt("PlayerArmourLevel", 0);
+
+
+        if (!PlayerPrefs.HasKey("PlayerScrapTotal"))
+        {
+            PlayerPrefs.SetInt("PlayerScrapTotal", 0);
+            PlayerPrefs.SetInt("PlayerWeaponUpgrades", 0);
+            PlayerPrefs.SetInt("PlayerEngineUpgrades", 0);
+            PlayerPrefs.SetInt("PlayerArmourUpgrades", 0);
+            PlayerPrefs.SetInt("PlayerTotalWeapons", 0);
+            PlayerPrefs.SetInt("PlayerEngineLevel", 0);
+            PlayerPrefs.SetInt("PlayerArmourLevel", 0);
+        }
 
         UpdateHubStats();
     }
@@ -58,10 +70,11 @@ public class HubManager : MonoBehaviour
         if (PlayerPrefs.GetInt("PlayerEngineLevel") < maxEngine)
         {
             // enough scrap and upgrade available?
-            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerEngineUpgrades") >= 1)
+            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerEngineUpgrades") >= 10)
             {
                 PlayerPrefs.SetInt("PlayerEngineLevel", PlayerPrefs.GetInt("PlayerEngineLevel") + 1);
                 PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
+                PlayerPrefs.SetInt("PlayerEngineUpgrades", PlayerPrefs.GetInt("PlayerEngineUpgrades") - 10);
             }
         }
 
@@ -75,10 +88,11 @@ public class HubManager : MonoBehaviour
         if (PlayerPrefs.GetInt("PlayerArmourLevel") < maxEngine)
         {
             // enough scrap and upgrade available?
-            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerArmourUpgrades") >= 1)
+            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerArmourUpgrades") >= 10)
             {
                 PlayerPrefs.SetInt("PlayerArmourLevel", PlayerPrefs.GetInt("PlayerArmourLevel") + 1);
                 PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
+                PlayerPrefs.SetInt("PlayerArmourUpgrades", PlayerPrefs.GetInt("PlayerArmourUpgrades") - 10);
             }
         }
 
@@ -128,10 +142,11 @@ public class HubManager : MonoBehaviour
             PlayerPrefs.SetInt("PlayerCurrentWeapon", PlayerPrefs.GetInt("PlayerCurrentWeapon") + 1);
         }
         // enough scrap & cache available?
-        else if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerWeaponUpgrades") >= 1)
+        else if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerWeaponUpgrades") >= 10)
         {
             PlayerPrefs.SetInt("PlayerCurrentWeapon", PlayerPrefs.GetInt("PlayerCurrentWeapon") + 1);
             PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
+            PlayerPrefs.SetInt("PlayerWeaponUpgrades", PlayerPrefs.GetInt("PlayerWeaponUpgrades") - 10);
             PlayerPrefs.SetInt("PlayerTotalWeapons", PlayerPrefs.GetInt("PlayerTotalWeapons") + 1);
         }
 

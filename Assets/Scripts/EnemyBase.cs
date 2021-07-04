@@ -11,6 +11,7 @@ public class EnemyBase : MonoBehaviour
     public GameObject target;
     public GameObject weapon;
     public Rigidbody2D rigid2D;
+    public GameObject scrapPrefab;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void HPReachedZero()
     {
+        Instantiate(scrapPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

@@ -82,6 +82,7 @@ public class EnemySwarmer : EnemyBase
         }
         if (gameObject.CompareTag("DeadEnemy"))
         {
+            Instantiate(scrapPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
