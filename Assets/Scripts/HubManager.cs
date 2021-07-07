@@ -23,10 +23,9 @@ public class HubManager : MonoBehaviour
         //PlayerPrefs.SetInt("PlayerEngineUpgrades", 500);
         //PlayerPrefs.SetInt("PlayerArmourUpgrades", 500);
 
-        //PlayerPrefs.SetInt("PlayerTotalWeapons", 0);
+        PlayerPrefs.SetInt("PlayerTotalWeapons", 2);
         //PlayerPrefs.SetInt("PlayerEngineLevel", 0);
         //PlayerPrefs.SetInt("PlayerArmourLevel", 0);
-
 
         if (!PlayerPrefs.HasKey("PlayerScrapTotal"))
         {

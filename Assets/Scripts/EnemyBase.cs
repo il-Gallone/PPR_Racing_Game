@@ -22,12 +22,14 @@ public class EnemyBase : MonoBehaviour
     private void OnDestroy()
     {
         EnemyManager.numOfEnemiesInScene--;
+        if (HP <= 0) // prevent on quit or on scene loading errors
+            Instantiate(scrapPrefab, transform.position, transform.rotation);
         //print(EnemyManager.numOfEnemiesInScene);
     }
 
     public virtual void HPReachedZero()
     {
-        Instantiate(scrapPrefab, transform.position, transform.rotation);
+        Debug.Log("Enemy destroyed");
         Destroy(gameObject);
     }
 
