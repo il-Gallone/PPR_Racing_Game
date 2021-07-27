@@ -12,4 +12,14 @@ public class SceneController : MonoBehaviour
         else
             Application.Quit();
     }
+
+    public static void LoadSceneByName(string sceneName)
+    {
+        if (sceneName == "")
+        {
+            Debug.Log("Please enter a scene name to load");
+            return;
+        }
+        SceneManager.LoadScene(sceneName);
+    }
 }

@@ -11,6 +11,7 @@ public class MapManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneToLoad);
     }
+
     public void LoadSceneByIndex(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
