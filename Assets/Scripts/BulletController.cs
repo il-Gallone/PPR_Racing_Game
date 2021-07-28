@@ -10,6 +10,9 @@ public class BulletController : MonoBehaviour
 
     public float miningPrecision = .5f; // between 0-1; percentage of how much of the resources are left in-tact
 
+    public SpriteRenderer bulletSprite;
+    public Collider2D bulletCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +29,20 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    // disable bullet rather than immediately destroying, 
+    // so that trail can catch up instead of dissapearing immediately and looking strange
+    public void DisableBullet()
     {
-        
+        bulletCollider.enabled = false;
+        bulletSprite.enabled = false;
+        rb.velocity = Vector2.zero;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (!collision.CompareTag("Player"))
+    //    {
+    //        DisableBullet();
+    //    }
+    //}
 }

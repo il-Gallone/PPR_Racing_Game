@@ -35,11 +35,10 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Bullet"))
         {
             HP -= collision.gameObject.GetComponent<BulletController>().damage;
-            Destroy(collision.gameObject);
+            collision.GetComponent<BulletController>().DisableBullet();
             if (HP <= 0)
             {
                 HPReachedZero();

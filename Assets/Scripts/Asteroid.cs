@@ -46,7 +46,7 @@ public class Asteroid : MonoBehaviour
                 renderers[i].color = new Color(health/totalResources, energy/totalResources, energy/totalResources);
             }
             // add explosion before destroying?
-            Destroy(collision.gameObject);
+            collision.GetComponent<BulletController>().DisableBullet();
             Destroy(gameObject);
         }
 
