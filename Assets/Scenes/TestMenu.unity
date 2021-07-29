@@ -396,7 +396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -68.90001}
+  m_AnchoredPosition: {x: 0, y: 69.90002}
   m_SizeDelta: {x: 138.8011, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118445104
@@ -608,7 +608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 31.099993}
+  m_AnchoredPosition: {x: 0, y: 20.000008}
   m_SizeDelta: {x: 138.8011, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318368964
@@ -1273,7 +1273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -168.90001}
+  m_AnchoredPosition: {x: 0, y: -129.99998}
   m_SizeDelta: {x: 138.8011, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599540747
@@ -1898,7 +1898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -118.9}
+  m_AnchoredPosition: {x: 0, y: -79.999985}
   m_SizeDelta: {x: 138.8011, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021630714
@@ -3072,9 +3072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Starship Skirmish
-
-    Prototype 2'
+  m_Text: Starship Skirmish
 --- !u!222 &1649049047
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3302,7 +3300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -18.900007}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 138.8011, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915727783
