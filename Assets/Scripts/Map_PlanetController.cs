@@ -60,6 +60,7 @@ public class Map_PlanetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // the following chuck of code fades in/out the planet info UI
         Color planetInfoColour = planetInfo.GetComponent<Image>().color;
         Color planetInfoTextColour = planetInfo.GetComponentInChildren<Text>().color;
 
