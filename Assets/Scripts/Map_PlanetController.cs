@@ -11,6 +11,7 @@ public class Map_PlanetController : MonoBehaviour
 
     public string sceneToLoad = "SCENE_NAME";
     public int planetDifficulty = 1;
+    public int planetLevelLimits = 25;
 
     bool fadeIn = false;
     public float fadeSpeed = 5f;
@@ -32,7 +33,7 @@ public class Map_PlanetController : MonoBehaviour
         }
         //SceneManager.LoadScene(sceneToLoad);
         MapManager.sceneToLoad = sceneToLoad;
-
+        GameManager.instance.levelLimits = planetLevelLimits;
     }
 
     private bool IsMouseOverUI()

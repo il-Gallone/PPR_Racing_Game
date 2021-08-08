@@ -17,27 +17,6 @@ public class HubManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for testing
-        //PlayerPrefs.SetInt("PlayerScrapTotal", 500);
-        //PlayerPrefs.SetInt("PlayerWeaponUpgrades", 500);
-        //PlayerPrefs.SetInt("PlayerEngineUpgrades", 500);
-        //PlayerPrefs.SetInt("PlayerArmourUpgrades", 500);
-
-        //PlayerPrefs.SetInt("PlayerTotalWeapons", 2);
-        //PlayerPrefs.SetInt("PlayerEngineLevel", 0);
-        //PlayerPrefs.SetInt("PlayerArmourLevel", 0);
-
-        if (!PlayerPrefs.HasKey("PlayerScrapTotal"))
-        {
-            PlayerPrefs.SetInt("PlayerScrapTotal", 0);
-            PlayerPrefs.SetInt("PlayerWeaponUpgrades", 0);
-            PlayerPrefs.SetInt("PlayerEngineUpgrades", 0);
-            PlayerPrefs.SetInt("PlayerArmourUpgrades", 0);
-            PlayerPrefs.SetInt("PlayerTotalWeapons", 0);
-            PlayerPrefs.SetInt("PlayerEngineLevel", 0);
-            PlayerPrefs.SetInt("PlayerArmourLevel", 0);
-        }
-
         UpdateHubStats();
     }
 
@@ -66,91 +45,90 @@ public class HubManager : MonoBehaviour
 
     public void UpgradeEngine()
     {
-        if (PlayerPrefs.GetInt("PlayerEngineLevel") < maxEngine)
+        if (GameManager.instance.stats.engineLevel < maxEngine)
         {
             // enough scrap and upgrade available?
-            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerEngineUpgrades") >= 10)
+            if (GameManager.instance.stats.scrap >= upgradeCost && GameManager.instance.stats.engineParts >= 10)
             {
-                PlayerPrefs.SetInt("PlayerEngineLevel", PlayerPrefs.GetInt("PlayerEngineLevel") + 1);
-                PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
-                PlayerPrefs.SetInt("PlayerEngineUpgrades", PlayerPrefs.GetInt("PlayerEngineUpgrades") - 10);
+                GameManager.instance.stats.engineLevel++;
+                GameManager.instance.stats.scrap -= upgradeCost;
+                GameManager.instance.stats.engineParts -= 10;
             }
         }
 
         // update text
-        engine.text = "Engine: " + PlayerPrefs.GetInt("PlayerEngineLevel");
-        scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
+        engine.text = "Engine: " + GameManager.instance.stats.engineLevel;
+        scrapTotal.text = "Scrap: " + GameManager.instance.stats.scrap;
     }
 
     public void UpgradeArmour()
     {
-        if (PlayerPrefs.GetInt("PlayerArmourLevel") < maxEngine)
+        if (GameManager.instance.stats.armourLevel < maxArmour)
         {
             // enough scrap and upgrade available?
-            if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerArmourUpgrades") >= 10)
+            if (GameManager.instance.stats.scrap >= upgradeCost && GameManager.instance.stats.armourParts >= 10)
             {
-                PlayerPrefs.SetInt("PlayerArmourLevel", PlayerPrefs.GetInt("PlayerArmourLevel") + 1);
-                PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
-                PlayerPrefs.SetInt("PlayerArmourUpgrades", PlayerPrefs.GetInt("PlayerArmourUpgrades") - 10);
+                GameManager.instance.stats.armourLevel++;
+                GameManager.instance.stats.scrap -= upgradeCost;
+                GameManager.instance.stats.armourParts -= 10;
             }
         }
 
         // update text
-        armour.text = "Armour: " + PlayerPrefs.GetInt("PlayerArmourLevel");
-        scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
+        armour.text = "Armour: " + GameManager.instance.stats.armourLevel;
+        scrapTotal.text = "Scrap: " + GameManager.instance.stats.scrap;
     }
 
     public void UpdateHubStats()
     {
-        scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
-        weapon.text = "Weapon: " + weapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
-        engine.text = "Engine: " + PlayerPrefs.GetInt("PlayerEngineLevel");
-        armour.text = "Armour: " + PlayerPrefs.GetInt("PlayerArmourLevel");
+        scrapTotal.text = "Scrap: " + GameManager.instance.stats.scrap;
+        weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
+        engine.text = "Engine: " + GameManager.instance.stats.engineLevel;
+        armour.text = "Armour: " + GameManager.instance.stats.armourLevel;
     }
 
     public void UpdateInventory()
     {
-        scrapTotal2.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
-        weaponParts.text = "Weapon Parts: " + PlayerPrefs.GetInt("PlayerWeaponUpgrades");
-        engineParts.text = "Engine Parts: " + PlayerPrefs.GetInt("PlayerEngineUpgrades");
-        armourParts.text = "Armour Parts: " + PlayerPrefs.GetInt("PlayerArmourUpgrades");
+        scrapTotal2.text = "Scrap: " + GameManager.instance.stats.scrap;
+        weaponParts.text = "Weapon Parts: " + GameManager.instance.stats.weaponParts;
+        engineParts.text = "Engine Parts: " + GameManager.instance.stats.engineParts;
+        armourParts.text = "Armour Parts: " + GameManager.instance.stats.armourParts;
     }
 
 
     public void WeaponLeft()
     {
-        if (PlayerPrefs.GetInt("PlayerCurrentWeapon") >= 1)
+        if (GameManager.instance.stats.unlockedWeaponIDs.Count > 1)
         {
-            PlayerPrefs.SetInt("PlayerCurrentWeapon", PlayerPrefs.GetInt("PlayerCurrentWeapon") - 1);
+            if (GameManager.instance.stats.currentWeaponIDNumber > 0)
+            {
+                GameManager.instance.stats.currentWeaponIDNumber--;
+            }
+            else
+            {
+                GameManager.instance.stats.currentWeaponIDNumber = GameManager.instance.stats.unlockedWeaponIDs.Count - 1;
+            }
+            GameManager.instance.stats.currentWeaponID = GameManager.instance.stats.unlockedWeaponIDs[GameManager.instance.stats.currentWeaponIDNumber];
         }
         // update text
-        weapon.text = "Weapon: " + weapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
+        weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
     }
 
     public void WeaponRight()
     {
-        if (PlayerPrefs.GetInt("PlayerCurrentWeapon") == weapons.Length-1) // player already has all weapons
+        if (GameManager.instance.stats.unlockedWeaponIDs.Count > 1)
         {
-            print("Player already has all weapons");
-            return;
+            if (GameManager.instance.stats.currentWeaponIDNumber < GameManager.instance.stats.unlockedWeaponIDs.Count - 1)
+            {
+                GameManager.instance.stats.currentWeaponIDNumber++;
+            }
+            else
+            {
+                GameManager.instance.stats.currentWeaponIDNumber = 0;
+            }
+            GameManager.instance.stats.currentWeaponID = GameManager.instance.stats.unlockedWeaponIDs[GameManager.instance.stats.currentWeaponIDNumber];
         }
-
-        // does player already own the next weapon?
-        if (PlayerPrefs.GetInt("PlayerCurrentWeapon")+1 <= PlayerPrefs.GetInt("PlayerTotalWeapons"))
-        {
-            PlayerPrefs.SetInt("PlayerCurrentWeapon", PlayerPrefs.GetInt("PlayerCurrentWeapon") + 1);
-        }
-        // enough scrap & cache available?
-        else if (PlayerPrefs.GetInt("PlayerScrapTotal") >= upgradeCost && PlayerPrefs.GetInt("PlayerWeaponUpgrades") >= 10)
-        {
-            PlayerPrefs.SetInt("PlayerCurrentWeapon", PlayerPrefs.GetInt("PlayerCurrentWeapon") + 1);
-            PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") - upgradeCost);
-            PlayerPrefs.SetInt("PlayerWeaponUpgrades", PlayerPrefs.GetInt("PlayerWeaponUpgrades") - 10);
-            PlayerPrefs.SetInt("PlayerTotalWeapons", PlayerPrefs.GetInt("PlayerTotalWeapons") + 1);
-        }
-
         // update text
-        weapon.text = "Weapon: " + weapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
-        scrapTotal.text = "Scrap: " + PlayerPrefs.GetInt("PlayerScrapTotal");
+        weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
     }
 }

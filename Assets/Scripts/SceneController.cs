@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public static void UpdateScene(int sceneIndex) 
+    public static void UpdateScene(int sceneIndex)
     {
+        GameManager.instance.SaveData();
         if (sceneIndex >= 0)
             SceneManager.LoadScene(sceneIndex);
         else
@@ -15,6 +16,7 @@ public class SceneController : MonoBehaviour
 
     public static void LoadSceneByName(string sceneName)
     {
+        GameManager.instance.SaveData();
         if (sceneName == "")
         {
             Debug.Log("Please enter a scene name to load");

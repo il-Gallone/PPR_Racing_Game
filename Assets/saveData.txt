@@ -1,0 +1,1 @@
+{"scrap":277,"weaponParts":2,"engineParts":4,"armourParts":4,"currentWeaponID":"Rifle","currentWeaponIDNumber":0,"unlockedWeaponIDs":["Rifle","Rifle","Rifle"],"engineLevel":0,"armourLevel":0,"inventory":["Shotgun Blueprint","Machinegun Blueprint"]}

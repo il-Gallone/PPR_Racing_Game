@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public Text objectiveCountText;
 
-    //public GameObject currentWeapon;
+    public GameObject currentWeapon;
     public GameObject[] availableWeapons;
 
     // Start is called before the first frame update
@@ -37,8 +37,19 @@ public class PlayerController : MonoBehaviour
         energy = maxEnergy;
 
         // set selected weapon - make sure availableWeapons is in correct order
-        //currentWeapon = availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")];
-        Instantiate(availableWeapons[PlayerPrefs.GetInt("PlayerCurrentWeapon")], transform);
+        for(int i = 0; i < availableWeapons.Length; i++)
+        {
+            if (availableWeapons[i].name == GameManager.instance.stats.currentWeaponID)
+            {
+                currentWeapon = availableWeapons[i];
+                break;
+            }
+            else
+            {
+                currentWeapon = availableWeapons[0];
+            }
+        }
+        Instantiate(currentWeapon, transform);
     }
 
     // Update is called once per frame
@@ -97,10 +108,10 @@ public class PlayerController : MonoBehaviour
             }
             if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
             {
-                PlayerPrefs.SetInt("PlayerScrapTotal", PlayerPrefs.GetInt("PlayerScrapTotal") + GameManager.instance.scrapCollected);
-                PlayerPrefs.SetInt("PlayerEngineUpgrades", PlayerPrefs.GetInt("PlayerEngineUpgrades")+GameManager.instance.enginePartsCollected);
-                PlayerPrefs.SetInt("PlayerWeaponUpgrades", PlayerPrefs.GetInt("PlayerWeaponUpgrades") + GameManager.instance.weaponPartsCollected);
-                PlayerPrefs.SetInt("PlayerArmourUpgrades", PlayerPrefs.GetInt("PlayerArmourUpgrades") + GameManager.instance.armourPartsCollected);
+                GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
+                GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
+                GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
+                GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
                 GameManager.instance.scrapCollected = 0;
                 GameManager.instance.weaponPartsCollected = 0;
                 GameManager.instance.enginePartsCollected = 0;
