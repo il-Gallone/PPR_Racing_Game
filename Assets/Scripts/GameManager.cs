@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameStats stats = new GameStats();
+
     public float levelLimits;
+    public int weaponPartChance;
+    public int enginePartChance;
+    public int armourPartChance;
 
     public int scrapCollected = 0;
     public int weaponPartsCollected = 0;

@@ -3663,6 +3663,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLimits: 0
+  weaponPartChance: 0
+  enginePartChance: 0
+  armourPartChance: 0
   scrapCollected: 0
   weaponPartsCollected: 0
   enginePartsCollected: 0
@@ -6206,6 +6209,7 @@ MonoBehaviour:
   UIarray:
   - {fileID: 427034004}
   - {fileID: 912485396}
+  - {fileID: 675054729}
 --- !u!4 &1558831171
 Transform:
   m_ObjectHideFlags: 0

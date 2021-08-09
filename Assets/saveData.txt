@@ -1,1 +1,1 @@
-{"scrap":84,"weaponParts":10,"engineParts":10,"armourParts":10,"currentWeaponID":"Machinegun","currentWeaponIDNumber":2,"unlockedWeaponIDs":["Rifle","Shotgun","Machinegun"],"engineLevel":0,"armourLevel":1,"inventory":[]}
+{"scrap":392,"weaponParts":10,"engineParts":0,"armourParts":0,"currentWeaponID":"Shotgun","currentWeaponIDNumber":1,"unlockedWeaponIDs":["Rifle","Shotgun","Machinegun"],"engineLevel":1,"armourLevel":2,"inventory":[],"faction1Favour":53,"faction2Favour":51,"faction3Favour":45,"faction4Favour":48,"faction5Favour":52}

@@ -93,18 +93,22 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Objective"))
         {
             objectiveCount++;
-            int partChance = Random.Range(0, 3);
-            if(partChance == 0)
+            int partChance = Random.Range(0, 100);
+            if(partChance < GameManager.instance.weaponPartChance)
             {
                 GameManager.instance.weaponPartsCollected++;
             }
-            if (partChance == 1)
+            else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance)
             {
                 GameManager.instance.enginePartsCollected++;
             }
-            if (partChance == 2)
+            else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance + GameManager.instance.armourPartChance)
             {
                 GameManager.instance.armourPartsCollected++;
+            }
+            else
+            {
+                GameManager.instance.scrapCollected += Random.Range(20, 81);
             }
             if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
             {

@@ -12,6 +12,10 @@ public class Map_PlanetController : MonoBehaviour
     public string sceneToLoad = "SCENE_NAME";
     public int planetDifficulty = 1;
     public int planetLevelLimits = 25;
+    public int planetWeaponPartChance;
+    public int planetEnginePartChance;
+    public int planetArmourPartChance;
+    public int planetFaction; //1 = Alpha, 2 = Beta, 3 = Gamma, 4 = Omega, 5 = Epsilon
 
     bool fadeIn = false;
     public float fadeSpeed = 5f;
@@ -33,6 +37,7 @@ public class Map_PlanetController : MonoBehaviour
         }
         //SceneManager.LoadScene(sceneToLoad);
         MapManager.sceneToLoad = sceneToLoad;
+        MapManager.targetedFaction = planetFaction;
         GameManager.instance.levelLimits = planetLevelLimits;
     }
 
