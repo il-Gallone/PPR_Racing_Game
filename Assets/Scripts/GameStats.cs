@@ -13,7 +13,7 @@ public class GameStats
     //Player Upgrades
     public string currentWeaponID = "Rifle";
     public int currentWeaponIDNumber = 0;
-    public List<string> unlockedWeaponIDs = new List<string>{"Rifle"};
+    public List<string> unlockedWeaponIDs = new List<string>();
     public int engineLevel = 0;
     public int armourLevel = 0;
 

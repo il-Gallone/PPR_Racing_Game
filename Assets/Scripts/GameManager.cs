@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            stats.unlockedWeaponIDs = new List<string> { "Rifle" };
             stats.inventory = new List<string> { "Shotgun Blueprint", "Machinegun Blueprint" };
             SaveData();
             PlayerPrefs.SetInt("SaveExists", 0);

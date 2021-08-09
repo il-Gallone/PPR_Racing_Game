@@ -82,10 +82,14 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.unlockedWeaponIDs.Add("Shotgun");
                 GameManager.instance.stats.inventory.Remove("Shotgun Blueprint");
             }
-            if (GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
+            else if (GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
             {
                 GameManager.instance.stats.unlockedWeaponIDs.Add("Machinegun");
                 GameManager.instance.stats.inventory.Remove("Machinegun Blueprint");
+            }
+            for(int i = 0; i < inventoryButtons.Length; i++)
+            {
+                inventoryButtons[i].GetComponent<Button>().interactable = false;
             }
             for (int i = 0; i < GameManager.instance.stats.inventory.Count; i++)
             {
