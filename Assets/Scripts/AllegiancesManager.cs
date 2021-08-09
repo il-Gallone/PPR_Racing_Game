@@ -34,6 +34,46 @@ public class AllegiancesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.instance.stats.faction1Favour > 100)
+        {
+            GameManager.instance.stats.faction1Favour = 100;
+        }
+        if (GameManager.instance.stats.faction1Favour < 0)
+        {
+            GameManager.instance.stats.faction1Favour = 0;
+        }
+        if (GameManager.instance.stats.faction2Favour > 100)
+        {
+            GameManager.instance.stats.faction2Favour = 100;
+        }
+        if (GameManager.instance.stats.faction2Favour < 0)
+        {
+            GameManager.instance.stats.faction2Favour = 0;
+        }
+        if (GameManager.instance.stats.faction3Favour > 100)
+        {
+            GameManager.instance.stats.faction3Favour = 100;
+        }
+        if (GameManager.instance.stats.faction3Favour < 0)
+        {
+            GameManager.instance.stats.faction3Favour = 0;
+        }
+        if (GameManager.instance.stats.faction4Favour > 100)
+        {
+            GameManager.instance.stats.faction4Favour = 100;
+        }
+        if (GameManager.instance.stats.faction4Favour < 0)
+        {
+            GameManager.instance.stats.faction4Favour = 0;
+        }
+        if (GameManager.instance.stats.faction5Favour > 100)
+        {
+            GameManager.instance.stats.faction5Favour = 100;
+        }
+        if (GameManager.instance.stats.faction5Favour < 0)
+        {
+            GameManager.instance.stats.faction5Favour = 0;
+        }
         faction1Slider.value = GameManager.instance.stats.faction1Favour;
         faction1Percentage.text = GameManager.instance.stats.faction1Favour.ToString() + "%";
         faction2Slider.value = GameManager.instance.stats.faction2Favour;

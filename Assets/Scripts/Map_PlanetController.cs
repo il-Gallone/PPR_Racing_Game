@@ -39,6 +39,9 @@ public class Map_PlanetController : MonoBehaviour
         MapManager.sceneToLoad = sceneToLoad;
         MapManager.targetedFaction = planetFaction;
         GameManager.instance.levelLimits = planetLevelLimits;
+        GameManager.instance.weaponPartChance = planetWeaponPartChance;
+        GameManager.instance.enginePartChance = planetEnginePartChance;
+        GameManager.instance.armourPartChance = planetArmourPartChance;
     }
 
     private bool IsMouseOverUI()
