@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioPlayer : MonoBehaviour
 {
-    public AudioClip audioToPlay;
+    public AudioClip[] audioToPlay;
     public AudioSource audioSource;
 
     public float minPitch = .9f, maxPitch = 1.1f;
@@ -15,6 +15,19 @@ public class AudioPlayer : MonoBehaviour
         float randomPitch = Random.Range(minPitch, maxPitch);
         audioSource.pitch = randomPitch;
 
-        audioSource.PlayOneShot(audioToPlay);
+        int randomIndex = Random.Range(0, audioToPlay.Length);
+
+        audioSource.PlayOneShot(audioToPlay[randomIndex]);
+        
+    }
+
+    public void PlayClipAtPoint_Random()
+    {
+        float randomPitch = Random.Range(minPitch, maxPitch);
+        audioSource.pitch = randomPitch;
+
+        int randomIndex = Random.Range(0, audioToPlay.Length);
+
+        AudioSource.PlayClipAtPoint(audioToPlay[randomIndex], transform.position);
     }
 }

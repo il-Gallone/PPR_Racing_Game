@@ -247,7 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioToPlay: {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
+  audioToPlay:
+  - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: 1384378767}
   minPitch: 0.9
   maxPitch: 1.1
@@ -264,6 +265,8 @@ GameObject:
   - component: {fileID: 95330853262425602}
   - component: {fileID: 8719738390542017153}
   - component: {fileID: 7108456072349096474}
+  - component: {fileID: -7113441845052782822}
+  - component: {fileID: 7783570613583832617}
   m_Layer: 0
   m_Name: Swarmer
   m_TagString: Swarmer
@@ -358,6 +361,7 @@ MonoBehaviour:
   weapon: {fileID: 6478009347882148217}
   rigid2D: {fileID: 8719738390542017153}
   scrapPrefab: {fileID: 235766316531808700, guid: 4c22dce62019f554785c2f78d2f76694, type: 3}
+  audioPlayer: {fileID: 7783570613583832617}
   swarm: []
   attackRadius: 4
 --- !u!50 &8719738390542017153
@@ -397,6 +401,123 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.7285714, y: 1.0642858}
   m_Direction: 0
+--- !u!82 &-7113441845052782822
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231631030132169303}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7783570613583832617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231631030132169303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 51c9a97aaee7ec643936f4b2cc62e610, type: 3}
+  - {fileID: 8300000, guid: cbe21314038145b41b5eac4b6fb28b32, type: 3}
+  - {fileID: 8300000, guid: d0f6a43b79975594a830508411a1f198, type: 3}
+  - {fileID: 8300000, guid: 58c4201ab5cf8ad47b85506bd04558ce, type: 3}
+  - {fileID: 8300000, guid: a23ce75be8c1e7246b3c808e34d6967c, type: 3}
+  audioSource: {fileID: -7113441845052782822}
+  minPitch: 0.9
+  maxPitch: 1.1
 --- !u!1001 &7751834064515005357
 PrefabInstance:
   m_ObjectHideFlags: 0

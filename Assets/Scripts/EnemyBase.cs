@@ -13,6 +13,8 @@ public class EnemyBase : MonoBehaviour
     public Rigidbody2D rigid2D;
     public GameObject scrapPrefab;
 
+    public AudioPlayer audioPlayer;
+
     private void Start()
     {
         EnemyManager.numOfEnemiesInScene++;
@@ -23,7 +25,11 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyManager.numOfEnemiesInScene--;
         if (HP <= 0) // prevent on quit or on scene loading errors
+        {
             Instantiate(scrapPrefab, transform.position, transform.rotation);
+            audioPlayer.PlayClipAtPoint_Random();
+        }
+            
         //print(EnemyManager.numOfEnemiesInScene);
     }
 
