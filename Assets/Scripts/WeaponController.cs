@@ -19,6 +19,8 @@ public class WeaponController : MonoBehaviour
 
     public float timeSinceLastShot;
 
+    public AudioPlayer gunAudioPlayer;
+
     private void Update()
     {
         // Shooting check
@@ -65,6 +67,11 @@ public class WeaponController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootPos.position, shootPos.rotation);
 
         bullet.transform.Rotate(0, 0, spread);
+
+        if (gunAudioPlayer)
+            gunAudioPlayer.PlayAudioRandomPitch();
+        else
+            Debug.Log("ERROR: Please add the AudioPlayer script reference on the weapon prefab");
 
         //print("shoot");
     }
