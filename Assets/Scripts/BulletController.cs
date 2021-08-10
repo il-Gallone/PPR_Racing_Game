@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public float speed = 50f, damage = 50f, selfDestructTime = 5f;
+    public float speed = 50f, damage = 50f, energyDamage = 50f, selfDestructTime = 5f;
 
     public float miningPrecision = .5f; // between 0-1; percentage of how much of the resources are left in-tact
 

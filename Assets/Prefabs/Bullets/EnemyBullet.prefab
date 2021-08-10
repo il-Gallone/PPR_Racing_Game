@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 4
+  energyDamage: 0
   selfDestructTime: 10
   miningPrecision: 0.5
   bulletSprite: {fileID: 0}

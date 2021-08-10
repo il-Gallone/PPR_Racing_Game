@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float HP;
     public float energy;
 
-    int objectiveCount = 0;
+    public int objectiveCount = 0;
 
     public Text objectiveCountText;
 
@@ -83,6 +83,18 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.armourPartsCollected = 0;
             SceneController.UpdateScene(0);
         }
+        if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
+        {
+            GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
+            GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
+            GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
+            GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
+            GameManager.instance.scrapCollected = 0;
+            GameManager.instance.weaponPartsCollected = 0;
+            GameManager.instance.enginePartsCollected = 0;
+            GameManager.instance.armourPartsCollected = 0;
+            SceneController.UpdateScene(0);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -110,18 +122,6 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.instance.scrapCollected += Random.Range(20, 81);
             }
-            if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
-            {
-                GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
-                GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
-                GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
-                GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
-                GameManager.instance.scrapCollected = 0;
-                GameManager.instance.weaponPartsCollected = 0;
-                GameManager.instance.enginePartsCollected = 0;
-                GameManager.instance.armourPartsCollected = 0;
-                SceneController.UpdateScene(0);
-            }
 
             Destroy(collision.gameObject);
 
@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("EnemyBullet"))
         {
             HP -= collision.gameObject.GetComponent<BulletController>().damage / armourMultiplier;
+            energy -= collision.gameObject.GetComponent<BulletController>().energyDamage;
             Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Explosion"))
