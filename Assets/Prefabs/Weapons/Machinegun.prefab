@@ -167,8 +167,8 @@ MonoBehaviour:
   isPlayerWeapon: 1
   automatic: 1
   shootInterval: 0.2
-  minSpread: -3
-  maxSpread: 3
+  minSpread: -5
+  maxSpread: 5
   projectileCount: 1
   timeSinceLastShot: 0
   gunAudioPlayer: {fileID: 449685059538322731}
@@ -284,7 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRayDistance: 10
   firePoint: {fileID: 3530382926127196518}
-  lineRenderer: {fileID: -2129630475165332802}
 --- !u!82 &-88336762400672774
 AudioSource:
   m_ObjectHideFlags: 0

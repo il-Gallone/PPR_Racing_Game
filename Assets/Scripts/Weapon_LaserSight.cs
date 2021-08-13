@@ -7,11 +7,20 @@ public class Weapon_LaserSight : MonoBehaviour
     public float maxRayDistance = 200f;
 
     public Transform firePoint;
-    public LineRenderer lineRenderer;
+    LineRenderer lineRenderer;
+
+    WeaponController weaponController;
 
     private void Awake()
     {
-        
+        weaponController = GetComponent<WeaponController>();
+        lineRenderer = GetComponent<LineRenderer>();
+
+        AnimationCurve curve = new AnimationCurve();
+        curve.AddKey(0, 0);
+        curve.AddKey(1, (weaponController.maxSpread / maxRayDistance)*4);
+
+        lineRenderer.widthCurve = curve;
     }
 
     void ShootLaser()
