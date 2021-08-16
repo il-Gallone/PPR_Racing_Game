@@ -20,7 +20,10 @@ public class PlayerCrosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPos;
+        if (!PauseMenu.gamePaused)
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = cursorPos;
+        }
     }
 }
