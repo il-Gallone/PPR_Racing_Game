@@ -51,7 +51,10 @@ public class EnemyCollector : EnemyBase
             if (weapon.GetComponent<WeaponController>().shootInterval < weapon.GetComponent<WeaponController>().timeSinceLastShot &&
                 Vector3.Distance(target.transform.position, transform.position) < attackRadius + 2)
             {
-                weapon.GetComponent<WeaponController>().shoot();
+                for (int i = 0; i < weapon.GetComponent<WeaponController>().projectileCount; i++)
+                {
+                    weapon.GetComponent<WeaponController>().shoot();
+                }
             }
         }
     }
