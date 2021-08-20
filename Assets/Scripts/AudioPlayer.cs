@@ -21,6 +21,17 @@ public class AudioPlayer : MonoBehaviour
         
     }
 
+    public void PlayAudioRandomPitch(AudioClip[] clips, float minPitch, float maxPitch)
+    {
+        float randomPitch = Random.Range(minPitch, maxPitch);
+        audioSource.pitch = randomPitch;
+
+        int randomIndex = Random.Range(0, clips.Length);
+
+        audioSource.PlayOneShot(clips[randomIndex]);
+
+    }
+
     public void PlayClipAtPoint_Random()
     {
         float randomPitch = Random.Range(minPitch, maxPitch);

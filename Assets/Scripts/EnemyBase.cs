@@ -14,6 +14,7 @@ public class EnemyBase : MonoBehaviour
     public GameObject scrapPrefab;
 
     public AudioPlayer audioPlayer;
+    public AudioClip[] bulletImpacts;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
+
             HP -= collision.gameObject.GetComponent<BulletController>().damage;
             collision.GetComponent<BulletController>().DisableBullet();
             if (HP <= 0)
