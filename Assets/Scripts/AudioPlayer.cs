@@ -30,4 +30,14 @@ public class AudioPlayer : MonoBehaviour
 
         AudioSource.PlayClipAtPoint(audioToPlay[randomIndex], transform.position);
     }
+
+    public void PlayClipAtPoint_Random(AudioClip[] clips, float volume)
+    {
+        float randomPitch = Random.Range(minPitch, maxPitch);
+        audioSource.pitch = randomPitch;
+
+        int randomIndex = Random.Range(0, clips.Length);
+
+        AudioSource.PlayClipAtPoint(clips[randomIndex], Camera.main.transform.position, volume);
+    }
 }
