@@ -25,9 +25,13 @@ public class PlayerController : MonoBehaviour
     public GameObject currentWeapon;
     public GameObject[] availableWeapons;
 
+    AudioPlayer audioPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = GetComponent<AudioPlayer>();
+
         engineMultiplier = 1 + PlayerPrefs.GetInt("PlayerEngineLevel")*0.1f;
         armourMultiplier = 1 + PlayerPrefs.GetInt("PlayerArmourLevel")*0.1f;
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
@@ -87,6 +91,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         HP -= collision.relativeVelocity.magnitude* 5/armourMultiplier;
+
+        audioPlayer.PlayAudioRandomPitch();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
