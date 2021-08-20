@@ -2167,6 +2167,10 @@ MonoBehaviour:
   - {fileID: 1956530085071937038, guid: aebff90aafa9d0c43a94cb7f2aa3672b, type: 3}
   - {fileID: 8722229398242168030, guid: eb11b5c9c2177f24c91746a8908d6350, type: 3}
   - {fileID: 7245651616929315654, guid: 2bc5b6a2e8de01346abb5757bd770901, type: 3}
+  bulletImpacts:
+  - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
+  - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
+  - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
 --- !u!212 &1514824482
 SpriteRenderer:
   m_ObjectHideFlags: 0

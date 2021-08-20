@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] availableWeapons;
 
     AudioPlayer audioPlayer;
+    public AudioClip[] bulletImpacts;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +136,8 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.CompareTag("EnemyBullet"))
         {
+            audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
+
             HP -= collision.gameObject.GetComponent<BulletController>().damage / armourMultiplier;
             Destroy(collision.gameObject);
         }
