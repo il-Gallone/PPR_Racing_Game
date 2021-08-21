@@ -21,6 +21,17 @@ public class AudioPlayer : MonoBehaviour
         
     }
 
+    public void PlayAudioRandomPitch(AudioClip[] clips, float minPitch, float maxPitch)
+    {
+        float randomPitch = Random.Range(minPitch, maxPitch);
+        audioSource.pitch = randomPitch;
+
+        int randomIndex = Random.Range(0, clips.Length);
+
+        audioSource.PlayOneShot(clips[randomIndex]);
+
+    }
+
     public void PlayClipAtPoint_Random()
     {
         float randomPitch = Random.Range(minPitch, maxPitch);
@@ -29,5 +40,15 @@ public class AudioPlayer : MonoBehaviour
         int randomIndex = Random.Range(0, audioToPlay.Length);
 
         AudioSource.PlayClipAtPoint(audioToPlay[randomIndex], transform.position);
+    }
+
+    public void PlayClipAtPoint_Random(AudioClip[] clips, float volume)
+    {
+        float randomPitch = Random.Range(minPitch, maxPitch);
+        audioSource.pitch = randomPitch;
+
+        int randomIndex = Random.Range(0, clips.Length);
+
+        AudioSource.PlayClipAtPoint(clips[randomIndex], Camera.main.transform.position, volume);
     }
 }

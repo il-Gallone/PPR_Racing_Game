@@ -25,9 +25,14 @@ public class PlayerController : MonoBehaviour
     public GameObject currentWeapon;
     public GameObject[] availableWeapons;
 
+    AudioPlayer audioPlayer;
+    public AudioClip[] bulletImpacts;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = GetComponent<AudioPlayer>();
+
         engineMultiplier = 1 + PlayerPrefs.GetInt("PlayerEngineLevel")*0.1f;
         armourMultiplier = 1 + PlayerPrefs.GetInt("PlayerArmourLevel")*0.1f;
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
@@ -99,6 +104,8 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         HP -= collision.relativeVelocity.magnitude* 5/armourMultiplier;
+
+        audioPlayer.PlayAudioRandomPitch();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -129,6 +136,8 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.CompareTag("EnemyBullet"))
         {
+            audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
+
             HP -= collision.gameObject.GetComponent<BulletController>().damage / armourMultiplier;
             energy -= collision.gameObject.GetComponent<BulletController>().energyDamage;
             Destroy(collision.gameObject);

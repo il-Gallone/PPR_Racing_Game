@@ -5,7 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public float energy = 10f;
-    public float health = 0f;
+    public float health = 0f, asteroidHealth = 1f;
 
     public SpriteRenderer spriteRenderer;
 
@@ -13,8 +13,13 @@ public class Asteroid : MonoBehaviour
 
     public GameObject pickupPrefab;
 
+    AudioPlayer audioPlayer;
+    public AudioClip[] destroySounds;
+
     private void Start()
     {
+        audioPlayer = GetComponent<AudioPlayer>();
+
         SpriteManager spriteManager = GameObject.FindGameObjectWithTag("SpriteManager").GetComponent<SpriteManager>();
         spriteRenderer.sprite = spriteManager.asteroids[Random.Range(0, spriteManager.asteroids.Length)];
         transform.eulerAngles = new Vector3(0, 0, Random.Range(-180, 180));
@@ -35,6 +40,18 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            //play hit sound
+            audioPlayer.PlayClipAtPoint_Random();
+
+            //check asteroid health
+            asteroidHealth -= collision.GetComponent<BulletController>().damage;
+            if (asteroidHealth > 0)
+            {
+                return;
+            }
+            
+            asteroidHealth = 0;
+
             // resource gets damaged depending on the weapon
             GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
             pickup.GetComponent<ResourcePickup>().hpGiven = health * collision.GetComponent<BulletController>().miningPrecision;
@@ -45,6 +62,10 @@ public class Asteroid : MonoBehaviour
             {
                 renderers[i].color = new Color(health/totalResources, energy/totalResources, energy/totalResources);
             }
+
+            //play destroy sound
+            audioPlayer.PlayClipAtPoint_Random(destroySounds, 2f);
+
             // add explosion before destroying?
             collision.GetComponent<BulletController>().DisableBullet();
             Destroy(gameObject);
