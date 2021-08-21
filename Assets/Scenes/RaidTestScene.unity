@@ -7781,8 +7781,8 @@ MonoBehaviour:
   mapTerrainPrefabs:
   - {fileID: 6247749006519979375, guid: e62dc6b9aa1d577428478fd91cda6a4a, type: 3}
   - {fileID: 4244507619607968452, guid: b57fdc47f6704a645a124f999acd8708, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6208656813645051786, guid: 931acfd1501af214dbdfdf39cfe4d258, type: 3}
+  - {fileID: 1763227643655565305, guid: 9c7f48ccb15c17c41a48647724a4d123, type: 3}
   objectiveCount: 10
 --- !u!4 &1938565823
 Transform:

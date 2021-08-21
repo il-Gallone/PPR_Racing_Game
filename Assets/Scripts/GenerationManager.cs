@@ -70,6 +70,13 @@ public class GenerationManager : MonoBehaviour
                     RandomlySpawnObjects(mapTerrainPrefabs[1], 10, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
                     break;
                 }
+            default:
+                {
+                    RandomlySpawnObjects(objective, 10, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
+                    RandomlySpawnObjects(mapTerrainPrefabs[0], 10, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
+                    RandomlySpawnObjects(mapTerrainPrefabs[1], 10, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
+                    break;
+                }
         }
     }
 }
