@@ -32,7 +32,7 @@ public class GenerationManager : MonoBehaviour
         {
             case 0: //Alpha Homeworld
                 {
-                    RandomlySpawnObjects(mapTerrainPrefabs[2], 1, Vector3.zero, 5, GameManager.instance.levelLimits - 10);
+                    RandomlySpawnObjects(mapTerrainPrefabs[2], 1, Vector3.zero, 10, GameManager.instance.levelLimits - 6);
                     RandomlySpawnObjects(objective, 5, GameObject.FindGameObjectWithTag("Station").transform.position, 2, 4);
                     RandomlySpawnObjects(objective, 5, Vector3.zero, 1, GameManager.instance.levelLimits-5);
                     RandomlySpawnObjects(mapTerrainPrefabs[0], 20, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
@@ -48,7 +48,7 @@ public class GenerationManager : MonoBehaviour
                 }
             case 2: //Gamma Homeworld
                 {
-                    RandomlySpawnObjects(mapTerrainPrefabs[3], 1, Vector3.zero, 5, GameManager.instance.levelLimits - 10);
+                    RandomlySpawnObjects(mapTerrainPrefabs[3], 1, Vector3.zero, 10, GameManager.instance.levelLimits - 6);
                     RandomlySpawnObjects(objective, 7, GameObject.FindGameObjectWithTag("Station").transform.position, 2, 4);
                     RandomlySpawnObjects(objective, 3, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
                     RandomlySpawnObjects(mapTerrainPrefabs[0], 25, Vector3.zero, 1, GameManager.instance.levelLimits - 5);

@@ -14,6 +14,7 @@ TagManager:
   - DeadEnemy
   - Explosion
   - GenerationManager
+  - Station
   layers:
   - Default
   - TransparentFX

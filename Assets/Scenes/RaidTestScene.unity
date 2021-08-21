@@ -704,7 +704,11 @@ MonoBehaviour:
   minSpawnRadius: 10
   maxSpawnRadius: 30
   timeUntilSpawn: 20
-  enemyPrefabs: []
+  enemyPrefabs:
+  - {fileID: 8231631030132169303, guid: 9e0be642ae27e954f94dd072b75783ca, type: 3}
+  - {fileID: 8236001184385939128, guid: 518e2549bf0a25046bfa9126c8eb9a9f, type: 3}
+  - {fileID: 6415922411721323699, guid: dea2755a55be27547ba57d7695ec97b1, type: 3}
+  - {fileID: 46258191275305821, guid: 68e42dfb7175e864f8aca41ea6c5abb0, type: 3}
   primaryEnemy: 0
 --- !u!4 &367465290
 Transform:
