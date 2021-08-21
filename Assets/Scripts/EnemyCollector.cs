@@ -96,6 +96,8 @@ public class EnemyCollector : EnemyBase
     {
         if (collision.CompareTag("Bullet"))
         {
+            audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
+
             HP -= collision.gameObject.GetComponent<BulletController>().damage;
             collision.GetComponent<BulletController>().DisableBullet();
             if (HP <= 0)

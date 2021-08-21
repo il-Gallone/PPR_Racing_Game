@@ -110,6 +110,10 @@ MonoBehaviour:
   rigid2D: {fileID: 6415922411721323697}
   scrapPrefab: {fileID: 2614601494658911661, guid: 50758c411dac3c84b85c28166a5798c6, type: 3}
   audioPlayer: {fileID: 6415922411721323696}
+  bulletImpacts:
+  - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
+  - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
+  - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
   attackRadius: 4
   player: {fileID: 0}
   potentialTargets: []
@@ -128,7 +132,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -224,7 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioToPlay: []
+  audioToPlay:
+  - {fileID: 8300000, guid: 51c9a97aaee7ec643936f4b2cc62e610, type: 3}
+  - {fileID: 8300000, guid: cbe21314038145b41b5eac4b6fb28b32, type: 3}
+  - {fileID: 8300000, guid: d0f6a43b79975594a830508411a1f198, type: 3}
+  - {fileID: 8300000, guid: 58c4201ab5cf8ad47b85506bd04558ce, type: 3}
+  - {fileID: 8300000, guid: a23ce75be8c1e7246b3c808e34d6967c, type: 3}
   audioSource: {fileID: 6415922411721323695}
   minPitch: 0.9
   maxPitch: 1.1

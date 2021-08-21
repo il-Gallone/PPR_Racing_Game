@@ -366,6 +366,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
   - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
   - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
+  dropScrap: 1
   swarm: []
   attackRadius: 4
 --- !u!50 &8719738390542017153

@@ -16,6 +16,8 @@ public class EnemyBase : MonoBehaviour
     public AudioPlayer audioPlayer;
     public AudioClip[] bulletImpacts;
 
+    //public bool dropScrap = false;
+
     private void Start()
     {
         EnemyManager.numOfEnemiesInScene++;
@@ -27,7 +29,9 @@ public class EnemyBase : MonoBehaviour
         EnemyManager.numOfEnemiesInScene--;
         if (HP <= 0) // prevent on quit or on scene loading errors
         {
-            Instantiate(scrapPrefab, transform.position, transform.rotation);
+            if (scrapPrefab)
+                Instantiate(scrapPrefab, transform.position, transform.rotation);
+            // play explosion sound
             audioPlayer.PlayClipAtPoint_Random();
         }
             
@@ -44,6 +48,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            //play impact sound
             audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
 
             HP -= collision.gameObject.GetComponent<BulletController>().damage;

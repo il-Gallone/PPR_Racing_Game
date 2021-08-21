@@ -3668,6 +3668,8 @@ MonoBehaviour:
   weaponPartChance: 0
   enginePartChance: 0
   armourPartChance: 0
+  primaryEnemySpawn: 0
+  mapGenerationSeed: 0
   scrapCollected: 0
   weaponPartsCollected: 0
   enginePartsCollected: 0
