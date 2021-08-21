@@ -16,6 +16,8 @@ public class Map_PlanetController : MonoBehaviour
     public int planetEnginePartChance;
     public int planetArmourPartChance;
     public int planetFaction; //1 = Alpha, 2 = Beta, 3 = Gamma, 4 = Omega, 5 = Epsilon
+    public int planetMapSeed; //0 = Alpha Homeworld, 1 = Beta Homeworld, 2 = Gamma Homeworld, 3 = Omega Homeworld, 4 = Epsilon Hideout
+    public int planetDefaultEnemy; //0 = Swarmer, 1 = Detonator, 2 = Collector, 3 = CollectorPacifist
 
     bool fadeIn = false;
     public float fadeSpeed = 5f;
@@ -38,6 +40,8 @@ public class Map_PlanetController : MonoBehaviour
         //SceneManager.LoadScene(sceneToLoad);
         MapManager.sceneToLoad = sceneToLoad;
         MapManager.targetedFaction = planetFaction;
+        GameManager.instance.mapGenerationSeed = planetMapSeed;
+        GameManager.instance.primaryEnemySpawn = planetDefaultEnemy;
         GameManager.instance.levelLimits = planetLevelLimits;
         GameManager.instance.weaponPartChance = planetWeaponPartChance;
         GameManager.instance.enginePartChance = planetEnginePartChance;

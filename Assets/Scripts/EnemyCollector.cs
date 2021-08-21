@@ -68,7 +68,7 @@ public class EnemyCollector : EnemyBase
 
     void Escape()
     {
-        GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount -= objectivesStolen;
+        GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount -= objectivesStolen;
         rigid2D.velocity += (Vector2)transform.up * 8;
         isEscaping = true;
         Destroy(gameObject, 4);

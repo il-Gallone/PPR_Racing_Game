@@ -9,11 +9,11 @@ TagManager:
   - Bullet
   - Objective
   - SpriteManager
-  - ResourceManager
   - Swarmer
   - EnemyBullet
   - DeadEnemy
   - Explosion
+  - GenerationManager
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int weaponPartChance;
     public int enginePartChance;
     public int armourPartChance;
+    public int primaryEnemySpawn; //0 = Swarmer, 1 = Detonator, 2 = Collector, 3 = CollectorPacifist
+    public int mapGenerationSeed; //0 = Alpha Homeworld, 1 = Beta Homeworld, 2 = Gamma Homeworld, 3 = Omega Homeworld, 4 = Epsilon Hideout
 
     public int scrapCollected = 0;
     public int weaponPartsCollected = 0;

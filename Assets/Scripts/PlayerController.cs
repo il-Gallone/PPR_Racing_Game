@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.armourPartsCollected = 0;
             SceneController.UpdateScene(0);
         }
-        if (objectiveCount >= GameObject.FindGameObjectWithTag("ResourceManager").GetComponent<ResourceManager>().objectiveCount)
+        if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
         {
             GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
             GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;

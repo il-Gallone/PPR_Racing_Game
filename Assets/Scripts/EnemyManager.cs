@@ -14,18 +14,25 @@ public class EnemyManager : MonoBehaviour
     float timer;
     public float timeUntilSpawn = 30f;
 
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs; //0 = Swarmer, 1 = Detonator, 2 = Collector, 3 = CollectorPacifist
+    public int primaryEnemy = 0;
 
     Transform player;
 
     private void Awake()
     {
+        primaryEnemy = GameManager.instance.primaryEnemySpawn;
+        if(primaryEnemy == 2 || primaryEnemy == 3)
+        {
+            maxEnemiesSpawned = 1;
+            maxEnemiesAllowed = 2;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Start()
     {
-        RandomlySpawnObjects(enemyPrefab, 1);
+        RandomlySpawnObjects(enemyPrefabs[primaryEnemy], 1);
         enemiesToSpawn++;
     }
 
@@ -38,7 +45,7 @@ public class EnemyManager : MonoBehaviour
         {
             timer = 0f;
 
-            RandomlySpawnObjects(enemyPrefab, enemiesToSpawn);
+            RandomlySpawnObjects(enemyPrefabs[primaryEnemy], enemiesToSpawn);
             if (enemiesToSpawn < maxEnemiesSpawned)
                 enemiesToSpawn++;
 

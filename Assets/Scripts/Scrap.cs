@@ -8,10 +8,15 @@ public class Scrap : Collectible
 
     public Rigidbody2D rigid2D;
 
+    public bool isProjectile = false;
+
     private void Start()
     {
-        rigid2D.velocity = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
-        rigid2D.angularVelocity = Random.Range(-45f, 45f);
+        if (!isProjectile)
+        {
+            rigid2D.velocity = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+            rigid2D.angularVelocity = Random.Range(-45f, 45f);
+        }
     }
 
     public override void OnPickup(GameObject player)

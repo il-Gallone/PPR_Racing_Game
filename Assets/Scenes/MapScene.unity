@@ -621,6 +621,8 @@ MonoBehaviour:
   planetEnginePartChance: 85
   planetArmourPartChance: 0
   planetFaction: 1
+  planetMapSeed: 0
+  planetDefaultEnemy: 3
   fadeSpeed: 5
 --- !u!1 &355876217
 GameObject:
@@ -932,6 +934,8 @@ MonoBehaviour:
   planetEnginePartChance: 15
   planetArmourPartChance: 85
   planetFaction: 2
+  planetMapSeed: 1
+  planetDefaultEnemy: 3
   fadeSpeed: 5
 --- !u!114 &498752467
 MonoBehaviour:
@@ -1088,6 +1092,8 @@ MonoBehaviour:
   planetEnginePartChance: 5
   planetArmourPartChance: 5
   planetFaction: 3
+  planetMapSeed: 2
+  planetDefaultEnemy: 0
   fadeSpeed: 5
 --- !u!114 &522464456
 MonoBehaviour:
@@ -2140,6 +2146,8 @@ MonoBehaviour:
   planetEnginePartChance: 0
   planetArmourPartChance: 15
   planetFaction: 4
+  planetMapSeed: 3
+  planetDefaultEnemy: 1
   fadeSpeed: 5
 --- !u!114 &1480659860
 MonoBehaviour:
@@ -2296,6 +2304,8 @@ MonoBehaviour:
   planetEnginePartChance: 30
   planetArmourPartChance: 30
   planetFaction: 5
+  planetMapSeed: 4
+  planetDefaultEnemy: 2
   fadeSpeed: 5
 --- !u!114 &1829899049
 MonoBehaviour:

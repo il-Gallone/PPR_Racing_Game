@@ -704,7 +704,8 @@ MonoBehaviour:
   minSpawnRadius: 10
   maxSpawnRadius: 30
   timeUntilSpawn: 20
-  enemyPrefab: {fileID: 8231631030132169303, guid: 9e0be642ae27e954f94dd072b75783ca, type: 3}
+  enemyPrefabs: []
+  primaryEnemy: 0
 --- !u!4 &367465290
 Transform:
   m_ObjectHideFlags: 0
@@ -2159,6 +2160,7 @@ MonoBehaviour:
   maxEnergy: 2000
   HP: 0
   energy: 0
+  objectiveCount: 0
   objectiveCountText: {fileID: 532289412}
   currentWeapon: {fileID: 0}
   availableWeapons:
@@ -7757,8 +7759,8 @@ GameObject:
   - component: {fileID: 1938565823}
   - component: {fileID: 1938565822}
   m_Layer: 0
-  m_Name: ResourceManager
-  m_TagString: ResourceManager
+  m_Name: GenerationManager
+  m_TagString: GenerationManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7775,13 +7777,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028be04613fe8db47beb8d0ada955344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyAsteroid: {fileID: 6247749006519979375, guid: e62dc6b9aa1d577428478fd91cda6a4a, type: 3}
-  repairAsteroid: {fileID: 4244507619607968452, guid: b57fdc47f6704a645a124f999acd8708, type: 3}
   objective: {fileID: 1333194738571058419, guid: 369948f8493bb6f44ab7b239e4b2ef71, type: 3}
-  minRadius: 3
-  maxRadius: 20
-  energyCount: 25
-  repairCount: 20
+  mapTerrainPrefabs:
+  - {fileID: 6247749006519979375, guid: e62dc6b9aa1d577428478fd91cda6a4a, type: 3}
+  - {fileID: 4244507619607968452, guid: b57fdc47f6704a645a124f999acd8708, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   objectiveCount: 10
 --- !u!4 &1938565823
 Transform:
