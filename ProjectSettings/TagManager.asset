@@ -15,6 +15,7 @@ TagManager:
   - Explosion
   - GenerationManager
   - Station
+  - Scrap
   layers:
   - Default
   - TransparentFX

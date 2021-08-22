@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4934938952636295612}
   m_Layer: 0
   m_Name: SwarmerScrap
-  m_TagString: Untagged
+  m_TagString: Scrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 3834160903858745558}
+  isProjectile: 0
 --- !u!1 &2115966420799012942
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 1651635791798109341}
+  isProjectile: 0
 --- !u!1 &2397449485547077820
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 5289028276506007757}
+  isProjectile: 0
 --- !u!1 &2498231017785629538
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 2758967820057514668}
+  isProjectile: 0
 --- !u!1 &2611738046595645172
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 2927274462643651513}
+  isProjectile: 0
 --- !u!1 &3141186486640232105
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8814583247552734845}
+  isProjectile: 0
 --- !u!1 &3970071666125739118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 4512234081359730615}
+  isProjectile: 0
 --- !u!1 &4102140209335808977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8556600360436682962}
+  isProjectile: 0
 --- !u!1 &5432611271566877134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8320113175227519518}
+  isProjectile: 0
 --- !u!1 &6308332617716178836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,3 +1523,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 4336683367952463753}
+  isProjectile: 0

@@ -30,7 +30,8 @@ public class EnemyBase : MonoBehaviour
         if (HP <= 0) // prevent on quit or on scene loading errors
         {
             if (scrapPrefab)
-                Instantiate(scrapPrefab, transform.position, transform.rotation);
+                if (scrapPrefab.CompareTag("Scrap"))
+                    Instantiate(scrapPrefab, transform.position, transform.rotation);
             // play explosion sound
             audioPlayer.PlayClipAtPoint_Random();
         }
