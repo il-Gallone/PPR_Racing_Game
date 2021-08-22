@@ -3645,6 +3645,7 @@ GameObject:
   - component: {fileID: 930706545}
   - component: {fileID: 930706548}
   - component: {fileID: 930706547}
+  - component: {fileID: 930706549}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3799,6 +3800,18 @@ MonoBehaviour:
   audioSource: {fileID: 930706547}
   menuMusic: {fileID: 8300000, guid: 6a39261a7b9b66643a286bbd79194a17, type: 3}
   raidMusic: {fileID: 8300000, guid: e37a824bae996c34fb64a7a0a09e7fb1, type: 3}
+--- !u!114 &930706549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930706544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812809fd41438e247840ec3edb1d991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &940727246
 GameObject:
   m_ObjectHideFlags: 0
