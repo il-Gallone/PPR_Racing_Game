@@ -22,6 +22,11 @@ public class EnemyCollector : EnemyBase
         if (!isEscaping)
         {
             FindTarget();
+            if (target == null)
+            {
+                Debug.Log("target missing");
+                return;
+            }
             Vector2 targetDir = target.transform.position - transform.position;
             targetDir /= targetDir.magnitude;
 
