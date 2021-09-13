@@ -33,7 +33,7 @@ public class EnemyBase : MonoBehaviour
                 if (scrapPrefab.CompareTag("Scrap"))
                     Instantiate(scrapPrefab, transform.position, transform.rotation);
             // play explosion sound
-            audioPlayer.PlayClipAtPoint_Random();
+            audioPlayer.PlayClipAt(audioPlayer.audioToPlay, .2f);
         }
             
         //print(EnemyManager.numOfEnemiesInScene);

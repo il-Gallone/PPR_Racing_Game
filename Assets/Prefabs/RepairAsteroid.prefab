@@ -155,6 +155,8 @@ MonoBehaviour:
   pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
   destroySounds:
   - {fileID: 8300000, guid: 4856ea7386f738c4292bc1bda734944b, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: ea164dd5c2e417e4a9b21d07aecebe21, type: 3}
 --- !u!50 &7105079780669722831
 Rigidbody2D:
   serializedVersion: 4
@@ -191,8 +193,8 @@ MonoBehaviour:
   audioToPlay:
   - {fileID: 8300000, guid: ea164dd5c2e417e4a9b21d07aecebe21, type: 3}
   audioSource: {fileID: 7276745958163929993}
-  minPitch: 0.8
-  maxPitch: 1.2
+  minPitch: 0.6
+  maxPitch: 1.1
 --- !u!82 &7276745958163929993
 AudioSource:
   m_ObjectHideFlags: 0

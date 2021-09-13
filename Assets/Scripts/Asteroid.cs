@@ -14,7 +14,7 @@ public class Asteroid : MonoBehaviour
     public GameObject pickupPrefab;
 
     AudioPlayer audioPlayer;
-    public AudioClip[] destroySounds;
+    public AudioClip[] destroySounds, hitSounds;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class Asteroid : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             //play hit sound
-            audioPlayer.PlayClipAtPoint_Random();
+            audioPlayer.PlayClipAt(hitSounds, .25f);
 
             //check asteroid health
             asteroidHealth -= collision.GetComponent<BulletController>().damage;
@@ -64,7 +64,7 @@ public class Asteroid : MonoBehaviour
             }
 
             //play destroy sound
-            audioPlayer.PlayClipAtPoint_Random(destroySounds, 2f);
+            audioPlayer.PlayClipAt(destroySounds, 2f);
 
             // add explosion before destroying?
             collision.GetComponent<BulletController>().DisableBullet();
