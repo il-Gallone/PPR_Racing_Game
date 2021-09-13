@@ -83,10 +83,10 @@ public class Map_PlanetController : MonoBehaviour
 
             planetInfoColour.a += Time.deltaTime * fadeSpeed;
             planetInfoTextColour.a += Time.deltaTime * fadeSpeed;
-            if (planetInfoColour.a > 250)
+            if (planetInfoColour.a > 1)
             {
-                planetInfoColour.a = 250;
-                planetInfoTextColour.a = 250;
+                planetInfoColour.a = 1;
+                planetInfoTextColour.a = 1;
             }
 
             planetInfo.GetComponent<Image>().color = planetInfoColour;
