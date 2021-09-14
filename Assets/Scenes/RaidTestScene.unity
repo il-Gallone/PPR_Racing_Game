@@ -1923,14 +1923,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroids:
-  - {fileID: 21300000, guid: fa04e6be34af33f428e82013d7e6e5f9, type: 3}
-  - {fileID: 21300000, guid: 9644daee6b47c7c46b8882b98bc94f56, type: 3}
-  - {fileID: 21300000, guid: a02eb64fbb94d344d99592c647f53b17, type: 3}
+  - {fileID: 21300000, guid: d67c6c00b88710244b9e8965ed1b5974, type: 3}
+  - {fileID: 21300000, guid: 2db41e3b814648e40887e12f7082b9fc, type: 3}
+  - {fileID: 21300000, guid: a12158ed6ebc4564da359eddeb4ce322, type: 3}
   logos:
-  - {fileID: 21300000, guid: e7af561dc6d2c274e999c6edc0778977, type: 3}
-  - {fileID: 21300000, guid: 5ba02bcfd49ec5b4086e88cf53f6b993, type: 3}
-  - {fileID: 21300000, guid: 741ced45f51005f49908cfa67ee31a15, type: 3}
-  - {fileID: 21300000, guid: e43b1e5e60a5333448b55dd938256656, type: 3}
+  - {fileID: 21300000, guid: 6931e90b9f609a04cb21503b3e00ee91, type: 3}
+  - {fileID: 21300000, guid: 76d5ad27278d34641950b1f057494683, type: 3}
+  - {fileID: 21300000, guid: 4dbf62803fb10424698b143423b5caf2, type: 3}
+  - {fileID: 21300000, guid: 0f90a03e08d86f140a4d4b572b71dd6a, type: 3}
 --- !u!4 &1327906378
 Transform:
   m_ObjectHideFlags: 0
