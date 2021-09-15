@@ -154,7 +154,7 @@ MonoBehaviour:
   rigid2D: {fileID: 7105079780669722831}
   pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
   destroySounds:
-  - {fileID: 8300000, guid: 4856ea7386f738c4292bc1bda734944b, type: 3}
+  - {fileID: 8300000, guid: 0e6f8ea62a2ea034399a50260211e012, type: 3}
   hitSounds:
   - {fileID: 8300000, guid: ea164dd5c2e417e4a9b21d07aecebe21, type: 3}
 --- !u!50 &7105079780669722831

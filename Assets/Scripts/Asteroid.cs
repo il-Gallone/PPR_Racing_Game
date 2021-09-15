@@ -64,7 +64,7 @@ public class Asteroid : MonoBehaviour
             }
 
             //play destroy sound
-            audioPlayer.PlayClipAt(destroySounds, 2f);
+            audioPlayer.PlayClipAt(destroySounds, .2f);
 
             // add explosion before destroying?
             collision.GetComponent<BulletController>().DisableBullet();
