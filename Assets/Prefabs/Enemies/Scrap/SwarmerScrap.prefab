@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235766316531808700}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 3834160903858745558}
   - component: {fileID: 4073369200269801948}
   - component: {fileID: 2728309383031362752}
+  - component: {fileID: 2093188881063388744}
   m_Layer: 0
   m_Name: Ship2Scrap7
   m_TagString: Untagged
@@ -200,6 +201,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 3834160903858745558}
   isProjectile: 0
+--- !u!114 &2093188881063388744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209949828112116193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &2397449485547077820
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +231,7 @@ GameObject:
   - component: {fileID: 5289028276506007757}
   - component: {fileID: 6369499216632640821}
   - component: {fileID: 2747704276727910146}
+  - component: {fileID: 1961089332204622019}
   m_Layer: 0
   m_Name: Ship2Scrap4
   m_TagString: Untagged
@@ -347,6 +366,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 5289028276506007757}
   isProjectile: 0
+--- !u!114 &1961089332204622019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397449485547077820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &2498231017785629538
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +396,7 @@ GameObject:
   - component: {fileID: 2758967820057514668}
   - component: {fileID: 4129194519812895896}
   - component: {fileID: 4132625516501514999}
+  - component: {fileID: 7970182358732023708}
   m_Layer: 0
   m_Name: Ship2Scrap5
   m_TagString: Untagged
@@ -494,6 +531,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 2758967820057514668}
   isProjectile: 0
+--- !u!114 &7970182358732023708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498231017785629538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &2611738046595645172
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +561,7 @@ GameObject:
   - component: {fileID: 2927274462643651513}
   - component: {fileID: 7461692910728894895}
   - component: {fileID: 8207329832906055729}
+  - component: {fileID: 9137051526351646887}
   m_Layer: 0
   m_Name: Ship2Scrap3
   m_TagString: Untagged
@@ -641,6 +696,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 2927274462643651513}
   isProjectile: 0
+--- !u!114 &9137051526351646887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611738046595645172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &3141186486640232105
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +726,7 @@ GameObject:
   - component: {fileID: 8814583247552734845}
   - component: {fileID: 9217393041405248840}
   - component: {fileID: 4840363137080796214}
+  - component: {fileID: 4456850343628828150}
   m_Layer: 0
   m_Name: Ship2Scrap6
   m_TagString: Untagged
@@ -788,6 +861,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8814583247552734845}
   isProjectile: 0
+--- !u!114 &4456850343628828150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141186486640232105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &3970071666125739118
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +891,7 @@ GameObject:
   - component: {fileID: 4512234081359730615}
   - component: {fileID: 6474821958542241375}
   - component: {fileID: 7889628422479926024}
+  - component: {fileID: 206311759744240713}
   m_Layer: 0
   m_Name: Ship2Scrap1
   m_TagString: Untagged
@@ -935,6 +1026,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 4512234081359730615}
   isProjectile: 0
+--- !u!114 &206311759744240713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970071666125739118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &4102140209335808977
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +1056,7 @@ GameObject:
   - component: {fileID: 8556600360436682962}
   - component: {fileID: 6129887353842516656}
   - component: {fileID: 1293770531377676253}
+  - component: {fileID: 392348242118362784}
   m_Layer: 0
   m_Name: Ship2Scrap8
   m_TagString: Untagged
@@ -1082,6 +1191,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8556600360436682962}
   isProjectile: 0
+--- !u!114 &392348242118362784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102140209335808977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &5432611271566877134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1221,7 @@ GameObject:
   - component: {fileID: 8320113175227519518}
   - component: {fileID: 655707093616970813}
   - component: {fileID: 7195285599391256422}
+  - component: {fileID: 6680993292786550918}
   m_Layer: 0
   m_Name: Ship2Scrap2
   m_TagString: Untagged
@@ -1229,6 +1356,23 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 8320113175227519518}
   isProjectile: 0
+--- !u!114 &6680993292786550918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432611271566877134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!1 &6308332617716178836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1386,7 @@ GameObject:
   - component: {fileID: 4336683367952463753}
   - component: {fileID: 9104155054377708272}
   - component: {fileID: 8634475076296555225}
+  - component: {fileID: 5062833732192732178}
   m_Layer: 0
   m_Name: Ship2Scrap9
   m_TagString: Untagged
@@ -1376,3 +1521,20 @@ MonoBehaviour:
   parent: {fileID: 4934938952636295612}
   rigid2D: {fileID: 4336683367952463753}
   isProjectile: 0
+--- !u!114 &5062833732192732178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308332617716178836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToPlay:
+  - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
+  audioSource: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 1.2

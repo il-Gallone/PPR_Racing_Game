@@ -10,8 +10,12 @@ public class Scrap : Collectible
 
     public bool isProjectile = false;
 
+    AudioPlayer audioPlayer;
+
     private void Start()
     {
+        audioPlayer = GetComponent<AudioPlayer>();
+
         if (!isProjectile)
         {
             rigid2D.velocity = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
@@ -23,5 +27,7 @@ public class Scrap : Collectible
     {
         GameManager.instance.scrapCollected += Random.Range(2, 9);
         parent.scrapTotal--;
+
+        audioPlayer.PlayClipAt(audioPlayer.audioToPlay, .5f);
     }
 }
