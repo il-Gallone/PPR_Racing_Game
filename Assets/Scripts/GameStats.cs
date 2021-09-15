@@ -26,4 +26,6 @@ public class GameStats
     public int faction3Favour = 50; //Gamma Faction
     public int faction4Favour = 50; //Omega Faction
     public int faction5Favour = 50; //Epsilon Faction
+
+    public bool firstTime = true;
 }
