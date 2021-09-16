@@ -958,13 +958,14 @@ GameObject:
   - component: {fileID: 243060805}
   - component: {fileID: 243060807}
   - component: {fileID: 243060806}
+  - component: {fileID: 243060808}
   m_Layer: 5
   m_Name: InventoryPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &243060805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1025,6 +1026,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243060804}
   m_CullTransparentMesh: 1
+--- !u!225 &243060808
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243060804}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &258790702
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,7 +3319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &912485397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3368,6 +3381,7 @@ MonoBehaviour:
   popUpDescription: {fileID: 430352286}
   activePopUp: 0
   blueprintIcon: {fileID: 21300000, guid: 741ced45f51005f49908cfa67ee31a15, type: 3}
+  fadeSpeed: 10
 --- !u!1 &919620360
 GameObject:
   m_ObjectHideFlags: 0

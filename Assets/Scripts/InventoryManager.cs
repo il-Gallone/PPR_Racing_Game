@@ -14,9 +14,16 @@ public class InventoryManager : MonoBehaviour
 
     public Sprite blueprintIcon;
 
+    //UI fade parameters
+    public float fadeSpeed = 10f;
+    bool fadeIn = false;
+    CanvasGroup canvasGroup;
+
     // Start is called before the first frame update
     void Start()
     {
+        canvasGroup = inventoryPopUp.GetComponent<CanvasGroup>();
+
         for(int i = 0; i<GameManager.instance.stats.inventory.Count; i++)
         {
             if(i < inventoryButtons.Length)
@@ -27,10 +34,24 @@ public class InventoryManager : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        // the following code fades in/out UI
+        if (fadeIn)
+        {
+            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
+        }
+        else if (!fadeIn)
+        {
+            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+        }
+    }
+
     public void GeneratePopUp(int inventoryID)
     {
-        if(!inventoryPopUp.activeInHierarchy || activePopUp != inventoryID)
+        if(!fadeIn || activePopUp != inventoryID)
         {
+            fadeIn = true;
             inventoryPopUp.SetActive(true);
             activePopUp = inventoryID;
             inventoryPopUp.transform.position = inventoryButtons[inventoryID].transform.position;
@@ -40,7 +61,8 @@ public class InventoryManager : MonoBehaviour
         }
         else if(inventoryPopUp.activeInHierarchy && activePopUp == inventoryID)
         {
-            inventoryPopUp.SetActive(false);
+            //inventoryPopUp.SetActive(false);
+            fadeIn = false;
         }
     }
 
