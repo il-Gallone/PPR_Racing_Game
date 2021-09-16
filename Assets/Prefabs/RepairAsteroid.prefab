@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e6f8ea62a2ea034399a50260211e012, type: 3}
   hitSounds:
   - {fileID: 8300000, guid: ea164dd5c2e417e4a9b21d07aecebe21, type: 3}
+  explosionEffect: {fileID: 1285678574217657924, guid: 8e3cf6875dcca0f478638d9bdf9af706, type: 3}
 --- !u!50 &7105079780669722831
 Rigidbody2D:
   serializedVersion: 4

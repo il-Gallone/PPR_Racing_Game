@@ -16,6 +16,8 @@ public class Asteroid : MonoBehaviour
     AudioPlayer audioPlayer;
     public AudioClip[] destroySounds, hitSounds;
 
+    public GameObject explosionEffect;
+
     private void Start()
     {
         audioPlayer = GetComponent<AudioPlayer>();
@@ -68,6 +70,9 @@ public class Asteroid : MonoBehaviour
 
             // add explosion before destroying?
             collision.GetComponent<BulletController>().DisableBullet();
+
+            GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
 
