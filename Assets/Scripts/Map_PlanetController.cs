@@ -9,6 +9,8 @@ public class Map_PlanetController : MonoBehaviour
 {
     public GameObject planetInfo;
 
+    CanvasGroup canvasGroup;
+
     public string sceneToLoad = "SCENE_NAME";
     public int planetDifficulty = 1;
     public int planetLevelLimits = 25;
@@ -22,12 +24,10 @@ public class Map_PlanetController : MonoBehaviour
     bool fadeIn = false;
     public float fadeSpeed = 5f;
 
-    //TODO - add nice fade-in/fade-out animations?
-
     private void Start()
     {
         // set planet info?
-
+        canvasGroup = planetInfo.GetComponent<CanvasGroup>();
     }
 
     public void ChangeScene()
@@ -73,53 +73,26 @@ public class Map_PlanetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // the following chuck of code fades in/out the planet info UI
-        Color planetInfoColour = planetInfo.GetComponent<Image>().color;
-        Color planetInfoTextColour = planetInfo.GetComponentInChildren<Text>().color;
+        // the following code fades in/out UI
 
         if (fadeIn)
         {
             planetInfo.SetActive(true);
 
-            planetInfoColour.a += Time.deltaTime * fadeSpeed;
-            planetInfoTextColour.a += Time.deltaTime * fadeSpeed;
-            if (planetInfoColour.a > 1)
-            {
-                planetInfoColour.a = 1;
-                planetInfoTextColour.a = 1;
-            }
-
-            planetInfo.GetComponent<Image>().color = planetInfoColour;
-            planetInfo.GetComponentInChildren<Text>().color = planetInfoTextColour;
-
+            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
         }
         else if (!fadeIn)
         {
-
-            planetInfoColour.a -= Time.deltaTime * fadeSpeed;
-            planetInfoTextColour.a -= Time.deltaTime * fadeSpeed;
-
-            if (planetInfoColour.a <= 0)
-            {
-                planetInfoColour.a = 0;
-                planetInfoTextColour.a = 0;
-
-                planetInfo.SetActive(false);
-            }
-
-            planetInfo.GetComponent<Image>().color = planetInfoColour;
-            planetInfo.GetComponentInChildren<Text>().color = planetInfoTextColour;
+            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
         }
 
-        if (IsMouseOverUI())// && planetInfo.activeInHierarchy == false)
+        if (IsMouseOverUI())
         {
             fadeIn = true;
-            //planetInfo.SetActive(true);
         } 
-        else if (!IsMouseOverUI())// && planetInfo.activeInHierarchy)
+        else if (!IsMouseOverUI())
         {
             fadeIn = false;
-            //planetInfo.SetActive(false);
         }
     }
 }
