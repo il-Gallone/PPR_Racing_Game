@@ -31,9 +31,15 @@ public class AllegiancesManager : MonoBehaviour
     public Text popUpDescription;
     public int activePopUp = 0;
 
+    CanvasGroup canvasGroup;
+    bool fadeIn = false;
+    public float fadeSpeed = 10f;
+
     // Start is called before the first frame update
     void Start()
     {
+        canvasGroup = allegiancesPopUp.GetComponent<CanvasGroup>();
+
         if (GameManager.instance.stats.faction1Favour > 100)
         {
             GameManager.instance.stats.faction1Favour = 100;
@@ -86,10 +92,23 @@ public class AllegiancesManager : MonoBehaviour
         faction5Percentage.text = GameManager.instance.stats.faction5Favour.ToString() + "%";
     }
 
+    private void Update()
+    {
+        if (fadeIn)
+        {
+            canvasGroup.alpha += Time.deltaTime * fadeSpeed;
+        }
+        else if (!fadeIn)
+        {
+            canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+        }
+    }
+
     public void GeneratePopUp(int factionID)
     {
-        if (!allegiancesPopUp.activeInHierarchy || activePopUp != factionID)
+        if (!fadeIn || activePopUp != factionID)
         {
+            fadeIn = true;
             allegiancesPopUp.SetActive(true);
             activePopUp = factionID;
             allegiancesPopUp.transform.position = GetPopUpPosition(factionID);
@@ -98,7 +117,8 @@ public class AllegiancesManager : MonoBehaviour
         }
         else if (allegiancesPopUp.activeInHierarchy && activePopUp == factionID)
         {
-            allegiancesPopUp.SetActive(false);
+            fadeIn = false;
+            //allegiancesPopUp.SetActive(false);
         }
     }
 
