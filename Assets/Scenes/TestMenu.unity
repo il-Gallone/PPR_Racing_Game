@@ -3383,6 +3383,7 @@ MonoBehaviour:
   activePopUp: 0
   blueprintIcon: {fileID: 21300000, guid: 741ced45f51005f49908cfa67ee31a15, type: 3}
   fadeSpeed: 10
+  popupMoveSpeed: 5
 --- !u!1 &919620360
 GameObject:
   m_ObjectHideFlags: 0

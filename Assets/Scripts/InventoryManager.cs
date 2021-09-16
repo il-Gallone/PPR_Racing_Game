@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
     public Sprite blueprintIcon;
 
     //UI fade parameters
-    public float fadeSpeed = 10f;
+    public float fadeSpeed = 10f, popupMoveSpeed = 5f;
     bool fadeIn = false;
     CanvasGroup canvasGroup;
 
@@ -40,6 +40,9 @@ public class InventoryManager : MonoBehaviour
         if (fadeIn)
         {
             canvasGroup.alpha += Time.deltaTime * fadeSpeed;
+
+            inventoryPopUp.transform.position = Vector3.Lerp(inventoryPopUp.transform.position, inventoryButtons[activePopUp].transform.position, popupMoveSpeed * Time.deltaTime);
+                //Vector3.MoveTowards(inventoryPopUp.transform.position, inventoryButtons[activePopUp].transform.position, popupMoveSpeed * Time.deltaTime);
         }
         else if (!fadeIn)
         {
@@ -54,7 +57,7 @@ public class InventoryManager : MonoBehaviour
             fadeIn = true;
             inventoryPopUp.SetActive(true);
             activePopUp = inventoryID;
-            inventoryPopUp.transform.position = inventoryButtons[inventoryID].transform.position;
+            //inventoryPopUp.transform.position = inventoryButtons[inventoryID].transform.position;
             popUpTitle.text = GameManager.instance.stats.inventory[inventoryID];
             popUpDescription.text = GetPopUpDescription(GameManager.instance.stats.inventory[inventoryID]);
             popUpButton.gameObject.SetActive(IsItemBlueprint(GameManager.instance.stats.inventory[inventoryID]));
