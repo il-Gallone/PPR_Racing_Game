@@ -5,10 +5,17 @@ using UnityEngine.Audio;
 
 public class AudioPlayer : MonoBehaviour
 {
+    public bool destroyOnLoad = true;
+
     public AudioClip[] audioToPlay;
     public AudioSource audioSource;
 
     public float minPitch = .9f, maxPitch = 1.1f;
+
+    private void Start()
+    {
+        if (!destroyOnLoad)
+            DontDestroyOnLoad(this);    }
 
     public void PlayAudioRandomPitch()
     {

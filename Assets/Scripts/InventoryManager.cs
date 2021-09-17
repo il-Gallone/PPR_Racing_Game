@@ -47,6 +47,10 @@ public class InventoryManager : MonoBehaviour
         else if (!fadeIn)
         {
             canvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+            if (canvasGroup.alpha==0)
+            {
+                inventoryPopUp.SetActive(false);
+            }
         }
     }
 
