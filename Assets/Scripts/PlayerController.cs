@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] availableWeapons;
 
     AudioPlayer audioPlayer;
-    public AudioClip[] bulletImpacts;
+    public AudioClip[] bulletImpacts, objectivePickupSound;
     public bool isAnimationRunning = true;
     public bool isFadingIn = true;
     public Animator hyperspeed;
@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
                 GameManager.instance.scrapCollected += Random.Range(20, 81);
             }
 
+            audioPlayer.PlayClipAt(objectivePickupSound, .6f);
             Destroy(collision.gameObject);
 
             objectiveCountText.text = "Objectives: " + objectiveCount;
