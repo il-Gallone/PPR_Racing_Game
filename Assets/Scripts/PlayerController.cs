@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     AudioPlayer audioPlayer;
     public AudioClip[] bulletImpacts;
+    public bool isAnimationRunning = true;
+    public bool isFadingIn = true;
+    public Animator hyperspeed;
 
     // Start is called before the first frame update
     void Start()
@@ -60,45 +63,71 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (energy > 0)
+        if(isAnimationRunning && isFadingIn)
         {
-            rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical")*engineMultiplier);
-            rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal")*engineMultiplier;
-            energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime/engineMultiplier;
-        }
-        if (rigid2D.velocity.magnitude > speedThreshold*engineMultiplier)
-        {
-            rigid2D.drag = Mathf.Pow(2, (rigid2D.velocity.magnitude - speedThreshold*engineMultiplier) * 0.01f + 1);
-        }
-        else
-        {
-            rigid2D.drag = 1;
-        }
-        if (Vector3.Distance(transform.position, Vector3.zero) > GameManager.instance.levelLimits)
-        {
+            gameObject.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 6f / 9f * Time.deltaTime);
+            if(gameObject.GetComponent<SpriteRenderer>().color.a >= 1)
             {
-                HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits) * Time.deltaTime;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                hyperspeed.gameObject.SetActive(false);
+                isAnimationRunning = false;
+                isFadingIn = false;
             }
         }
-        if (HP <= 0 || energy <= 0)
+        if (isAnimationRunning && !isFadingIn)
         {
-            GameManager.instance.scrapCollected = 0;
-            GameManager.instance.weaponPartsCollected = 0;
-            GameManager.instance.enginePartsCollected = 0;
-            GameManager.instance.armourPartsCollected = 0;
-            SceneController.UpdateScene(0);
+            gameObject.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 6f / 9f * Time.deltaTime);
+            if (gameObject.GetComponent<SpriteRenderer>().color.a <= 0)
+            {
+                SceneController.UpdateScene(0);
+            }
         }
-        if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
+        if (!isAnimationRunning)
         {
-            GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
-            GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
-            GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
-            GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
-            GameManager.instance.scrapCollected = 0;
-            GameManager.instance.weaponPartsCollected = 0;
-            GameManager.instance.enginePartsCollected = 0;
-            GameManager.instance.armourPartsCollected = 0;
-            SceneController.UpdateScene(0);
+            if (energy > 0)
+            {
+                rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical") * engineMultiplier);
+                rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal") * engineMultiplier;
+                energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime / engineMultiplier;
+            }
+            if (rigid2D.velocity.magnitude > speedThreshold * engineMultiplier)
+            {
+                rigid2D.drag = Mathf.Pow(2, (rigid2D.velocity.magnitude - speedThreshold * engineMultiplier) * 0.01f + 1);
+            }
+            else
+            {
+                rigid2D.drag = 1;
+            }
+            if (Vector3.Distance(transform.position, Vector3.zero) > GameManager.instance.levelLimits)
+            {
+                {
+                    HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits) * Time.deltaTime;
+                }
+            }
+            if (HP <= 0 || energy <= 0)
+            {
+                GameManager.instance.scrapCollected = 0;
+                GameManager.instance.weaponPartsCollected = 0;
+                GameManager.instance.enginePartsCollected = 0;
+                GameManager.instance.armourPartsCollected = 0;
+                hyperspeed.gameObject.SetActive(true);
+                hyperspeed.Play("Hyperspeed");
+                isAnimationRunning = true;
+            }
+            if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
+            {
+                GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
+                GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
+                GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
+                GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
+                GameManager.instance.scrapCollected = 0;
+                GameManager.instance.weaponPartsCollected = 0;
+                GameManager.instance.enginePartsCollected = 0;
+                GameManager.instance.armourPartsCollected = 0;
+                hyperspeed.gameObject.SetActive(true);
+                hyperspeed.Play("Hyperspeed");
+                isAnimationRunning = true;
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

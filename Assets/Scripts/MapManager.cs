@@ -54,7 +54,7 @@ public class MapManager : MonoBehaviour
                     GameManager.instance.stats.faction2Favour += 1;
                     GameManager.instance.stats.faction3Favour += 1;
                     GameManager.instance.stats.faction4Favour += 1;
-                    GameManager.instance.stats.faction5Favour += 5;
+                    GameManager.instance.stats.faction5Favour -= 5;
                     break;
                 }
         }
