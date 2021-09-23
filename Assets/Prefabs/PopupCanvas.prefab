@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3505288937697304488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 3505288939147575476}
   destroyTime: 1.5
+  randomOffsetAmountX: 1
+  randomOffsetAmountY: 0.25
 --- !u!1 &3505288939147575476
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,8 +192,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 3003179775
+  m_fontColor: {r: 1, g: 0.88759816, b: 0, a: 0.7019608}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
