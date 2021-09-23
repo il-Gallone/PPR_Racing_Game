@@ -25,9 +25,13 @@ public class Scrap : Collectible
 
     public override void OnPickup(GameObject player)
     {
-        GameManager.instance.scrapCollected += Random.Range(2, 9);
+
+        int randomNum = Random.Range(2, 9);
+        GameManager.instance.scrapCollected += randomNum;
         parent.scrapTotal--;
 
         audioPlayer.PlayClipAt(audioPlayer.audioToPlay, .5f);
+        //text popup
+        player.GetComponent<PlayerController>().PopupText("+" + " " + randomNum + " Scrap", Color.yellow, 1f);
     }
 }

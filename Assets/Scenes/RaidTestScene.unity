@@ -2792,6 +2792,7 @@ MonoBehaviour:
   isAnimationRunning: 1
   isFadingIn: 1
   hyperspeed: {fileID: 2055249608}
+  textPopupPrefab: {fileID: 3505288937697304489, guid: e28838fdb7b7b294aac542c7583c4804, type: 3}
 --- !u!212 &1514824482
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2968,6 +2969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
   - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
