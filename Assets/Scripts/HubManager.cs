@@ -9,6 +9,7 @@ public class HubManager : MonoBehaviour
     public Text scrapTotal2, weaponParts, engineParts, armourParts;
 
     public string[] weapons;
+    public ModuleManager moduleManager;
 
     public int upgradeCost = 50, maxArmour = 4, maxEngine = 4;
 
@@ -83,6 +84,8 @@ public class HubManager : MonoBehaviour
     {
         scrapTotal.text = "Scrap: " + GameManager.instance.stats.scrap;
         weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
+        //module.text = "Module: " + GameManager.instance.stats.currentModuleID;
+        //moduleDescription.text = moduleManager.FindDescription(GameManager.instance.stats.currentModuleID);
         engine.text = "Engine: " + GameManager.instance.stats.engineLevel;
         armour.text = "Armour: " + GameManager.instance.stats.armourLevel;
     }
@@ -130,5 +133,40 @@ public class HubManager : MonoBehaviour
         }
         // update text
         weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
+    }
+    public void ModuleLeft()
+    {
+        if (GameManager.instance.stats.unlockedModuleIDs.Count > 1 && GameManager.instance.stats.currentModuleIDNumber != -1)
+        {
+            if (GameManager.instance.stats.currentModuleIDNumber > 0)
+            {
+                GameManager.instance.stats.currentModuleIDNumber--;
+            }
+            else
+            {
+                GameManager.instance.stats.currentModuleIDNumber = GameManager.instance.stats.unlockedModuleIDs.Count - 1;
+            }
+            GameManager.instance.stats.currentModuleID = GameManager.instance.stats.unlockedModuleIDs[GameManager.instance.stats.currentModuleIDNumber];
+        }
+        // update text
+        module.text = "Module: " + GameManager.instance.stats.currentModuleID;
+    }
+
+    public void ModuleRight()
+    {
+        if (GameManager.instance.stats.unlockedModuleIDs.Count > 1 && GameManager.instance.stats.currentModuleIDNumber != -1)
+        {
+            if (GameManager.instance.stats.currentModuleIDNumber < GameManager.instance.stats.unlockedModuleIDs.Count - 1)
+            {
+                GameManager.instance.stats.currentModuleIDNumber++;
+            }
+            else
+            {
+                GameManager.instance.stats.currentModuleIDNumber = 0;
+            }
+            GameManager.instance.stats.currentModuleID = GameManager.instance.stats.unlockedModuleIDs[GameManager.instance.stats.currentModuleIDNumber];
+        }
+        // update text
+        module.text = "Module: " + GameManager.instance.stats.currentModuleID;
     }
 }
