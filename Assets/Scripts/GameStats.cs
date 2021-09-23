@@ -14,6 +14,9 @@ public class GameStats
     public string currentWeaponID = "Rifle";
     public int currentWeaponIDNumber = 0;
     public List<string> unlockedWeaponIDs = new List<string>();
+    public string currentModuleID = "None";
+    public int currentModuleIDNumber = 0;
+    public List<string> unlockedModuleIDs = new List<string>();
     public int engineLevel = 0;
     public int armourLevel = 0;
 

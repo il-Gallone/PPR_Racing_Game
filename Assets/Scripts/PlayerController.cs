@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public GameObject currentWeapon;
     public GameObject[] availableWeapons;
 
+    public float moduleResource;
+    public string currentModule;
+
     AudioPlayer audioPlayer;
     public AudioClip[] bulletImpacts, objectivePickupSound;
     public bool isAnimationRunning = true;

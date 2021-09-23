@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HubManager : MonoBehaviour
 {
-    public Text scrapTotal, weapon, engine, armour;
+    public Text scrapTotal, weapon, engine, armour, module, moduleDescription;
     public Text scrapTotal2, weaponParts, engineParts, armourParts;
 
     public string[] weapons;
