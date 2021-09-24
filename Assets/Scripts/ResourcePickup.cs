@@ -20,16 +20,26 @@ public class ResourcePickup : Collectible
         player.GetComponent<PlayerController>().HP += hpGiven;
         if (player.GetComponent<PlayerController>().HP > player.GetComponent<PlayerController>().maxHP)
         {
-            audioPlayer.PlayClipAt(healthSounds, .4f);
             player.GetComponent<PlayerController>().HP = player.GetComponent<PlayerController>().maxHP;
-            
         }
         player.GetComponent<PlayerController>().energy += energyGiven;
         if (player.GetComponent<PlayerController>().energy > player.GetComponent<PlayerController>().maxEnergy)
         {
-            audioPlayer.PlayClipAt(energySounds, .4f);
             player.GetComponent<PlayerController>().energy = player.GetComponent<PlayerController>().maxEnergy;
-            
+
+        }
+
+        if (hpGiven>0)
+        {
+            audioPlayer.PlayClipAt(healthSounds, .4f);
+            //popup text
+            player.GetComponent<PlayerController>().PopupText("+" + hpGiven + " HP", Color.green, 1);
+        }
+        else
+        {
+            audioPlayer.PlayClipAt(energySounds, .4f);
+            //popup text
+            player.GetComponent<PlayerController>().PopupText("+" + energyGiven + " Energy", Color.cyan, 1);
         }
     }
 }

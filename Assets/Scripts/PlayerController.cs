@@ -148,17 +148,17 @@ public class PlayerController : MonoBehaviour
             if(partChance < GameManager.instance.weaponPartChance)
             {
                 GameManager.instance.weaponPartsCollected++;
-                PopupText("+1 Weapon Part", Color.cyan, 2f);
+                PopupText("+1 Weapon Part", Color.blue, 2f);
             }
             else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance)
             {
                 GameManager.instance.enginePartsCollected++;
-                PopupText("+1 Engine Part", Color.cyan, 2f);
+                PopupText("+1 Engine Part", Color.blue, 2f);
             }
             else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance + GameManager.instance.armourPartChance)
             {
                 GameManager.instance.armourPartsCollected++;
-                PopupText("+1 Armour Part", Color.cyan, 2f);
+                PopupText("+1 Armour Part", Color.blue, 2f);
             }
             else
             {
