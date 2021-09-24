@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject textPopup = Instantiate(textPopupPrefab, transform.position + (Camera.main.transform.up* Yoffset), transform.rotation);
 
-        textPopup.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        textPopup.GetComponentInChildren<TextMeshProUGUI>().color = color;
+        textPopup.GetComponent<TextMeshPro>().text = text;
+        textPopup.GetComponent<TextMeshPro>().color = color;
     }
 }
