@@ -8,6 +8,8 @@ public class MusicManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip menuMusic, raidMusic;
 
+    public int raidLevelsIndex = 2;
+
     int prevScene = 0, currentScene = 0;
 
 
@@ -30,7 +32,7 @@ public class MusicManager : MonoBehaviour
         {
             audioSource.clip = menuMusic;
             audioSource.Play();
-        } else if (scene.buildIndex>=4) // raid levels should be above build index 4. Probably a better way to do this but it works for now
+        } else if (scene.buildIndex>=raidLevelsIndex) // raid levels should be above build index 4. Probably a better way to do this but it works for now
         {
             audioSource.clip = raidMusic;
             audioSource.Play();
