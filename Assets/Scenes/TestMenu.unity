@@ -7624,6 +7624,7 @@ MonoBehaviour:
   - Rifle
   - Shotgun
   - Machinegun
+  moduleManager: {fileID: 1838637157}
   upgradeCost: 100
   maxArmour: 4
   maxEngine: 4
@@ -9742,6 +9743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a142ae779ed4c7b40994c4e126de8204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modules: []
 --- !u!4 &1838637158
 Transform:
   m_ObjectHideFlags: 0

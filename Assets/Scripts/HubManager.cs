@@ -84,8 +84,8 @@ public class HubManager : MonoBehaviour
     {
         scrapTotal.text = "Scrap: " + GameManager.instance.stats.scrap;
         weapon.text = "Weapon: " + GameManager.instance.stats.currentWeaponID;
-        //module.text = "Module: " + GameManager.instance.stats.currentModuleID;
-        //moduleDescription.text = moduleManager.FindDescription(GameManager.instance.stats.currentModuleID);
+        module.text = "Module: " + GameManager.instance.stats.currentModuleID;
+        moduleDescription.text = moduleManager.FindDescription(GameManager.instance.stats.currentModuleID);
         engine.text = "Engine: " + GameManager.instance.stats.engineLevel;
         armour.text = "Armour: " + GameManager.instance.stats.armourLevel;
     }
