@@ -61,7 +61,7 @@ public class BarController : MonoBehaviour
                 {
                     if (GameManager.instance.stats.currentModuleID == "Shield Generator")
                     {
-                        bar.maxValue = targetPlayer.moduleResource;
+                        bar.value = targetPlayer.moduleResource;
                     }
                     break;
                 }
