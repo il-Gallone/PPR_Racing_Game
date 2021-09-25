@@ -126,6 +126,7 @@ public class InventoryManager : MonoBehaviour
             {
                 GameManager.instance.stats.scrap -= 100;
                 GameManager.instance.stats.weaponParts -= 10;
+                hubManager.UpdateInventory();
                 inventoryPopUp.SetActive(false);
                 if (GameManager.instance.stats.inventory[activePopUp] == "Shotgun Blueprint")
                 {
@@ -156,6 +157,7 @@ public class InventoryManager : MonoBehaviour
             {
                 GameManager.instance.stats.scrap -= 50;
                 GameManager.instance.stats.weaponParts -= 5;
+                hubManager.UpdateInventory();
                 inventoryPopUp.SetActive(false);
                 if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint")
                 {
@@ -186,6 +188,7 @@ public class InventoryManager : MonoBehaviour
             {
                 GameManager.instance.stats.scrap -= 75;
                 GameManager.instance.stats.armourParts -= 7;
+                hubManager.UpdateInventory();
                 inventoryPopUp.SetActive(false);
                 GameManager.instance.stats.unlockedModuleIDs.Add("Shield Generator");
                 GameManager.instance.stats.inventory.Remove("Shield Generator Blueprint");
@@ -213,6 +216,7 @@ public class InventoryManager : MonoBehaviour
             {
                 GameManager.instance.stats.scrap -= 75;
                 GameManager.instance.stats.engineParts -= 7;
+                hubManager.UpdateInventory();
                 inventoryPopUp.SetActive(false);
                 GameManager.instance.stats.unlockedModuleIDs.Add("Speed Booster");
                 GameManager.instance.stats.inventory.Remove("Speed Booster Blueprint");
@@ -234,6 +238,5 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        hubManager.UpdateHubStats();
     }
 }
