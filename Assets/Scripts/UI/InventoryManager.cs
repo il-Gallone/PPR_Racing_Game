@@ -19,6 +19,8 @@ public class InventoryManager : MonoBehaviour
     bool fadeIn = false;
     CanvasGroup canvasGroup;
 
+    public HubManager hubManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -232,5 +234,6 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+        hubManager.UpdateHubStats();
     }
 }
