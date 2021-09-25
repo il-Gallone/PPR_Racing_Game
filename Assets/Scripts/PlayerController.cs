@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
             }
         }
         Instantiate(currentWeapon, transform);
+        if(GameManager.instance.stats.currentModuleID != "Shield Generator")
+        {
+            GameObject.FindGameObjectWithTag("Shield").SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -133,10 +137,6 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject.FindGameObjectWithTag("Shield").GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0);
                 }
-            }
-            else
-            {
-                GameObject.FindGameObjectWithTag("Shield").SetActive(false);
             }
             if(GameManager.instance.stats.currentModuleID == "Speed Booster")
             {
