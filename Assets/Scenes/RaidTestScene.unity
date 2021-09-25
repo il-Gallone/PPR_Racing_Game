@@ -2783,6 +2783,11 @@ MonoBehaviour:
   - {fileID: 1956530085071937038, guid: aebff90aafa9d0c43a94cb7f2aa3672b, type: 3}
   - {fileID: 8722229398242168030, guid: eb11b5c9c2177f24c91746a8908d6350, type: 3}
   - {fileID: 7245651616929315654, guid: 2bc5b6a2e8de01346abb5757bd770901, type: 3}
+  - {fileID: 2256427289914925912, guid: 04620b10b372ae447bc4f9c4004e4ec9, type: 3}
+  - {fileID: 3679205419679272030, guid: ac0cbc1a935484049b82e0302b4398b5, type: 3}
+  moduleResource: 0
+  moduleCooldown: 0
+  currentModule: 
   bulletImpacts:
   - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
   - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
@@ -2968,6 +2973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
   - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}

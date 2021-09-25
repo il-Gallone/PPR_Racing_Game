@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] availableWeapons;
 
     public float moduleResource;
+    public float moduleCooldown;
     public string currentModule;
 
     AudioPlayer audioPlayer;
