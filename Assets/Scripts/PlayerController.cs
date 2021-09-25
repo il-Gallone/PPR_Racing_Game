@@ -111,6 +111,49 @@ public class PlayerController : MonoBehaviour
                     HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits) * Time.deltaTime;
                 }
             }
+            if (moduleCooldown > 0)
+            {
+                moduleCooldown -= Time.deltaTime;
+            }
+            if (GameManager.instance.stats.currentModuleID == "Shield Generator")
+            {
+                if (moduleCooldown <= 0 && moduleResource < 20)
+                {
+                    moduleResource += Time.deltaTime;
+                    if(moduleResource >= 20)
+                    {
+                        moduleResource = 20;
+                    }
+                }
+                if (moduleResource > 0)
+                {
+                    GameObject.FindGameObjectWithTag("Shield").GetComponent<SpriteRenderer>().color = new Color((10 - moduleResource) / 10, (moduleResource - 5) / 10, (moduleResource - 10) / 10);
+                }
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Shield").GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0);
+                }
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("Shield").SetActive(false);
+            }
+            if(GameManager.instance.stats.currentModuleID == "Speed Booster")
+            {
+                if(moduleResource == 1 && moduleCooldown < 10)
+                {
+                    moduleResource = 0;
+                    acceleration /= 3;
+                    speedThreshold /= 2;
+                }
+                if(Input.GetButtonDown("Module") && moduleCooldown <= 0)
+                {
+                    moduleResource = 1;
+                    acceleration *= 3;
+                    speedThreshold *= 2;
+                    moduleCooldown = 15;
+                }
+            }
             if (HP <= 0 || energy <= 0)
             {
                 GameManager.instance.scrapCollected = 0;
@@ -179,7 +222,33 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("EnemyBullet"))
         {
             audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
-
+            if(GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
+            {
+                if(moduleResource >= collision.gameObject.GetComponent<BulletController>().energyDamage * 2)
+                {
+                    moduleResource -= collision.gameObject.GetComponent<BulletController>().energyDamage * 2;
+                    collision.gameObject.GetComponent<BulletController>().energyDamage = 0;
+                    moduleCooldown = 2;
+                }
+                if (moduleResource >= collision.gameObject.GetComponent<BulletController>().damage)
+                {
+                    moduleResource -= collision.gameObject.GetComponent<BulletController>().damage;
+                    collision.gameObject.GetComponent<BulletController>().damage = 0;
+                    moduleCooldown = 2;
+                }
+                if (moduleResource < collision.gameObject.GetComponent<BulletController>().energyDamage * 2)
+                {
+                    collision.gameObject.GetComponent<BulletController>().energyDamage -= moduleResource/2;
+                    moduleResource = 0;
+                    moduleCooldown = 2;
+                }
+                if (moduleResource < collision.gameObject.GetComponent<BulletController>().damage)
+                {
+                    collision.gameObject.GetComponent<BulletController>().damage -= moduleResource;
+                    moduleResource = 0;
+                    moduleCooldown = 2;
+                }
+            }
             HP -= collision.gameObject.GetComponent<BulletController>().damage / armourMultiplier;
             energy -= collision.gameObject.GetComponent<BulletController>().energyDamage;
             Destroy(collision.gameObject);

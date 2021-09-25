@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    public enum barType { HP, NRG };
+    public enum barType { HP, NRG, SHLD };
 
     public PlayerController targetPlayer;
     public Slider bar;
@@ -23,12 +23,24 @@ public class BarController : MonoBehaviour
                 }
             case barType.NRG:
                 {
-            bar.maxValue = targetPlayer.maxEnergy;
-            break;
-        }
+                    bar.maxValue = targetPlayer.maxEnergy;
+                    break;
+                }
+            case barType.SHLD:
+                {
+                    if(GameManager.instance.stats.currentModuleID == "Shield Generator")
+                    {
+                        bar.maxValue = 20;
+                    }
+                    else
+                    {
+                        gameObject.SetActive(false);
+                    }
+                    break;
+                }
     }
 
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,6 +55,14 @@ public class BarController : MonoBehaviour
             case barType.NRG:
                 {
                     bar.value = targetPlayer.energy;
+                    break;
+                }
+            case barType.SHLD:
+                {
+                    if (GameManager.instance.stats.currentModuleID == "Shield Generator")
+                    {
+                        bar.maxValue = targetPlayer.moduleResource;
+                    }
                     break;
                 }
         }

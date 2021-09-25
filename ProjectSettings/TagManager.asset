@@ -16,6 +16,7 @@ TagManager:
   - GenerationManager
   - Station
   - Scrap
+  - Shield
   layers:
   - Default
   - TransparentFX
