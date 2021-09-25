@@ -54,7 +54,28 @@ public class AudioPlayer : MonoBehaviour
         aSource.pitch = randomPitch;
 
         aSource.Play();
+        DontDestroyOnLoad(tempSound); // for when changing scenes
         Destroy(tempSound, clips[randomIndex].length);
+    }
+
+    public void PlayClipAt(float volume)
+    {
+
+        float randomPitch = Random.Range(minPitch, maxPitch);
+
+        int randomIndex = Random.Range(0, audioToPlay.Length);
+
+        GameObject tempSound = new GameObject();
+        tempSound.transform.position = transform.position;
+        AudioSource aSource = tempSound.AddComponent(typeof(AudioSource)) as AudioSource;
+
+        aSource.clip = audioToPlay[randomIndex];
+        aSource.volume = volume;
+        aSource.pitch = randomPitch;
+
+        aSource.Play();
+        DontDestroyOnLoad(tempSound); // for when changing scenes
+        Destroy(tempSound, audioToPlay[randomIndex].length);
     }
 
     /*

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public bool isAnimationRunning = true;
     public bool isFadingIn = true;
     public Animator hyperspeed;
+
+    public GameObject textPopupPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -149,18 +152,23 @@ public class PlayerController : MonoBehaviour
             if(partChance < GameManager.instance.weaponPartChance)
             {
                 GameManager.instance.weaponPartsCollected++;
+                PopupText("+1 Weapon Part", Color.blue, 2f);
             }
             else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance)
             {
                 GameManager.instance.enginePartsCollected++;
+                PopupText("+1 Engine Part", Color.blue, 2f);
             }
             else if (partChance < GameManager.instance.weaponPartChance + GameManager.instance.enginePartChance + GameManager.instance.armourPartChance)
             {
                 GameManager.instance.armourPartsCollected++;
+                PopupText("+1 Armour Part", Color.blue, 2f);
             }
             else
             {
-                GameManager.instance.scrapCollected += Random.Range(20, 81);
+                int randomNum = Random.Range(20, 81);
+                GameManager.instance.scrapCollected += randomNum;
+                PopupText("+" + randomNum + " Scrap", Color.yellow, 2f);
             }
 
             audioPlayer.PlayClipAt(objectivePickupSound, .6f);
@@ -180,5 +188,13 @@ public class PlayerController : MonoBehaviour
         {
             HP -= collision.gameObject.GetComponent<ExplosionController>().damage / armourMultiplier;
         }
+    }
+
+    public void PopupText(string text, Color color, float Yoffset)
+    {
+        GameObject textPopup = Instantiate(textPopupPrefab, transform.position + (Camera.main.transform.up* Yoffset), transform.rotation);
+
+        textPopup.GetComponent<TextMeshPro>().text = text;
+        textPopup.GetComponent<TextMeshPro>().color = color;
     }
 }
