@@ -150,6 +150,7 @@ public class HubManager : MonoBehaviour
         }
         // update text
         module.text = "Module: " + GameManager.instance.stats.currentModuleID;
+        moduleDescription.text = moduleManager.FindDescription(GameManager.instance.stats.currentModuleID);
     }
 
     public void ModuleRight()
@@ -168,5 +169,6 @@ public class HubManager : MonoBehaviour
         }
         // update text
         module.text = "Module: " + GameManager.instance.stats.currentModuleID;
+        moduleDescription.text = moduleManager.FindDescription(GameManager.instance.stats.currentModuleID);
     }
 }

@@ -182,7 +182,22 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        HP -= collision.relativeVelocity.magnitude* 5/armourMultiplier;
+        if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
+        {
+            if(moduleResource < collision.relativeVelocity.magnitude * 5)
+            {
+                HP -= collision.relativeVelocity.magnitude * 5 - moduleResource;
+                moduleResource = 0;
+                moduleCooldown = 2;
+            }
+            if (moduleResource > collision.relativeVelocity.magnitude * 5)
+            {
+                moduleResource -= collision.relativeVelocity.magnitude * 5;
+                moduleCooldown = 2;
+            }
+        }
+        else
+            HP -= collision.relativeVelocity.magnitude* 5 / armourMultiplier;
 
         audioPlayer.PlayAudioRandomPitch();
     }
@@ -255,7 +270,22 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Explosion"))
         {
-            HP -= collision.gameObject.GetComponent<ExplosionController>().damage / armourMultiplier;
+            if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
+            {
+                if (moduleResource < collision.gameObject.GetComponent<ExplosionController>().damage)
+                {
+                    HP -= collision.gameObject.GetComponent<ExplosionController>().damage- moduleResource / armourMultiplier;
+                    moduleResource = 0;
+                    moduleCooldown = 2;
+                }
+                if (moduleResource >= collision.gameObject.GetComponent<ExplosionController>().damage)
+                {
+                    moduleResource -= collision.gameObject.GetComponent<ExplosionController>().damage;
+                    moduleCooldown = 2;
+                }
+            }
+            else
+                HP -= collision.gameObject.GetComponent<ExplosionController>().damage / armourMultiplier;
         }
     }
 
