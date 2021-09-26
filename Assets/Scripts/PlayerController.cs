@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject textPopupPrefab;
 
-    public Animator screenFlash;
+    public Animator screenFlash, hpBar, energyBar;
 
     // Start is called before the first frame update
     void Start()
@@ -305,5 +305,6 @@ public class PlayerController : MonoBehaviour
     public void ScreenFlash()
     {
         screenFlash.SetTrigger("TakeDamage");
+        hpBar.SetFloat("HP", HP);
     }
 }
