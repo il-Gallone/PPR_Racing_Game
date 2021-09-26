@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
                 rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical") * engineMultiplier);
                 rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal") * engineMultiplier;
                 energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime / engineMultiplier;
+
+                energyBar.SetFloat("Energy", energy);
             }
             if (rigid2D.velocity.magnitude > speedThreshold * engineMultiplier)
             {
@@ -115,6 +117,7 @@ public class PlayerController : MonoBehaviour
             {
                 {
                     HP -= (Vector3.Distance(transform.position, Vector3.zero) - GameManager.instance.levelLimits) * Time.deltaTime;
+                    ScreenFlash();
                 }
             }
             if (moduleCooldown > 0)
