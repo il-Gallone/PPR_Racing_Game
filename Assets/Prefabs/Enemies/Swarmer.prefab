@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: 1384378767}
@@ -513,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 51c9a97aaee7ec643936f4b2cc62e610, type: 3}
   - {fileID: 8300000, guid: cbe21314038145b41b5eac4b6fb28b32, type: 3}
@@ -592,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 8598510659857578767, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598510659857578767, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}

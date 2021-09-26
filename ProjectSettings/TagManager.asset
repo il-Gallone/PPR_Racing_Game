@@ -17,6 +17,7 @@ TagManager:
   - Station
   - Scrap
   - Shield
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - UI
   - Radar
   - Post Processing
-  - 
-  - 
+  - Bullet
+  - Collectible
   - 
   - 
   - 

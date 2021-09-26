@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8914297163961666686}
   - component: {fileID: 8914297163961666687}
   - component: {fileID: 3656202214581927080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ResourceDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay: []
   audioSource: {fileID: 0}
   minPitch: 0.85

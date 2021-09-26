@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6801449749585707324}
   m_Layer: 0
   m_Name: Collector
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 51c9a97aaee7ec643936f4b2cc62e610, type: 3}
   - {fileID: 8300000, guid: cbe21314038145b41b5eac4b6fb28b32, type: 3}
@@ -491,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: 6415922412036218328}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5265246929581547249}
   - component: {fileID: 4934938952636295612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SwarmerScrap
   m_TagString: Scrap
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 4073369200269801948}
   - component: {fileID: 2728309383031362752}
   - component: {fileID: 2093188881063388744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -232,7 +233,7 @@ GameObject:
   - component: {fileID: 6369499216632640821}
   - component: {fileID: 2747704276727910146}
   - component: {fileID: 1961089332204622019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -397,7 +399,7 @@ GameObject:
   - component: {fileID: 4129194519812895896}
   - component: {fileID: 4132625516501514999}
   - component: {fileID: 7970182358732023708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,6 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -562,7 +565,7 @@ GameObject:
   - component: {fileID: 7461692910728894895}
   - component: {fileID: 8207329832906055729}
   - component: {fileID: 9137051526351646887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,6 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -727,7 +731,7 @@ GameObject:
   - component: {fileID: 9217393041405248840}
   - component: {fileID: 4840363137080796214}
   - component: {fileID: 4456850343628828150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,6 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -892,7 +897,7 @@ GameObject:
   - component: {fileID: 6474821958542241375}
   - component: {fileID: 7889628422479926024}
   - component: {fileID: 206311759744240713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,6 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -1057,7 +1063,7 @@ GameObject:
   - component: {fileID: 6129887353842516656}
   - component: {fileID: 1293770531377676253}
   - component: {fileID: 392348242118362784}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1203,6 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -1222,7 +1229,7 @@ GameObject:
   - component: {fileID: 655707093616970813}
   - component: {fileID: 7195285599391256422}
   - component: {fileID: 6680993292786550918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,6 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
@@ -1387,7 +1395,7 @@ GameObject:
   - component: {fileID: 9104155054377708272}
   - component: {fileID: 8634475076296555225}
   - component: {fileID: 5062833732192732178}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ship2Scrap9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,6 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 6894aeb934033db438d59548a64be8ca, type: 3}
   audioSource: {fileID: 0}
