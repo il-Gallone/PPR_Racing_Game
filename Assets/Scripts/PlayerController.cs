@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject textPopupPrefab;
 
+    public Animator screenFlash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -182,6 +184,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        ScreenFlash();
         if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
         {
             if(moduleResource < collision.relativeVelocity.magnitude * 5)
@@ -236,6 +239,7 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.CompareTag("EnemyBullet"))
         {
+            ScreenFlash();
             audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
             if(GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
             {
@@ -270,6 +274,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Explosion"))
         {
+            ScreenFlash();
             if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
             {
                 if (moduleResource < collision.gameObject.GetComponent<ExplosionController>().damage)
@@ -295,5 +300,10 @@ public class PlayerController : MonoBehaviour
 
         textPopup.GetComponent<TextMeshPro>().text = text;
         textPopup.GetComponent<TextMeshPro>().color = color;
+    }
+
+    public void ScreenFlash()
+    {
+        screenFlash.SetTrigger("TakeDamage");
     }
 }
