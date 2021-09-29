@@ -473,9 +473,8 @@ MonoBehaviour:
   scrapPrefab: {fileID: 0}
   audioPlayer: {fileID: -8465209088977633408}
   bulletImpacts:
-  - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
-  - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
-  - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
+  - {fileID: 8300000, guid: 4998c88be12e891439879e4a9819ae20, type: 3}
+  - {fileID: 8300000, guid: 7782397d9ae24724b8ad1cfab6fe96b1, type: 3}
   detonationTime: 3
   isDetonating: 0
   detonationRadius: 2

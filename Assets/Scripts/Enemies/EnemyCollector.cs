@@ -99,25 +99,9 @@ public class EnemyCollector : EnemyBase
     }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
-        {
-            audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
 
-            HP -= collision.gameObject.GetComponent<BulletController>().damage;
-            collision.GetComponent<BulletController>().DisableBullet();
-            if (HP <= 0)
-            {
-                HPReachedZero();
-            }
-        }
-        if (collision.CompareTag("Explosion"))
-        {
-            HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
-            if (HP <= 0)
-            {
-                HPReachedZero();
-            }
-        }
+        base.OnTriggerEnter2D(collision);
+
         if(collision.CompareTag("Objective"))
         {
             if (!isEscaping)

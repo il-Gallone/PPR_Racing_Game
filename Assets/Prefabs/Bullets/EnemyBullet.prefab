@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 959578323381799760}
   - component: {fileID: 478620734356348897}
   - component: {fileID: 3938317236743473165}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -68,14 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee056c1a72aadf49be90f6400e877aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   speed: 10
   damage: 4
   energyDamage: 0
   selfDestructTime: 10
   miningPrecision: 0.5
   bulletSprite: {fileID: 3237212778178340210}
-  bulletCollider: {fileID: 3938317236743473165}
 --- !u!96 &478620734356348897
 TrailRenderer:
   serializedVersion: 2
@@ -209,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3237212778178340208}
   - component: {fileID: 3237212778178340210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

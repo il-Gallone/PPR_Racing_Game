@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8984192741459041500}
   - component: {fileID: 6128217937347291383}
   - component: {fileID: 4899442705045326961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyIonShot
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -104,7 +104,6 @@ MonoBehaviour:
   selfDestructTime: 5
   miningPrecision: 0.5
   bulletSprite: {fileID: 7601976619084904722}
-  bulletCollider: {fileID: 4899442705045326961}
 --- !u!96 &8984192741459041500
 TrailRenderer:
   serializedVersion: 2

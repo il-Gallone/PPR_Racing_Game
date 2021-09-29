@@ -4673,6 +4673,7 @@ MonoBehaviour:
   audioSource: {fileID: 930706547}
   menuMusic: {fileID: 8300000, guid: 6a39261a7b9b66643a286bbd79194a17, type: 3}
   raidMusic: {fileID: 8300000, guid: e37a824bae996c34fb64a7a0a09e7fb1, type: 3}
+  raidLevelsIndex: 2
 --- !u!114 &930706549
 MonoBehaviour:
   m_ObjectHideFlags: 0

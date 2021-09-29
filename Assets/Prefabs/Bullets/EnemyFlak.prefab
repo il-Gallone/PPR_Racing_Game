@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2325517716228419040}
   - component: {fileID: 5544890454566176951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1276638174015957030}
   - component: {fileID: 5394876001970194933}
   - component: {fileID: 2194490212250745318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyFlak
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -145,14 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063d81da0dabb7d4390b925d602bb88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   speed: 2
   damage: 6
   energyDamage: 0
   selfDestructTime: 5
   miningPrecision: 0.5
   bulletSprite: {fileID: 6582042078833939332}
-  bulletCollider: {fileID: 5394876001970194933}
   flakSprites:
   - {fileID: 21300000, guid: aa001252895c8f7439b5817bca14f76a, type: 3}
   - {fileID: 21300000, guid: 481594352baece640803c82ec45e3fa8, type: 3}

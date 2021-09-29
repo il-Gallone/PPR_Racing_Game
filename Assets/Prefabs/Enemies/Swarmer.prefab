@@ -364,9 +364,8 @@ MonoBehaviour:
   scrapPrefab: {fileID: 235766316531808700, guid: 4c22dce62019f554785c2f78d2f76694, type: 3}
   audioPlayer: {fileID: 7783570613583832617}
   bulletImpacts:
-  - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
-  - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
-  - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
+  - {fileID: 8300000, guid: 7782397d9ae24724b8ad1cfab6fe96b1, type: 3}
+  - {fileID: 8300000, guid: 4998c88be12e891439879e4a9819ae20, type: 3}
   swarm: []
   attackRadius: 4
 --- !u!50 &8719738390542017153
@@ -522,8 +521,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58c4201ab5cf8ad47b85506bd04558ce, type: 3}
   - {fileID: 8300000, guid: a23ce75be8c1e7246b3c808e34d6967c, type: 3}
   audioSource: {fileID: -7113441845052782822}
-  minPitch: 0.9
-  maxPitch: 1.1
+  minPitch: 0.74
+  maxPitch: 0.92
 --- !u!1001 &7751834064515005357
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309626514793453673}
   - component: {fileID: 1309626514793453675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3715824663042520649}
   - component: {fileID: -5159930299937922312}
   - component: {fileID: 605715559383446804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -156,7 +156,6 @@ MonoBehaviour:
   selfDestructTime: 5
   miningPrecision: 0.5
   bulletSprite: {fileID: 1309626514793453675}
-  bulletCollider: {fileID: 605715559383446804}
 --- !u!96 &-5159930299937922312
 TrailRenderer:
   serializedVersion: 2
