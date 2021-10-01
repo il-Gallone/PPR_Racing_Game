@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
     public float maxAngle;
     Rigidbody2D rigid2D;
 
+    public bool rotateCam = true; // need to setup a toggle setting for this
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,15 @@ public class CameraController : MonoBehaviour
         float distance = Vector3.Distance(targetPlayer.transform.position, new Vector3(transform.position.x, transform.position.y, targetPlayer.transform.position.z));
         float speedMultiplier = distance / maxDistance;
         Vector2 targetDir = (targetPlayer.transform.position - transform.position).normalized;
-        rigid2D.velocity = targetDir * speedMultiplier * (targetPlayer.GetComponent<Rigidbody2D>().velocity.magnitude+distance);
-        float angleDif = targetPlayer.transform.eulerAngles.z - transform.eulerAngles.z;
-        if (angleDif > 180) angleDif -= 360;
-        else if (angleDif < -180) angleDif += 360;
-        float angledMultiplier = Mathf.Abs(angleDif) / maxAngle;
-        rigid2D.angularVelocity = Mathf.Sign(angleDif) * angledMultiplier * (Mathf.Abs(targetPlayer.GetComponent<Rigidbody2D>().angularVelocity)+Mathf.Abs(angleDif));
+        rigid2D.velocity = targetDir * speedMultiplier * (targetPlayer.GetComponentInParent<Rigidbody2D>().velocity.magnitude+distance);
+        
+        if (rotateCam)
+        {
+            float angleDif = targetPlayer.transform.eulerAngles.z - transform.eulerAngles.z;
+            if (angleDif > 180) angleDif -= 360;
+            else if (angleDif < -180) angleDif += 360;
+            float angledMultiplier = Mathf.Abs(angleDif) / maxAngle;
+            rigid2D.angularVelocity = Mathf.Sign(angleDif) * angledMultiplier * (Mathf.Abs(targetPlayer.GetComponentInParent<Rigidbody2D>().angularVelocity) + Mathf.Abs(angleDif));
+        }
     }
 }
