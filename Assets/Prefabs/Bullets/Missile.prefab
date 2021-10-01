@@ -191,13 +191,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30bcc167ef49774abd67e24e1638d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   damage: 5
   energyDamage: 0
   selfDestructTime: 5
   miningPrecision: 0.2
   bulletSprite: {fileID: 5558171062898710479}
-  turnSpeed: 100
+  maxTargetDist: 10
+  turnSpeed: 150
+  detectionDelay: 0.5
 --- !u!1 &5558171062898710476
 GameObject:
   m_ObjectHideFlags: 0
