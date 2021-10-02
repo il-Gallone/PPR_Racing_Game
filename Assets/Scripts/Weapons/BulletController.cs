@@ -15,6 +15,9 @@ public class BulletController : MonoBehaviour
     public SpriteRenderer bulletSprite;
     protected Collider2D bulletCollider;
 
+    public GameObject shieldHit, hitParticle;
+    
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -35,13 +38,47 @@ public class BulletController : MonoBehaviour
         bulletSprite.enabled = false;
         rb.velocity = Vector2.zero;
         stopMoving = true;
+
+    }
+
+    protected void PlayHitEffects(Collider2D collision)
+    {
+        if (shieldHit)
+        {
+            GameObject temp = Instantiate(shieldHit, transform.position, transform.rotation);
+            temp.GetComponent<FollowObjectStrict>().target = collision.gameObject.transform;
+            Destroy(temp, temp.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
+        }
+
+        if (hitParticle)
+        {
+            hitParticle.GetComponent<ParticleSystem>().startColor = bulletSprite.color;
+
+            GameObject particle = Instantiate(hitParticle, transform.position, transform.rotation);
+            //particle.GetComponent<FollowObjectStrict>().target = collision.gameObject.transform;
+            print("particle");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player"))
+        if (collision.CompareTag("EnergyAsteroid") || collision.CompareTag("RepairAsteroid"))
+            return;
+
+        if (!collision.CompareTag("Player") && CompareTag("Bullet"))
         {
             DisableBullet();
+            PlayHitEffects(collision);
+
+            //change colour
+        }
+
+        if (collision.CompareTag("Player") && CompareTag("EnemyBullet"))
+        {
+            DisableBullet();
+            PlayHitEffects(collision);
+
+            //leave blue?
         }
     }
 }

@@ -156,6 +156,8 @@ MonoBehaviour:
   selfDestructTime: 5
   miningPrecision: 0.5
   bulletSprite: {fileID: 1309626514793453675}
+  shieldHit: {fileID: 2260941908734862069, guid: 11f477ef10836ea4ea1114d57a53b483, type: 3}
+  hitParticle: {fileID: 1647762899515617532, guid: 6dc8abb18fe52df40998b1d9f5be4945, type: 3}
 --- !u!96 &-5159930299937922312
 TrailRenderer:
   serializedVersion: 2

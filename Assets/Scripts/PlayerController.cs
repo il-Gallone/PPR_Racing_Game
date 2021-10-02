@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
         else
             HP -= collision.relativeVelocity.magnitude* 5 / armourMultiplier;
 
-        audioPlayer.PlayAudioRandomPitch();
+        audioPlayer.PlayClipAt(audioPlayer.audioToPlay, 1f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
