@@ -48,7 +48,7 @@ public class MissileController : BulletController
             if (targets.Length > 0 && Vector2.Distance(transform.position, targets[shortestDist].transform.position) <= maxTargetDist)
             {
                 target = targets[shortestDist].GetComponent<Transform>();
-                print(Vector2.Distance(transform.position, targets[shortestDist].transform.position));
+                //print(Vector2.Distance(transform.position, targets[shortestDist].transform.position));
                 //Debug.Log("Enemy: " + target.name);
             }
         }
