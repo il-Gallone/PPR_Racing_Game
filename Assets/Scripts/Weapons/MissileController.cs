@@ -34,19 +34,25 @@ public class MissileController : BulletController
             if (targets[i])
             {
                 distance = Vector2.Distance(transform.position, targets[i].transform.position);
-                if (distance < Vector2.Distance(transform.position, targets[shortestDist].transform.position))
+                if (targets.Length > 0 && targets[shortestDist] != null)
                 {
-                    shortestDist = i;
+                    if (distance < Vector2.Distance(transform.position, targets[shortestDist].transform.position))
+                    {
+                        shortestDist = i;
+                    }
                 }
             }  
         }
-
-        if (targets.Length > 0 && distance <= maxTargetDist)
+        if (targets.Length > 0 && targets[shortestDist] != null)
         {
-            target = targets[shortestDist].GetComponent<Transform>();
-            print(Vector2.Distance(transform.position, targets[shortestDist].transform.position));
-            //Debug.Log("Enemy: " + target.name);
+            if (targets.Length > 0 && Vector2.Distance(transform.position, targets[shortestDist].transform.position) <= maxTargetDist)
+            {
+                target = targets[shortestDist].GetComponent<Transform>();
+                print(Vector2.Distance(transform.position, targets[shortestDist].transform.position));
+                //Debug.Log("Enemy: " + target.name);
+            }
         }
+        
     }
 
     // Update is called once per frame

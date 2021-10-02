@@ -55,8 +55,6 @@ public class BulletController : MonoBehaviour
             hitParticle.GetComponent<ParticleSystem>().startColor = bulletSprite.color;
 
             GameObject particle = Instantiate(hitParticle, transform.position, transform.rotation);
-            //particle.GetComponent<FollowObjectStrict>().target = collision.gameObject.transform;
-            print("particle");
         }
     }
 
