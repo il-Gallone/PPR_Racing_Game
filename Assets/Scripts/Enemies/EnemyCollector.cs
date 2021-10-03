@@ -60,7 +60,7 @@ public class EnemyCollector : EnemyBase
                 {
                     weapon.GetComponent<WeaponController>().shoot();
                 }
-                weapon.GetComponent<WeaponController>().shoot();
+                weapon.GetComponent<WeaponController>().PlayShootSound();
             }
         }
     }
