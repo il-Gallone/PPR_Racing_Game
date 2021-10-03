@@ -49,9 +49,12 @@ public class AudioPlayer : MonoBehaviour
         tempSound.transform.position = transform.position;
         AudioSource aSource = tempSound.AddComponent(typeof(AudioSource)) as AudioSource;
 
+        if (audioSource)
+            aSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
         aSource.clip = clips[randomIndex];
         aSource.volume = volume;
         aSource.pitch = randomPitch;
+        
 
         aSource.Play();
         DontDestroyOnLoad(tempSound); // for when changing scenes
@@ -69,9 +72,12 @@ public class AudioPlayer : MonoBehaviour
         tempSound.transform.position = transform.position;
         AudioSource aSource = tempSound.AddComponent(typeof(AudioSource)) as AudioSource;
 
+        if (audioSource)
+            aSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
         aSource.clip = audioToPlay[randomIndex];
         aSource.volume = volume;
         aSource.pitch = randomPitch;
+        
 
         aSource.Play();
         DontDestroyOnLoad(tempSound); // for when changing scenes

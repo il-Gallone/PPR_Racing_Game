@@ -46,7 +46,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void HPReachedZero()
     {
-        Debug.Log("Enemy destroyed");
+        //Debug.Log("Enemy destroyed");
         Destroy(gameObject);
     }
 

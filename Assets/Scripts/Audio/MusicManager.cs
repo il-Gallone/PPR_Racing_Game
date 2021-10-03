@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
@@ -12,6 +13,26 @@ public class MusicManager : MonoBehaviour
 
     int prevScene = 0, currentScene = 0;
 
+    public AudioMixer masterAudioMixer;
+
+    private void Awake()
+    {
+        // set volume sliders
+
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("MasterVolume", volume);
+    }
+    public void SetMusicVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("MusicVolume", volume);
+    }
+    public void SetSFXVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("SFXVolume", volume);
+    }
 
     private void OnEnable()
     {
