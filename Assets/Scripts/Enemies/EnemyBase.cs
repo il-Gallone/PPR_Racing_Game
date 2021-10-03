@@ -16,6 +16,8 @@ public class EnemyBase : MonoBehaviour
     public AudioPlayer audioPlayer;
     public AudioClip[] bulletImpacts;
 
+    public GameObject shipExplosionEffect;
+
     //public bool dropScrap = false;
 
     private void Start()
@@ -34,6 +36,9 @@ public class EnemyBase : MonoBehaviour
                     Instantiate(scrapPrefab, transform.position, transform.rotation);
             // play explosion sound
             audioPlayer.PlayClipAt(audioPlayer.audioToPlay, .2f);
+
+            // particle effect
+            Instantiate(shipExplosionEffect, transform.position, transform.rotation);
         }
             
         //print(EnemyManager.numOfEnemiesInScene);

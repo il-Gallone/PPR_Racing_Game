@@ -392,8 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: -88336762400672774}
-  minPitch: 1.75
-  maxPitch: 2
+  minPitch: 1.7
+  maxPitch: 2.05

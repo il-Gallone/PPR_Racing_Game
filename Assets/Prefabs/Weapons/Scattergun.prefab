@@ -285,7 +285,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: 2568580434660947323}
   minPitch: 0.45
-  maxPitch: 0.6
+  maxPitch: 0.65
 --- !u!1 &5414375663323214952
 GameObject:
   m_ObjectHideFlags: 0

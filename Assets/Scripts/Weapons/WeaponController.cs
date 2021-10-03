@@ -78,7 +78,6 @@ public class WeaponController : MonoBehaviour
         if (gunAudioPlayer)
         {
             gunAudioPlayer.PlayClipAt(.1f);
-            print("PLAYING SHOOT SOUND");
         }
         else
             Debug.Log("ERROR: Please add the AudioPlayer script reference on the weapon prefab");

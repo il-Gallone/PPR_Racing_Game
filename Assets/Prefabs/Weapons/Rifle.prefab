@@ -280,11 +280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c93a3693cd0643953b58030ade2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnLoad: 1
   audioToPlay:
   - {fileID: 8300000, guid: 9c99f59a0321a91428f95d0f1ef1379a, type: 3}
   audioSource: {fileID: 7593940507297562454}
-  minPitch: 0.9
-  maxPitch: 1.1
+  minPitch: 0.85
+  maxPitch: 1.15
 --- !u!1 &5716533505949158441
 GameObject:
   m_ObjectHideFlags: 0
