@@ -67,6 +67,7 @@ public class EnemySwarmer : EnemyBase
             {
                 weapon.GetComponent<WeaponController>().shoot();
             }
+            weapon.GetComponent<WeaponController>().PlayShootSound();
         }
     }
 

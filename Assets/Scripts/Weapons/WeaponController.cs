@@ -46,14 +46,16 @@ public class WeaponController : MonoBehaviour
                 {
                     shoot();
                 }
-
+                PlayShootSound();
             }
-            if (timeSinceLastShot >= shootInterval && Input.GetButtonDown("Fire1"))          // for semi-auto
+            else if (timeSinceLastShot >= shootInterval && Input.GetButtonDown("Fire1"))          // for semi-auto
             {
                 for (int i = 0; i < projectileCount; i++)
                 {
                     shoot();
                 }
+
+                PlayShootSound();
             }
         }
     }
@@ -67,12 +69,18 @@ public class WeaponController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootPos.position, shootPos.rotation);
 
         bullet.transform.Rotate(0, 0, spread);
+        //print("shoot");
+        
+    }
 
+    public void PlayShootSound()
+    {
         if (gunAudioPlayer)
-            gunAudioPlayer.PlayAudioRandomPitch();
+        {
+            gunAudioPlayer.PlayClipAt(.1f);
+            print("PLAYING SHOOT SOUND");
+        }
         else
             Debug.Log("ERROR: Please add the AudioPlayer script reference on the weapon prefab");
-
-        //print("shoot");
     }
 }
