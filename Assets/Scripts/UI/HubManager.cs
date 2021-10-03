@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class HubManager : MonoBehaviour
 {
@@ -15,10 +16,42 @@ public class HubManager : MonoBehaviour
 
     public GameObject[] UIarray;
 
+    public AudioMixer masterAudioMixer;
+
+    public Slider master, music, sfx;
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateHubStats();
+
+        // set volume sliders
+        master.value = PlayerPrefs.GetFloat("MasterVolume");
+
+        music.value = PlayerPrefs.GetFloat("MusicVolume");
+
+        sfx.value = PlayerPrefs.GetFloat("SFXVolume");
+
+        //set actual volumes
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("MasterVolume", volume);
+    }
+    public void SetMusicVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+    public void SetSFXVolume(float volume)
+    {
+        masterAudioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 
     public void DisableAllUI(GameObject UItoEnable)
