@@ -19,6 +19,8 @@ public class HubManager : MonoBehaviour
     public AudioMixer masterAudioMixer;
 
     public Slider master, music, sfx;
+    public Toggle camRotationToggle;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,23 @@ public class HubManager : MonoBehaviour
         SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
         SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume"));
         SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume"));
+
+        //set cam toggle
+        if (PlayerPrefs.GetInt("CamRotation") == 1)
+            camRotationToggle.isOn = true;
+        else
+            camRotationToggle.isOn = false;
+    }
+
+    public void ToggleCamRotation()
+    {
+        if (camRotationToggle.isOn)
+        {
+            PlayerPrefs.SetInt("CamRotation", 1);
+        } else
+        {
+            PlayerPrefs.SetInt("CamRotation", 0);
+        }
     }
 
     public void SetMasterVolume(float volume)

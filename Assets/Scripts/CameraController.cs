@@ -9,12 +9,17 @@ public class CameraController : MonoBehaviour
     public float maxAngle;
     Rigidbody2D rigid2D;
 
-    public bool rotateCam = true; // need to setup a toggle setting for this
+    public bool rotateCam = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
+
+        if (PlayerPrefs.GetInt("CamRotation") == 1)
+            rotateCam = true;
+        else
+            rotateCam = false;
     }
 
     // Update is called once per frame
