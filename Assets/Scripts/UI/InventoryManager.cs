@@ -95,6 +95,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "An upgraded Rifle that fires slightly faster \nScrap Cost: 50 \nWeapon Part Cost: 5";
         }
+        if (itemName == "Missile Launcher Blueprint")
+        {
+            text = "Launches homing missiles \nScrap Cost: 150 \nWeapon Part Cost: 15";
+        }
         if (itemName == "Shield Generator Blueprint")
         {
             text = "A Module that allows for an auto regenerating shield that will take the hit from most damage types \nScrap Cost: 75 \nArmour Part Cost: 7";
@@ -110,7 +114,7 @@ public class InventoryManager : MonoBehaviour
     {
         //for now hard coded, TODO determine blueprint from file
         if(itemName == "Shotgun Blueprint" || itemName == "Machinegun Blueprint" || itemName == "Scattergun Blueprint" || itemName == "Auto-Rifle Blueprint"
-            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint")
+            || itemName == "Missile Launcher Blueprint" || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint")
         {
             return true;
         }
@@ -120,6 +124,23 @@ public class InventoryManager : MonoBehaviour
     public void FabriacteBlueprint()
     {
         //for now hard coded, TODO determine cost of blueprint from file
+        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
+        {
+            if (GameManager.instance.stats.scrap >= 150 && GameManager.instance.stats.weaponParts >= 15)
+            {
+                GameManager.instance.stats.scrap -= 150;
+                GameManager.instance.stats.weaponParts -= 15;
+                hubManager.UpdateInventory();
+                inventoryPopUp.SetActive(false);
+                if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint")
+                {
+                    GameManager.instance.stats.unlockedWeaponIDs.Add("Missile Launcher");
+                    GameManager.instance.stats.inventory.Remove("Missile Launcher Blueprint");
+                }
+            }
+            return;
+        }
+
         if (GameManager.instance.stats.inventory[activePopUp] == "Shotgun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 100 && GameManager.instance.stats.weaponParts >= 10)
@@ -150,6 +171,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
+            return;
         }
         if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Auto-Rifle Blueprint")
         {
@@ -181,6 +203,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
+            return;
         }
         if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint")
         {
@@ -209,6 +232,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
+            return;
         }
         if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint")
         {
@@ -237,6 +261,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
+            return;
         }
     }
 }
