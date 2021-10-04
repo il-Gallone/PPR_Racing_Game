@@ -25,6 +25,17 @@ public class HubManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set default settings
+        if (!PlayerPrefs.HasKey("CamRotation"))
+            PlayerPrefs.SetInt("CamRotation", 1);
+
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+            PlayerPrefs.SetFloat("MasterVolume", .75f);
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+            PlayerPrefs.SetFloat("MusicVolume", .75f);
+        if (!PlayerPrefs.HasKey("SFXVolume"))
+            PlayerPrefs.SetFloat("SFXVolume", .75f);
+
         UpdateHubStats();
 
         // set volume sliders
@@ -44,17 +55,22 @@ public class HubManager : MonoBehaviour
             camRotationToggle.isOn = true;
         else
             camRotationToggle.isOn = false;
+
+        print(PlayerPrefs.GetInt("CamRotation"));
+
     }
 
     public void ToggleCamRotation()
     {
-        if (camRotationToggle.isOn)
-        {
-            PlayerPrefs.SetInt("CamRotation", 1);
-        } else
+        if (PlayerPrefs.GetInt("CamRotation") == 1)
         {
             PlayerPrefs.SetInt("CamRotation", 0);
+        } else
+        {
+            PlayerPrefs.SetInt("CamRotation", 1);
         }
+
+        print(gameObject.name +": " + PlayerPrefs.GetInt("CamRotation"));
     }
 
     public void SetMasterVolume(float volume)
