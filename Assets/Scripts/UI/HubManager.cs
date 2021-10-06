@@ -204,7 +204,7 @@ public class HubManager : MonoBehaviour
     }
     public void ModuleLeft()
     {
-        if (GameManager.instance.stats.unlockedModuleIDs.Count > 1 && GameManager.instance.stats.currentModuleIDNumber != -1)
+        if (GameManager.instance.stats.unlockedModuleIDs.Count > 0 && GameManager.instance.stats.currentModuleIDNumber != -1)
         {
             if (GameManager.instance.stats.currentModuleIDNumber > 0)
             {
@@ -223,7 +223,7 @@ public class HubManager : MonoBehaviour
 
     public void ModuleRight()
     {
-        if (GameManager.instance.stats.unlockedModuleIDs.Count > 1 && GameManager.instance.stats.currentModuleIDNumber != -1)
+        if (GameManager.instance.stats.unlockedModuleIDs.Count > 0 && GameManager.instance.stats.currentModuleIDNumber != -1)
         {
             if (GameManager.instance.stats.currentModuleIDNumber < GameManager.instance.stats.unlockedModuleIDs.Count - 1)
             {
