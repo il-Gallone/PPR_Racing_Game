@@ -23,6 +23,9 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.gamePaused)
+            return;
+
         // Shooting check
         timeSinceLastShot += Time.deltaTime;
         //Check if weapon is controlled by player
@@ -38,7 +41,6 @@ public class WeaponController : MonoBehaviour
             // weapon rotates slower when mouse is close
             transform.up = Vector3.Lerp(transform.up, newPos, Time.deltaTime * turnSpeed);
             //transform.up = newPos;
-
 
             if (automatic && timeSinceLastShot >= shootInterval && Input.GetButton("Fire1")) // for automatic fire
             {

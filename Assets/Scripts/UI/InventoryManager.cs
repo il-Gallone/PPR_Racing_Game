@@ -124,7 +124,7 @@ public class InventoryManager : MonoBehaviour
     public void FabriacteBlueprint()
     {
         //for now hard coded, TODO determine cost of blueprint from file
-        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
+        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 150 && GameManager.instance.stats.weaponParts >= 15)
             {
@@ -137,11 +137,22 @@ public class InventoryManager : MonoBehaviour
                     GameManager.instance.stats.unlockedWeaponIDs.Add("Missile Launcher");
                     GameManager.instance.stats.inventory.Remove("Missile Launcher Blueprint");
                 }
+                for (int i = 0; i < inventoryButtons.Length; i++)
+                {
+                    inventoryButtons[i].GetComponent<Button>().interactable = false;
+                }
+                for (int i = 0; i < GameManager.instance.stats.inventory.Count; i++)
+                {
+                    if (i < inventoryButtons.Length)
+                    {
+                        inventoryButtons[i].GetComponent<Button>().interactable = true;
+                    }
+                }
             }
-            return;
+            
         }
 
-        if (GameManager.instance.stats.inventory[activePopUp] == "Shotgun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Shotgun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Machinegun Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 100 && GameManager.instance.stats.weaponParts >= 10)
             {
@@ -171,9 +182,9 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-            return;
+            
         }
-        if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Auto-Rifle Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Auto-Rifle Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 50 && GameManager.instance.stats.weaponParts >= 5)
             {
@@ -203,9 +214,9 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-            return;
+            
         }
-        if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.armourParts >= 7)
             {
@@ -232,9 +243,9 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-            return;
+            
         }
-        if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -261,7 +272,7 @@ public class InventoryManager : MonoBehaviour
                     }
                 }
             }
-            return;
+            
         }
     }
 }
