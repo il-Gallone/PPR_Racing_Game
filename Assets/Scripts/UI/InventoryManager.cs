@@ -131,7 +131,8 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= 150;
                 GameManager.instance.stats.weaponParts -= 15;
                 hubManager.UpdateInventory();
-                inventoryPopUp.SetActive(false);
+                //inventoryPopUp.SetActive(false);
+                fadeIn = false;
                 if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint")
                 {
                     GameManager.instance.stats.unlockedWeaponIDs.Add("Missile Launcher");
@@ -159,7 +160,7 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= 100;
                 GameManager.instance.stats.weaponParts -= 10;
                 hubManager.UpdateInventory();
-                inventoryPopUp.SetActive(false);
+                fadeIn = false;
                 if (GameManager.instance.stats.inventory[activePopUp] == "Shotgun Blueprint")
                 {
                     GameManager.instance.stats.unlockedWeaponIDs.Add("Shotgun");
@@ -191,7 +192,7 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= 50;
                 GameManager.instance.stats.weaponParts -= 5;
                 hubManager.UpdateInventory();
-                inventoryPopUp.SetActive(false);
+                fadeIn = false;
                 if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint")
                 {
                     GameManager.instance.stats.unlockedWeaponIDs.Add("Scattergun");
@@ -223,7 +224,7 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= 75;
                 GameManager.instance.stats.armourParts -= 7;
                 hubManager.UpdateInventory();
-                inventoryPopUp.SetActive(false);
+                fadeIn = false;
                 GameManager.instance.stats.unlockedModuleIDs.Add("Shield Generator");
                 GameManager.instance.stats.inventory.Remove("Shield Generator Blueprint");
                 if (GameManager.instance.stats.currentModuleIDNumber == -1)
@@ -252,7 +253,7 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= 75;
                 GameManager.instance.stats.engineParts -= 7;
                 hubManager.UpdateInventory();
-                inventoryPopUp.SetActive(false);
+                fadeIn = false;
                 GameManager.instance.stats.unlockedModuleIDs.Add("Speed Booster");
                 GameManager.instance.stats.inventory.Remove("Speed Booster Blueprint");
                 if (GameManager.instance.stats.currentModuleIDNumber == -1)
