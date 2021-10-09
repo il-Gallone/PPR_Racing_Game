@@ -5,7 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public float energy = 10f;
-    public float health = 0f, asteroidHealth = 1f;
+    public float health = 0f, asteroidHealth = 50f;
 
     public SpriteRenderer spriteRenderer;
 
@@ -36,6 +36,38 @@ public class Asteroid : MonoBehaviour
         {
             transform.position -= transform.position / transform.position.magnitude * (GameManager.instance.levelLimits + 5)*2;
         }
+    }
+
+    public void LaserHit(float damage, float miningPrecision)
+    {
+        // check asteroid health
+        asteroidHealth -= damage;
+        if (asteroidHealth > 0)
+        {
+            return;
+        }
+
+        // resource gets damaged depending on the weapon
+        GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
+        pickup.GetComponent<ResourcePickup>().hpGiven = health * miningPrecision;
+        pickup.GetComponent<ResourcePickup>().energyGiven = energy * miningPrecision;
+        float totalResources = energy + health;
+        SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].color = new Color(health / totalResources, energy / totalResources, energy / totalResources);
+        }
+
+        //play destroy sound
+        audioPlayer.PlayClipAt(destroySounds, .2f);
+
+        // add explosion before destroying
+        GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(explosion, explosion.GetComponent<ParticleSystem>().startLifetime); // destroy object when done
+
+        Destroy(gameObject);
+
+        asteroidHealth = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

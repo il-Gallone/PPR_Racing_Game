@@ -31,16 +31,7 @@ public class WeaponController : MonoBehaviour
         //Check if weapon is controlled by player
         if (isPlayerWeapon)
         {
-            // Rotate weapon to mouse
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            Vector3 newPos = mousePos - transform.position;
-            newPos = new Vector3(newPos.x, newPos.y, 0);
-
-            // smoother rotation; doesn't work as ideal as possible right now -
-            // weapon rotates slower when mouse is close
-            transform.up = Vector3.Lerp(transform.up, newPos, Time.deltaTime * turnSpeed);
-            //transform.up = newPos;
+            RotateWeapon();
 
             if (automatic && timeSinceLastShot >= shootInterval && Input.GetButton("Fire1")) // for automatic fire
             {
@@ -62,7 +53,21 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public void shoot()
+    protected void RotateWeapon()
+    {
+        // Rotate weapon to mouse
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 newPos = mousePos - transform.position;
+        newPos = new Vector3(newPos.x, newPos.y, 0);
+
+        // smoother rotation; doesn't work as ideal as possible right now -
+        // weapon rotates slower when mouse is close
+        transform.up = Vector3.Lerp(transform.up, newPos, Time.deltaTime * turnSpeed);
+        //transform.up = newPos;
+    }
+
+    public virtual void shoot()
     {
         timeSinceLastShot = 0;
 

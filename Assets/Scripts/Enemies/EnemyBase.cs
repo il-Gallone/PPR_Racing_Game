@@ -44,6 +44,14 @@ public class EnemyBase : MonoBehaviour
         //print(EnemyManager.numOfEnemiesInScene);
     }
 
+    public virtual void CheckHP()
+    {
+        if (HP <= 0)
+        {
+            HPReachedZero();
+        }
+    }
+
     public virtual void HPReachedZero()
     {
         //Debug.Log("Enemy destroyed");
@@ -59,18 +67,12 @@ public class EnemyBase : MonoBehaviour
 
             HP -= collision.gameObject.GetComponent<BulletController>().damage;
             collision.GetComponent<BulletController>().DisableBullet();
-            if (HP <= 0)
-            {
-                HPReachedZero();
-            }
+            CheckHP();
         }
         if (collision.CompareTag("Explosion"))
         {
             HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
-            if (HP <= 0)
-            {
-                HPReachedZero();
-            }
+            CheckHP();
         }
     }
 }

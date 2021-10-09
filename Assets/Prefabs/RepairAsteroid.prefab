@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 0
   health: 10
-  asteroidHealth: 1
+  asteroidHealth: 4
   spriteRenderer: {fileID: 7180167219812734117}
   rigid2D: {fileID: 7105079780669722831}
   pickupPrefab: {fileID: 8914297163961666684, guid: 62477e431b0faf848baacd5bcc032866, type: 3}
