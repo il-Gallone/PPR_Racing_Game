@@ -501,10 +501,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
   audioToPlay:
-  - {fileID: 8300000, guid: 060026f76bbdcc041b219d601ad967e3, type: 3}
+  - {fileID: 8300000, guid: 09f85dd868151604aacf757002862d5c, type: 3}
   audioSource: {fileID: 2180819922694865926}
-  minPitch: 0.7
-  maxPitch: 1.2
+  minPitch: 0.9
+  maxPitch: 1.1
 --- !u!114 &5943564831200569187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,5 +535,5 @@ MonoBehaviour:
   fadeAmount: 5
   miningPrecision: 0.8
   beam: {fileID: 719748953}
-  laserStart: {fileID: 0}
-  laserContinue: {fileID: 0}
+  laserStart: {fileID: 8300000, guid: 09f85dd868151604aacf757002862d5c, type: 3}
+  laserContinue: {fileID: 8300000, guid: 1e602eb63e376a74e8b358ec992d795b, type: 3}

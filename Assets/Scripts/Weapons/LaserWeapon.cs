@@ -10,6 +10,8 @@ public class LaserWeapon : WeaponController
 
     public AudioClip laserStart, laserContinue;
 
+    bool firing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,8 @@ public class LaserWeapon : WeaponController
     {
         if (PauseMenu.gamePaused)
             return;
-
+        
+        // fade beam in/out
         if (Input.GetButton("Fire1"))
         {
             beam.startColor = new Color(beam.startColor.r, beam.startColor.g, beam.startColor.b, beam.startColor.a + (fadeAmount * Time.deltaTime));
@@ -41,6 +44,23 @@ public class LaserWeapon : WeaponController
                 beam.startWidth = 0;
         }
 
+        // determine whether to play sound or not
+        if (Input.GetButtonUp("Fire1"))
+        {
+            firing = false;
+            GetComponent<AudioSource>().Stop();
+            CancelInvoke();
+            gunAudioPlayer.audioToPlay[0] = laserStart;
+        }
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            firing = true;
+            gunAudioPlayer.PlayAudioRandomPitch();
+            Invoke("LaserContinue", laserStart.length);
+            gunAudioPlayer.audioToPlay[0] = laserContinue;
+        }
+            
+
         // Shooting check
         timeSinceLastShot += Time.deltaTime;
         //Check if weapon is controlled by player
@@ -57,10 +77,15 @@ public class LaserWeapon : WeaponController
                 }
                 //PlayShootSound();
             }
-            else
-            {
-                
-            }
+        }
+    }
+
+    void LaserContinue()
+    {
+        if (firing)
+        {
+            Invoke("LaserContinue", laserContinue.length);
+            gunAudioPlayer.PlayAudioRandomPitch();
         }
     }
 
