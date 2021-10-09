@@ -10,6 +10,9 @@ public class LaserWeapon : WeaponController
 
     public AudioClip laserStart, laserContinue;
 
+    public GameObject sparksPrefab;
+    public float sparkScale = 0.25f;
+
     bool firing = false;
 
     // Start is called before the first frame update
@@ -56,7 +59,15 @@ public class LaserWeapon : WeaponController
         {
             firing = true;
             gunAudioPlayer.PlayAudioRandomPitch();
-            Invoke("LaserContinue", laserStart.length);
+            float offset;
+            if (GetComponent<AudioSource>().pitch < 1)
+                offset = laserStart.length + (laserStart.length - (laserStart.length * GetComponent<AudioSource>().pitch)) - .1f;
+            else if (GetComponent<AudioSource>().pitch > 1)
+                offset = laserStart.length - ((laserStart.length * GetComponent<AudioSource>().pitch) - laserStart.length) -.04f;
+            else
+                offset = laserStart.length;
+
+                Invoke("LaserContinue", offset);
             gunAudioPlayer.audioToPlay[0] = laserContinue;
         }
             
@@ -84,7 +95,15 @@ public class LaserWeapon : WeaponController
     {
         if (firing)
         {
-            Invoke("LaserContinue", laserContinue.length);
+            float offset;
+            if (GetComponent<AudioSource>().pitch < 1)
+                offset = laserContinue.length + (laserContinue.length - (laserContinue.length * GetComponent<AudioSource>().pitch)) - .1f;
+            else if (GetComponent<AudioSource>().pitch > 1)
+                offset = laserContinue.length - ((laserContinue.length * GetComponent<AudioSource>().pitch) - laserContinue.length) - .04f;
+            else
+                offset = laserContinue.length;
+
+            Invoke("LaserContinue", offset);
             gunAudioPlayer.PlayAudioRandomPitch();
         }
     }
@@ -97,16 +116,22 @@ public class LaserWeapon : WeaponController
 
             float distance = Vector2.Distance(hit.point, transform.position);
 
+            sparksPrefab.GetComponent<ParticleSystem>().startColor = beam.startColor;
+
             if (hit.collider.CompareTag("EnergyAsteroid") || hit.collider.CompareTag("RepairAsteroid"))
             {
                 beam.SetPosition(1, new Vector3(0, distance, 1));
                 hit.transform.GetComponent<Asteroid>().LaserHit(damage, miningPrecision);
+                GameObject sparks = Instantiate(sparksPrefab, hit.point, transform.rotation);
+                sparks.transform.localScale = new Vector3(sparkScale, sparkScale, sparkScale);
             }
             else if (hit.collider.CompareTag("Swarmer"))
             {
                 beam.SetPosition(1, new Vector3(0, distance, 1));
                 hit.transform.GetComponent<EnemyBase>().HP -= damage;
                 hit.transform.GetComponent<EnemyBase>().CheckHP();
+                GameObject sparks = Instantiate(sparksPrefab, hit.point, transform.rotation);
+                sparks.transform.localScale = new Vector3(sparkScale, sparkScale, sparkScale);
             }
             else
                 beam.SetPosition(1, new Vector3(0, maxRange, 1));
