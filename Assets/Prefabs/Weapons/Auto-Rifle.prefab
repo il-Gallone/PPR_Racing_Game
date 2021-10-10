@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 5
-  bulletPrefab: {fileID: 1309626514988571176, guid: e3d01255e9625664c81f41f6ba9752d9, type: 3}
+  bulletPrefab:
+  - {fileID: 1309626514988571176, guid: e3d01255e9625664c81f41f6ba9752d9, type: 3}
   shootPos: {fileID: 7457081946431610494}
   isPlayerWeapon: 1
   automatic: 1

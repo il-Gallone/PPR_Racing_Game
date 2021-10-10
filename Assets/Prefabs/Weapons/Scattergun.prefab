@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 5
-  bulletPrefab: {fileID: 1309626514988571176, guid: e3d01255e9625664c81f41f6ba9752d9, type: 3}
+  bulletPrefab:
+  - {fileID: 1309626514988571176, guid: e3d01255e9625664c81f41f6ba9752d9, type: 3}
   shootPos: {fileID: 5414375664268898680}
   isPlayerWeapon: 1
   automatic: 0
@@ -59,6 +60,8 @@ MonoBehaviour:
   maxSpread: 6
   projectileCount: 3
   timeSinceLastShot: 0
+  shakeIntensity: 0.5
+  shakeDuration: 0.25
   gunAudioPlayer: {fileID: 2774699242649514137}
 --- !u!120 &375470477081048940
 LineRenderer:

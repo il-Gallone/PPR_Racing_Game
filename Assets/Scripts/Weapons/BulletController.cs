@@ -35,7 +35,8 @@ public class BulletController : MonoBehaviour
     public void DisableBullet()
     {
         bulletCollider.enabled = false;
-        bulletSprite.enabled = false;
+        if (bulletSprite)
+            bulletSprite.enabled = false;
         rb.velocity = Vector2.zero;
         stopMoving = true;
 

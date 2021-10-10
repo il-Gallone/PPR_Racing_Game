@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
     // Controls the player's weapon
     public float turnSpeed = 5f;
 
-    public GameObject bulletPrefab;
+    public GameObject[] bulletPrefab;
     public Transform shootPos;
 
     public bool isPlayerWeapon = true;
@@ -78,7 +78,8 @@ public class WeaponController : MonoBehaviour
 
         float spread = Random.Range(minSpread, maxSpread);
 
-        GameObject bullet = Instantiate(bulletPrefab, shootPos.position, shootPos.rotation);
+        int randomBullet = Random.Range(0, bulletPrefab.Length);
+        GameObject bullet = Instantiate(bulletPrefab[randomBullet], shootPos.position, shootPos.rotation);
 
         bullet.transform.Rotate(0, 0, spread);
         //print("shoot");

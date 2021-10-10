@@ -129,7 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
-  bulletPrefab: {fileID: 2614601494658911661, guid: 50758c411dac3c84b85c28166a5798c6, type: 3}
+  bulletPrefab:
+  - {fileID: 2614601494658911661, guid: 50758c411dac3c84b85c28166a5798c6, type: 3}
   shootPos: {fileID: 46258190749955581}
   isPlayerWeapon: 0
   automatic: 1
@@ -138,6 +139,8 @@ MonoBehaviour:
   maxSpread: 0
   projectileCount: 1
   timeSinceLastShot: 0
+  shakeIntensity: 0.5
+  shakeDuration: 0.25
   gunAudioPlayer: {fileID: 46258190959346231}
 --- !u!82 &46258190959346230
 AudioSource:
@@ -367,6 +370,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7782397d9ae24724b8ad1cfab6fe96b1, type: 3}
   - {fileID: 8300000, guid: 4998c88be12e891439879e4a9819ae20, type: 3}
   shipExplosionEffect: {fileID: 2552777224869398541, guid: 9e3f11d5e5dad6f4ea388bccb998a530, type: 3}
+  shakeIntensity: 0.75
+  shakeDuration: 1
   attackRadius: 4
   player: {fileID: 0}
   potentialTargets: []
