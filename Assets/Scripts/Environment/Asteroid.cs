@@ -79,6 +79,7 @@ public class Asteroid : MonoBehaviour
 
             //check asteroid health
             asteroidHealth -= collision.GetComponent<BulletController>().damage;
+            collision.GetComponent<BulletController>().DisableBullet();
             if (asteroidHealth > 0)
             {
                 return;
@@ -99,8 +100,6 @@ public class Asteroid : MonoBehaviour
 
             //play destroy sound
             audioPlayer.PlayClipAt(destroySounds, .2f);
-            
-            collision.GetComponent<BulletController>().DisableBullet();
 
             // add explosion before destroying
             GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);

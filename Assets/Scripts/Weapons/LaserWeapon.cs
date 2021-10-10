@@ -125,7 +125,7 @@ public class LaserWeapon : WeaponController
                 GameObject sparks = Instantiate(sparksPrefab, hit.point, transform.rotation);
                 sparks.transform.localScale = new Vector3(sparkScale, sparkScale, sparkScale);
             }
-            else if (hit.collider.CompareTag("Swarmer"))
+            else if (hit.collider.CompareTag("Swarmer") || hit.collider.CompareTag("Enemy"))
             {
                 beam.SetPosition(1, new Vector3(0, distance, 1));
                 hit.transform.GetComponent<EnemyBase>().HP -= damage;

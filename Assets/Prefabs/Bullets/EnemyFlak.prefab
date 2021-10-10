@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 1276638174015957030}
   - component: {fileID: 5394876001970194933}
   - component: {fileID: 2194490212250745318}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: EnemyFlak
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
