@@ -171,6 +171,8 @@ MonoBehaviour:
   maxSpread: 5
   projectileCount: 1
   timeSinceLastShot: 0
+  shakeIntensity: 0.45
+  shakeDuration: 0.15
   gunAudioPlayer: {fileID: 449685059538322731}
 --- !u!120 &-2129630475165332802
 LineRenderer:

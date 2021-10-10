@@ -19,6 +19,9 @@ public class WeaponController : MonoBehaviour
 
     public float timeSinceLastShot;
 
+    [Header("Screen Shake Settings")]
+    public float shakeIntensity = .5f, shakeDuration = .25f;
+
     public AudioPlayer gunAudioPlayer;
 
     private void Update()
@@ -40,15 +43,17 @@ public class WeaponController : MonoBehaviour
                     shoot();
                 }
                 PlayShootSound();
+                ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             }
             else if (timeSinceLastShot >= shootInterval && Input.GetButtonDown("Fire1"))          // for semi-auto
             {
                 for (int i = 0; i < projectileCount; i++)
                 {
                     shoot();
+                    
                 }
-
                 PlayShootSound();
+                ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             }
         }
     }

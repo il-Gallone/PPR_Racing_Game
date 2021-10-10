@@ -18,6 +18,7 @@ public class EnemyBase : MonoBehaviour
 
     public GameObject shipExplosionEffect;
 
+    public float shakeIntensity = .75f, shakeDuration = 1f;
     //public bool dropScrap = false;
 
     private void Start()
@@ -39,6 +40,7 @@ public class EnemyBase : MonoBehaviour
 
             // particle effect
             Instantiate(shipExplosionEffect, transform.position, transform.rotation);
+            ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
         }
             
         //print(EnemyManager.numOfEnemiesInScene);

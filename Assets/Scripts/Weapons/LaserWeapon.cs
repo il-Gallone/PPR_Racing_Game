@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserWeapon : WeaponController
 {
+    [Header("Laser Settings")]
     public float damage = .1f, maxRange = 10f, width = .05f, widthFadeAmount = .05f, fadeAmount = 5f, miningPrecision = .8f;
 
     public LineRenderer beam;
@@ -86,7 +87,7 @@ public class LaserWeapon : WeaponController
                 {
                     shoot();
                 }
-                //PlayShootSound();
+                ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             }
         }
     }

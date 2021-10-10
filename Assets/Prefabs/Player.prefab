@@ -142,6 +142,8 @@ MonoBehaviour:
   screenFlash: {fileID: 0}
   hpBar: {fileID: 0}
   energyBar: {fileID: 0}
+  shakeIntensity: 0.6
+  shakeDuration: 0.3
 --- !u!50 &5856908964848828851
 Rigidbody2D:
   serializedVersion: 4

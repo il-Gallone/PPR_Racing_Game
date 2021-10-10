@@ -40,9 +40,15 @@ public class PlayerController : MonoBehaviour
 
     public Animator screenFlash, hpBar, energyBar;
 
+    ObjectiveIndicator indicator;
+
+    public float shakeIntensity = .6f, shakeDuration = .3f;
+
     // Start is called before the first frame update
     void Start()
     {
+        indicator = GameObject.Find("ObjectiveIndicator").GetComponent<ObjectiveIndicator>();
+
         audioPlayer = GetComponent<AudioPlayer>();
 
         engineMultiplier = 1 + PlayerPrefs.GetInt("PlayerEngineLevel")*0.1f;
@@ -188,6 +194,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ScreenFlash();
+        ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
         if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
         {
             if(moduleResource < collision.relativeVelocity.magnitude * 5)
@@ -239,6 +246,13 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
 
             objectiveCountText.text = "Objectives: " + objectiveCount;
+
+            if (indicator)
+                indicator.UpdateArrayDelayed(.5f);
+            else
+            {
+                print("indicator not found");
+            }
         }
         if(collision.CompareTag("EnemyBullet"))
         {

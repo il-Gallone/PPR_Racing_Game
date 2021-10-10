@@ -18,6 +18,8 @@ public class Asteroid : MonoBehaviour
 
     public GameObject explosionEffect;
 
+    public float shakeIntensity = .4f, shakeDuration = .5f;
+
     private void Start()
     {
         audioPlayer = GetComponent<AudioPlayer>();
@@ -36,6 +38,12 @@ public class Asteroid : MonoBehaviour
         {
             transform.position -= transform.position / transform.position.magnitude * (GameManager.instance.levelLimits + 5)*2;
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (asteroidHealth <= 0)
+            ScreenShake.Instance.ShakeCam(.2f, .25f);
     }
 
     public void LaserHit(float damage, float miningPrecision)
@@ -107,10 +115,5 @@ public class Asteroid : MonoBehaviour
 
             Destroy(gameObject);
         }
-
-
-
-
-
     }
 }
