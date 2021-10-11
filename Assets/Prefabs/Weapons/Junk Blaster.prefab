@@ -371,12 +371,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
   audioToPlay:
-  - {fileID: 8300000, guid: 9a9dbbdd6286ac14a8c2f7ecfc77b76a, type: 3}
-  - {fileID: 8300000, guid: cc50719520bb6fb428c91a63aca2a360, type: 3}
-  - {fileID: 8300000, guid: 8088392528b5c4e48807b4dee89e0133, type: 3}
+  - {fileID: 8300000, guid: 53020f92bceb39543a83682780d4fab4, type: 3}
   audioSource: {fileID: 622109296204081762}
-  minPitch: 0.63
-  maxPitch: 0.82
+  minPitch: 0.85
+  maxPitch: 1.15
 --- !u!114 &1648872929873948257
 MonoBehaviour:
   m_ObjectHideFlags: 0

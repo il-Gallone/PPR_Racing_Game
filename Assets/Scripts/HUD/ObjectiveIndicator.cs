@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectiveIndicator : MonoBehaviour
 {
     public float rotateSpeed = 1f;
+    public float updateInterval = 1f;
 
     Transform target;
     Transform player;
@@ -28,6 +29,7 @@ public class ObjectiveIndicator : MonoBehaviour
             }
         }
 
+        Invoke("UpdateArray", updateInterval);
         //transform.position = target.transform.position; // for testing
     }
 

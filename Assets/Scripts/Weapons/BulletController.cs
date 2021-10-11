@@ -69,7 +69,6 @@ public class BulletController : MonoBehaviour
             DisableBullet();
             PlayHitEffects(collision);
 
-            //change colour
         }
 
         if (collision.CompareTag("Player") && CompareTag("EnemyBullet"))
@@ -77,7 +76,6 @@ public class BulletController : MonoBehaviour
             DisableBullet();
             PlayHitEffects(collision);
 
-            //leave blue?
         }
     }
 }

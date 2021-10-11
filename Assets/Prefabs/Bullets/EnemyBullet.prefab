@@ -71,7 +71,7 @@ MonoBehaviour:
   speed: 10
   damage: 4
   energyDamage: 0
-  selfDestructTime: 10
+  selfDestructTime: 5
   miningPrecision: 0.5
   bulletSprite: {fileID: 3237212778178340210}
   shieldHit: {fileID: 2260941908734862069, guid: 11f477ef10836ea4ea1114d57a53b483, type: 3}

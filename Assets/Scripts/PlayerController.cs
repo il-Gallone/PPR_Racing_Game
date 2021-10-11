@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ScreenFlash();
-        ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
+        //ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
         if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
         {
             if(moduleResource < collision.relativeVelocity.magnitude * 5)
@@ -257,6 +257,7 @@ public class PlayerController : MonoBehaviour
         if(collision.CompareTag("EnemyBullet"))
         {
             ScreenFlash();
+            //ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             audioPlayer.PlayAudioRandomPitch(bulletImpacts, 1.65f, 1.9f);
             if(GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
             {
@@ -292,6 +293,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Explosion"))
         {
             ScreenFlash();
+            //ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             if (GameManager.instance.stats.currentModuleID == "Shield Generator" && moduleResource > 0)
             {
                 if (moduleResource < collision.gameObject.GetComponent<ExplosionController>().damage)
@@ -321,6 +323,7 @@ public class PlayerController : MonoBehaviour
 
     public void ScreenFlash()
     {
+        ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
         screenFlash.SetTrigger("TakeDamage");
         hpBar.SetFloat("HP", HP);
     }
