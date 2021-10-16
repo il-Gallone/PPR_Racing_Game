@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 8236001184385939135}
   - component: {fileID: -6381578452004934964}
   - component: {fileID: -8465209088977633408}
+  - component: {fileID: -9177443068204970771}
   m_Layer: 0
   m_Name: Detonator
   m_TagString: Enemy
@@ -476,6 +477,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4998c88be12e891439879e4a9819ae20, type: 3}
   - {fileID: 8300000, guid: 7782397d9ae24724b8ad1cfab6fe96b1, type: 3}
   shipExplosionEffect: {fileID: 2552777224869398541, guid: 9e3f11d5e5dad6f4ea388bccb998a530, type: 3}
+  shakeIntensity: 0.75
+  shakeDuration: 1
   detonationTime: 3
   isDetonating: 0
   detonationRadius: 2
@@ -635,6 +638,18 @@ MonoBehaviour:
   audioSource: {fileID: -6381578452004934964}
   minPitch: 0.9
   maxPitch: 1.1
+--- !u!114 &-9177443068204970771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236001184385939128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d2b43b52dcda40bb1c0023e7bfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8236001183812797600
 PrefabInstance:
   m_ObjectHideFlags: 0

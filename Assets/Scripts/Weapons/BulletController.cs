@@ -59,7 +59,7 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnHit(Collider2D collision)
     {
         if (collision.CompareTag("EnergyAsteroid") || collision.CompareTag("RepairAsteroid"))
             return;
@@ -77,5 +77,10 @@ public class BulletController : MonoBehaviour
             PlayHitEffects(collision);
 
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        OnHit(collision);
     }
 }

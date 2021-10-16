@@ -2392,6 +2392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0.5
+  updateInterval: 1
 --- !u!212 &861227144
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6415922411721323696}
   - component: {fileID: 6415922411721323697}
   - component: {fileID: 6801449749585707324}
+  - component: {fileID: 2168854010112814337}
   m_Layer: 0
   m_Name: Collector
   m_TagString: Enemy
@@ -277,6 +278,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4995122
+--- !u!114 &2168854010112814337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415922411721323699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d2b43b52dcda40bb1c0023e7bfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBase: {fileID: 0}
 --- !u!1 &6415922412036218330
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +617,10 @@ PrefabInstance:
     - target: {fileID: 8598510659857578767, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598510659857578767, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}

@@ -128,6 +128,7 @@ MonoBehaviour:
   - {fileID: 5185083808530608034, guid: 3d48d3f25d16ebc41bae382a3aeca3bc, type: 3}
   - {fileID: 7783963145842386270, guid: b4ba337a57b474145a162262bddebe4e, type: 3}
   - {fileID: 8856267150345505594, guid: 997e0f784427b6145a98e7fa1d1dbca3, type: 3}
+  - {fileID: 1956530085071937038, guid: 3dbc9f8cf86ce2140bb3f1cdce43b8c6, type: 3}
   moduleResource: 0
   moduleCooldown: 0
   currentModule: 

@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 46258191275305822}
   - component: {fileID: 46258191275305823}
   - component: {fileID: 46258191275305820}
+  - component: {fileID: -5874448443066358723}
   m_Layer: 0
   m_Name: CollectorPacifist
   m_TagString: Enemy
@@ -533,6 +534,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.595, y: 1.27875}
   m_Direction: 0
+--- !u!114 &-5874448443066358723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46258191275305821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d2b43b52dcda40bb1c0023e7bfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBase: {fileID: 0}
 --- !u!1001 &7315670518603957726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,6 +569,10 @@ PrefabInstance:
     - target: {fileID: 4325423134505042456, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598510659857578767, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31c53412bcd39a84aae7699a977e9ace, type: 3}

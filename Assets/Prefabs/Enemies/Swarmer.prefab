@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 7108456072349096474}
   - component: {fileID: -7113441845052782822}
   - component: {fileID: 7783570613583832617}
+  - component: {fileID: 1201192632238378290}
   m_Layer: 0
   m_Name: Swarmer
   m_TagString: Swarmer
@@ -529,6 +530,18 @@ MonoBehaviour:
   audioSource: {fileID: -7113441845052782822}
   minPitch: 0.74
   maxPitch: 0.92
+--- !u!114 &1201192632238378290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231631030132169303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d2b43b52dcda40bb1c0023e7bfa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7751834064515005357
 PrefabInstance:
   m_ObjectHideFlags: 0
