@@ -6,7 +6,6 @@ public class EnemyStatus : MonoBehaviour
 {
     public EnemyBase enemyBase;
 
-
     void Start()
     {
         enemyBase = GetComponent<EnemyBase>();
@@ -16,6 +15,11 @@ public class EnemyStatus : MonoBehaviour
     {
         print("enemy enabled");
         enemyBase.enabled = true;
+
+        //if (GetComponentInChildren<Animator>().CompareTag("Electricity"))
+        //{
+        //    Destroy(GetComponentInChildren<Animator>())
+        //}
     }
     //public IEnumerator EnableEnemy(float disableTime)
     //{

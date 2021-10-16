@@ -8,10 +8,20 @@ public class IonShot : BulletController
 
     public float disableTime = 5f; // the time a hit enemy will stay disabled
 
+    public GameObject electricityPrefab;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.gameObject)
+            return;
         if (collision.GetComponentInChildren<RadarPing>().CompareTag("Enemy"))
         {
+            GameObject electricity = Instantiate(electricityPrefab, collision.transform);
+            Destroy(electricity, disableTime);
+
+            //apply random rotation
+            electricity.transform.Rotate(0, 0, Random.Range(0, 360));
+
             collision.GetComponent<EnemyStatus>().CancelInvoke();
             collision.GetComponent<EnemyStatus>().Invoke("EnableEnemy", disableTime);
 

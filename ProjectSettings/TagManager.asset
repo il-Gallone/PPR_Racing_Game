@@ -18,6 +18,7 @@ TagManager:
   - Scrap
   - Shield
   - Enemy
+  - Electricity
   layers:
   - Default
   - TransparentFX
