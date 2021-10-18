@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnLoad: 1
   audioToPlay:
-  - {fileID: 8300000, guid: 53020f92bceb39543a83682780d4fab4, type: 3}
+  - {fileID: 8300000, guid: cb8682763a36b86479e42ca84fcbfa75, type: 3}
   audioSource: {fileID: 2886473121509591446}
   minPitch: 0.85
   maxPitch: 1.15

@@ -111,6 +111,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "Disables enemy ships temporarily \nScrap Cost: 150 \nWeapon Part Cost: 15";
         }
+        if (itemName == "Rebounder Weapon Blueprint")
+        {
+            text = "Deflects enemy projectiles \nScrap Cost: 300 \nWeapon Part Cost: 20";
+        }
         if (itemName == "Shield Generator Blueprint")
         {
             text = "A Module that allows for an auto regenerating shield that will take the hit from most damage types \nScrap Cost: 75 \nArmour Part Cost: 7";
@@ -127,7 +131,7 @@ public class InventoryManager : MonoBehaviour
         //for now hard coded, TODO determine blueprint from file
         if(itemName == "Shotgun Blueprint" || itemName == "Machinegun Blueprint" || itemName == "Scattergun Blueprint" || itemName == "Auto-Rifle Blueprint"
             || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
-            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint")
+            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint")
         {
             return true;
         }
@@ -137,6 +141,34 @@ public class InventoryManager : MonoBehaviour
     public void FabriacteBlueprint()
     {
         //for now hard coded, TODO determine cost of blueprint from file
+        if (GameManager.instance.stats.inventory[activePopUp] == "Rebounder Weapon Blueprint")
+        {
+            if (GameManager.instance.stats.scrap >= 300 && GameManager.instance.stats.weaponParts >= 20)
+            {
+                GameManager.instance.stats.scrap -= 300;
+                GameManager.instance.stats.weaponParts -= 20;
+                hubManager.UpdateInventory();
+                //inventoryPopUp.SetActive(false);
+                fadeIn = false;
+                if (GameManager.instance.stats.inventory[activePopUp] == "Rebounder Weapon Blueprint")
+                {
+                    GameManager.instance.stats.unlockedWeaponIDs.Add("Rebounder");
+                    GameManager.instance.stats.inventory.Remove("Rebounder Weapon Blueprint");
+                }
+                for (int i = 0; i < inventoryButtons.Length; i++)
+                {
+                    inventoryButtons[i].GetComponent<Button>().interactable = false;
+                }
+                for (int i = 0; i < GameManager.instance.stats.inventory.Count; i++)
+                {
+                    if (i < inventoryButtons.Length)
+                    {
+                        inventoryButtons[i].GetComponent<Button>().interactable = true;
+                    }
+                }
+            }
+        }
+
         if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint"
              || GameManager.instance.stats.inventory[activePopUp] == "Laser Blueprint"
               || GameManager.instance.stats.inventory[activePopUp] == "Junk Blaster Blueprint"

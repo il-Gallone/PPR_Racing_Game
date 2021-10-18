@@ -81,10 +81,8 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("enemy hit rebounder");
         if (collision.collider.CompareTag("Rebounder"))
         {
-            print("enemy hit rebounder");
             //play impact sound
             audioPlayer.PlayClipAt(bulletImpacts, .15f);
 
