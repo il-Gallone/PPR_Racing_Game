@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee056c1a72aadf49be90f6400e877aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canCollideWithEnemy: 0
   speed: 10
   damage: 4
   energyDamage: 0

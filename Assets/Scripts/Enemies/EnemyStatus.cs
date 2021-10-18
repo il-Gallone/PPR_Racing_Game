@@ -6,6 +6,8 @@ public class EnemyStatus : MonoBehaviour
 {
     public EnemyBase enemyBase;
 
+    public bool isEnabled = true;
+
     void Start()
     {
         enemyBase = GetComponent<EnemyBase>();
@@ -15,7 +17,7 @@ public class EnemyStatus : MonoBehaviour
     {
         print("enemy enabled");
         enemyBase.enabled = true;
-
+        isEnabled = true;
         //if (GetComponentInChildren<Animator>().CompareTag("Electricity"))
         //{
         //    Destroy(GetComponentInChildren<Animator>())

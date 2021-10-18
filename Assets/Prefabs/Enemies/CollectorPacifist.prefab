@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 0}
+  isEnabled: 1
 --- !u!1001 &7315670518603957726
 PrefabInstance:
   m_ObjectHideFlags: 0

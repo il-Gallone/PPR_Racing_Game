@@ -99,6 +99,18 @@ public class InventoryManager : MonoBehaviour
         {
             text = "Launches homing missiles \nScrap Cost: 150 \nWeapon Part Cost: 15";
         }
+        if (itemName == "Laser Blueprint")
+        {
+            text = "Shoots a continuous beam \nScrap Cost: 150 \nWeapon Part Cost: 15";
+        }
+        if (itemName == "Junk Blaster Blueprint")
+        {
+            text = "Shoots random junk \nScrap Cost: 150 \nWeapon Part Cost: 15";
+        }
+        if (itemName == "Ion Cannon Blueprint")
+        {
+            text = "Disables enemy ships temporarily \nScrap Cost: 150 \nWeapon Part Cost: 15";
+        }
         if (itemName == "Shield Generator Blueprint")
         {
             text = "A Module that allows for an auto regenerating shield that will take the hit from most damage types \nScrap Cost: 75 \nArmour Part Cost: 7";
@@ -114,7 +126,8 @@ public class InventoryManager : MonoBehaviour
     {
         //for now hard coded, TODO determine blueprint from file
         if(itemName == "Shotgun Blueprint" || itemName == "Machinegun Blueprint" || itemName == "Scattergun Blueprint" || itemName == "Auto-Rifle Blueprint"
-            || itemName == "Missile Launcher Blueprint" || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint")
+            || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
+            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint")
         {
             return true;
         }
@@ -124,7 +137,10 @@ public class InventoryManager : MonoBehaviour
     public void FabriacteBlueprint()
     {
         //for now hard coded, TODO determine cost of blueprint from file
-        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint")
+        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint"
+             || GameManager.instance.stats.inventory[activePopUp] == "Laser Blueprint"
+              || GameManager.instance.stats.inventory[activePopUp] == "Junk Blaster Blueprint"
+               || GameManager.instance.stats.inventory[activePopUp] == "Ion Cannon Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 150 && GameManager.instance.stats.weaponParts >= 15)
             {
@@ -137,6 +153,21 @@ public class InventoryManager : MonoBehaviour
                 {
                     GameManager.instance.stats.unlockedWeaponIDs.Add("Missile Launcher");
                     GameManager.instance.stats.inventory.Remove("Missile Launcher Blueprint");
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Laser Blueprint")
+                {
+                    GameManager.instance.stats.unlockedWeaponIDs.Add("Laser");
+                    GameManager.instance.stats.inventory.Remove("Laser Blueprint");
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Junk Blaster Blueprint")
+                {
+                    GameManager.instance.stats.unlockedWeaponIDs.Add("Junk Blaster");
+                    GameManager.instance.stats.inventory.Remove("Junk Blaster Blueprint");
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Ion Cannon Blueprint")
+                {
+                    GameManager.instance.stats.unlockedWeaponIDs.Add("Ion Cannon");
+                    GameManager.instance.stats.inventory.Remove("Ion Cannon Blueprint");
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {

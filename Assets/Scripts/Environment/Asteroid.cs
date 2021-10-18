@@ -78,42 +78,56 @@ public class Asteroid : MonoBehaviour
         asteroidHealth = 0;
     }
 
+    void OnHit(Collider2D collision, bool disable)
+    {
+        //play hit sound
+        audioPlayer.PlayClipAt(hitSounds, .25f);
+
+        //check asteroid health
+        asteroidHealth -= collision.GetComponent<BulletController>().damage;
+        if (disable)
+            collision.GetComponent<BulletController>().DisableBullet();
+        if (asteroidHealth > 0)
+        {
+            return;
+        }
+
+        asteroidHealth = 0;
+
+        // resource gets damaged depending on the weapon
+        GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
+        pickup.GetComponent<ResourcePickup>().hpGiven = health * collision.GetComponent<BulletController>().miningPrecision;
+        pickup.GetComponent<ResourcePickup>().energyGiven = energy * collision.GetComponent<BulletController>().miningPrecision;
+        float totalResources = energy + health;
+        SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            renderers[i].color = new Color(health / totalResources, energy / totalResources, energy / totalResources);
+        }
+
+        //play destroy sound
+        audioPlayer.PlayClipAt(destroySounds, .2f);
+
+        // add explosion before destroying
+        GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(explosion, explosion.GetComponent<ParticleSystem>().startLifetime); // destroy object when done
+
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bullet"))
         {
-            //play hit sound
-            audioPlayer.PlayClipAt(hitSounds, .25f);
+            OnHit(collision, true);
+        }
+    }
 
-            //check asteroid health
-            asteroidHealth -= collision.GetComponent<BulletController>().damage;
-            collision.GetComponent<BulletController>().DisableBullet();
-            if (asteroidHealth > 0)
-            {
-                return;
-            }
-            
-            asteroidHealth = 0;
-
-            // resource gets damaged depending on the weapon
-            GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
-            pickup.GetComponent<ResourcePickup>().hpGiven = health * collision.GetComponent<BulletController>().miningPrecision;
-            pickup.GetComponent<ResourcePickup>().energyGiven = energy * collision.GetComponent<BulletController>().miningPrecision;
-            float totalResources = energy + health;
-            SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
-            for(int i =0; i<renderers.Length; i++)
-            {
-                renderers[i].color = new Color(health/totalResources, energy/totalResources, energy/totalResources);
-            }
-
-            //play destroy sound
-            audioPlayer.PlayClipAt(destroySounds, .2f);
-
-            // add explosion before destroying
-            GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(explosion, explosion.GetComponent<ParticleSystem>().startLifetime); // destroy object when done
-
-            Destroy(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Rebounder"))
+        {
+            OnHit(collision.collider, false);
         }
     }
 }

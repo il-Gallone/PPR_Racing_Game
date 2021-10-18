@@ -62,7 +62,8 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet") || 
+            (collision.CompareTag("EnemyBullet") && collision.GetComponent<BulletController>().canCollideWithEnemy))
         {
             //play impact sound
             audioPlayer.PlayClipAt(bulletImpacts, .15f);
@@ -74,6 +75,21 @@ public class EnemyBase : MonoBehaviour
         if (collision.CompareTag("Explosion"))
         {
             HP -= collision.gameObject.GetComponent<ExplosionController>().damage;
+            CheckHP();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("enemy hit rebounder");
+        if (collision.collider.CompareTag("Rebounder"))
+        {
+            print("enemy hit rebounder");
+            //play impact sound
+            audioPlayer.PlayClipAt(bulletImpacts, .15f);
+
+            HP -= collision.gameObject.GetComponent<BulletController>().damage;
+            //collision.GetComponent<BulletController>().DisableBullet();
             CheckHP();
         }
     }

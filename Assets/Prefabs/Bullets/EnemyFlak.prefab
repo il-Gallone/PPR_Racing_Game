@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063d81da0dabb7d4390b925d602bb88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canCollideWithEnemy: 0
   speed: 2
   damage: 6
   energyDamage: 0

@@ -158,6 +158,8 @@ MonoBehaviour:
   hitSounds:
   - {fileID: 8300000, guid: ea164dd5c2e417e4a9b21d07aecebe21, type: 3}
   explosionEffect: {fileID: 1285678574217657924, guid: 8e3cf6875dcca0f478638d9bdf9af706, type: 3}
+  shakeIntensity: 0.4
+  shakeDuration: 0.5
 --- !u!50 &7105079780669722831
 Rigidbody2D:
   serializedVersion: 4
@@ -170,7 +172,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 25
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

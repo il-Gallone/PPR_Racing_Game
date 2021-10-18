@@ -12,13 +12,17 @@ public class IonShot : BulletController
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject)
+        if (!collision.GetComponentInChildren<RadarPing>())
             return;
         if (collision.GetComponentInChildren<RadarPing>().CompareTag("Enemy"))
         {
-            GameObject electricity = Instantiate(electricityPrefab, collision.transform);
-            Destroy(electricity, disableTime);
-
+            //GameObject electricity = new GameObject();
+            //if (collision.GetComponent<EnemyStatus>().isEnabled)
+            //{
+                GameObject electricity =  Instantiate(electricityPrefab, collision.transform);
+                Destroy(electricity, disableTime);
+            //}
+            
             //apply random rotation
             electricity.transform.Rotate(0, 0, Random.Range(0, 360));
 
@@ -26,9 +30,9 @@ public class IonShot : BulletController
             collision.GetComponent<EnemyStatus>().Invoke("EnableEnemy", disableTime);
 
             DisableEnemy(collision.gameObject);
-
+            collision.GetComponent<EnemyStatus>().isEnabled = false;
             //StopCoroutine(collision.GetComponent<EnemyStatus>().EnableEnemy(disableTime));
-            
+
         }
 
         base.OnHit(collision);

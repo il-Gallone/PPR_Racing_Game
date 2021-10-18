@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected bool stopMoving = false;
+    public bool canCollideWithEnemy = true;
 
     public float speed = 50f, damage = 50f, energyDamage = 50f, selfDestructTime = 5f;
 
@@ -77,10 +78,28 @@ public class BulletController : MonoBehaviour
             PlayHitEffects(collision);
 
         }
+
+        if (collision.GetComponentInChildren<RadarPing>())
+        {
+            if (collision.GetComponentInChildren<RadarPing>().CompareTag("Enemy") && canCollideWithEnemy)
+            {
+                DisableBullet();
+                PlayHitEffects(collision);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Rebounder"))
+        {
+            canCollideWithEnemy = true;
+            rb.velocity = collision.transform.up * speed;
+            PlayHitEffects(collision);
+
+            return;
+        }
+
         OnHit(collision);
     }
 }

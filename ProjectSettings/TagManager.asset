@@ -19,6 +19,7 @@ TagManager:
   - Shield
   - Enemy
   - Electricity
+  - Rebounder
   layers:
   - Default
   - TransparentFX
@@ -31,11 +32,11 @@ TagManager:
   - Bullet
   - Collectible
   - EnemyBullet
+  - Player
   - 
-  - 
-  - 
-  - 
-  - 
+  - Rebounder
+  - Enemy
+  - Asteroid
   - 
   - 
   - 

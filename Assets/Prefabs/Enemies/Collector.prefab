@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBase: {fileID: 0}
+  isEnabled: 1
 --- !u!1 &6415922412036218330
 GameObject:
   m_ObjectHideFlags: 0
