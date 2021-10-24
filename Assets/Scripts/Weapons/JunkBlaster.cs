@@ -55,7 +55,7 @@ public class JunkBlaster : WeaponController
                     shoot();
                 }
                 PlayShootSound();
-                //ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
+                ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             }
             else if (timeSinceLastShot >= shootInterval && Input.GetButtonDown("Fire1"))          // for semi-auto
             {
@@ -65,7 +65,7 @@ public class JunkBlaster : WeaponController
 
                 }
                 PlayShootSound();
-                //ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
+                ScreenShake.Instance.ShakeCam(shakeIntensity, shakeDuration);
             }
         }
     }
