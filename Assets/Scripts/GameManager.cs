@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         else
         {
             stats.unlockedWeaponIDs = new List<string> { "Rifle" };
-            stats.inventory = new List<string> { "Scattergun Blueprint", "Auto-Rifle Blueprint", "Shield Generator Blueprint", "Speed Booster Blueprint" };
+            stats.inventory = new List<string> { "Scattergun Blueprint", "Auto-Rifle Blueprint", "Shield Generator Blueprint", "Speed Booster Blueprint", "Shotgun Blueprint", "Machinegun Blueprint", "Missile Launcher Blueprint", "Laser Blueprint", "Junk Blaster Blueprint", "Ion Cannon Blueprint", "Rebounder Weapon Blueprint"};
             SaveData();
             PlayerPrefs.SetInt("SaveExists", 0);
         }
