@@ -147,6 +147,10 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   shakeIntensity: 0.6
   shakeDuration: 0.3
+  nanobot_repairAmount: 25
+  teleport_minRadius: 10
+  teleport_maxRadius: 20
+  energy_rechargeAmount: 0.05
 --- !u!50 &5856908964848828851
 Rigidbody2D:
   serializedVersion: 4

@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     [Header("Modules Settings")]
     public float nanobot_repairAmount = 25f;
     public float teleport_minRadius = 10f, teleport_maxRadius = 20f;
+    public float energy_rechargeAmount = .5f;
 
     // Start is called before the first frame update
     void Start()
@@ -192,6 +193,15 @@ public class PlayerController : MonoBehaviour
                     transform.position = new Vector3(randomX, randomY, 1);
                     hyperspeed.gameObject.SetActive(true);
                     hyperspeed.Play("Hyperspeed");
+                }
+            }
+            if (GameManager.instance.stats.currentModuleID == "Solar Collector" && !PauseMenu.gamePaused)
+            {
+                if (Input.GetAxis("Vertical")==0)
+                {
+                    energy += energy_rechargeAmount;
+                    if (energy > maxEnergy)
+                        energy = maxEnergy;
                 }
             }
             if (HP <= 0 || energy <= 0)

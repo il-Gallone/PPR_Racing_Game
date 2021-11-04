@@ -131,6 +131,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "A Module that teleports you to a random nearby location. \nScrap Cost: 75 \nEngine Part Cost: 7";
         }
+        if (itemName == "Solar Collector Blueprint")
+        {
+            text = "A Module that recharges energy while you are not moving. \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
         return text;
     }
 
@@ -140,7 +144,7 @@ public class InventoryManager : MonoBehaviour
         if(itemName == "Shotgun Blueprint" || itemName == "Machinegun Blueprint" || itemName == "Scattergun Blueprint" || itemName == "Auto-Rifle Blueprint"
             || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
             || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
-            || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint")
+            || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint")
         {
             return true;
         }
@@ -332,7 +336,8 @@ public class InventoryManager : MonoBehaviour
             }
             
         }
-        else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint"
+            || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -358,6 +363,16 @@ public class InventoryManager : MonoBehaviour
                     {
                         GameManager.instance.stats.currentModuleIDNumber = 0;
                         GameManager.instance.stats.currentModuleID = "Emergency Teleport";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Solar Collector");
+                    GameManager.instance.stats.inventory.Remove("Solar Collector Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Solar Collector Teleport";
                     }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)

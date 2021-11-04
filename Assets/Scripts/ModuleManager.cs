@@ -33,7 +33,10 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module5 = new ModuleInfo();
             module5.module = "Emergency Teleport";
             module5.moduleDescription = "Teleport to a random nearby location.";
-            modules = new ModuleInfo[5] { module1, module2, module3, module4, module5 };
+            ModuleInfo module6 = new ModuleInfo();
+            module6.module = "Solar Collector";
+            module6.moduleDescription = "Recharges energy while not moving.";
+            modules = new ModuleInfo[6] { module1, module2, module3, module4, module5, module6 };
             SaveModules();
         }
     }
