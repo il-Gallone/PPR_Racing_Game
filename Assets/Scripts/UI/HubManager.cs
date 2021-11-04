@@ -56,7 +56,7 @@ public class HubManager : MonoBehaviour
         else
             camRotationToggle.isOn = false;
 
-        print(PlayerPrefs.GetInt("CamRotation"));
+        //print(PlayerPrefs.GetInt("CamRotation"));
 
     }
 

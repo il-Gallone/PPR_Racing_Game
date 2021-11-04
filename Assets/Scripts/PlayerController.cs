@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
 
     public float shakeIntensity = .6f, shakeDuration = .3f;
 
+    [Header("Modules Settings")]
+    public float nanobot_repairAmount = 25f;
+    public float teleport_minRadius = 10f, teleport_maxRadius = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +80,13 @@ public class PlayerController : MonoBehaviour
         if(GameManager.instance.stats.currentModuleID != "Shield Generator")
         {
             GameObject.FindGameObjectWithTag("Shield").SetActive(false);
+        }
+
+        if (GameManager.instance.stats.currentModuleID == "Repair Nanobots")
+        {
+            HP += nanobot_repairAmount;
+            if (HP > maxHP)
+                HP = maxHP;
         }
     }
 
@@ -163,6 +174,24 @@ public class PlayerController : MonoBehaviour
                     acceleration *= 3;
                     speedThreshold *= 2;
                     moduleCooldown = 15;
+                }
+            }
+            if (GameManager.instance.stats.currentModuleID == "Emergency Teleport")
+            {
+                if (Input.GetButtonDown("Module") && moduleCooldown <= 0)
+                {
+                    moduleCooldown = 15;
+
+                    float randomX = Random.Range(teleport_minRadius, teleport_maxRadius);
+                    float randomY = Random.Range(teleport_minRadius, teleport_maxRadius);
+                    if (Random.Range(0, 1) == 0)
+                        randomX *= -1;
+                    if (Random.Range(0, 1) == 0)
+                        randomY *= -1;
+
+                    transform.position = new Vector3(randomX, randomY, 1);
+                    hyperspeed.gameObject.SetActive(true);
+                    hyperspeed.Play("Hyperspeed");
                 }
             }
             if (HP <= 0 || energy <= 0)

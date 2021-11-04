@@ -123,6 +123,14 @@ public class InventoryManager : MonoBehaviour
         {
             text = "A Module that can temporarily increase Maximum Speed and Acceleration Rate before going on cooldown \nScrap Cost: 75 \nEngine Part Cost: 7";
         }
+        if (itemName == "Repair Nanobots Blueprint")
+        {
+            text = "A Module that repairs your ship between levels. \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
+        if (itemName == "Emergency Teleport Blueprint")
+        {
+            text = "A Module that teleports you to a random nearby location. \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
         return text;
     }
 
@@ -131,7 +139,8 @@ public class InventoryManager : MonoBehaviour
         //for now hard coded, TODO determine blueprint from file
         if(itemName == "Shotgun Blueprint" || itemName == "Machinegun Blueprint" || itemName == "Scattergun Blueprint" || itemName == "Auto-Rifle Blueprint"
             || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
-            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint")
+            || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
+            || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint")
         {
             return true;
         }
@@ -280,7 +289,8 @@ public class InventoryManager : MonoBehaviour
             }
             
         }
-        else if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Repair Nanobots Blueprint"
+            )
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.armourParts >= 7)
             {
@@ -288,12 +298,25 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.armourParts -= 7;
                 hubManager.UpdateInventory();
                 fadeIn = false;
-                GameManager.instance.stats.unlockedModuleIDs.Add("Shield Generator");
-                GameManager.instance.stats.inventory.Remove("Shield Generator Blueprint");
-                if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint")
                 {
-                    GameManager.instance.stats.currentModuleIDNumber = 0;
-                    GameManager.instance.stats.currentModuleID = "Shield Generator";
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Shield Generator");
+                    GameManager.instance.stats.inventory.Remove("Shield Generator Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Shield Generator";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Repair Nanobots Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Repair Nanobots");
+                    GameManager.instance.stats.inventory.Remove("Repair Nanobots Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Repair Nanobots";
+                    }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
@@ -309,7 +332,7 @@ public class InventoryManager : MonoBehaviour
             }
             
         }
-        else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint")
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -317,12 +340,25 @@ public class InventoryManager : MonoBehaviour
                 GameManager.instance.stats.engineParts -= 7;
                 hubManager.UpdateInventory();
                 fadeIn = false;
-                GameManager.instance.stats.unlockedModuleIDs.Add("Speed Booster");
-                GameManager.instance.stats.inventory.Remove("Speed Booster Blueprint");
-                if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint")
                 {
-                    GameManager.instance.stats.currentModuleIDNumber = 0;
-                    GameManager.instance.stats.currentModuleID = "Speed Booster";
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Speed Booster");
+                    GameManager.instance.stats.inventory.Remove("Speed Booster Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Speed Booster";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Emergency Teleport");
+                    GameManager.instance.stats.inventory.Remove("Emergency Teleport Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Emergency Teleport";
+                    }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {

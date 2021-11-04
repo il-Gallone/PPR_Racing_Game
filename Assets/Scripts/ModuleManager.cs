@@ -27,7 +27,13 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module3 = new ModuleInfo();
             module3.module = "Speed Booster";
             module3.moduleDescription = "Press SPACE in order to temporarily increase max speed and acceleration.";
-            modules = new ModuleInfo[3] { module1, module2, module3 };
+            ModuleInfo module4 = new ModuleInfo();
+            module4.module = "Repair Nanobots";
+            module4.moduleDescription = "Repair your ship between levels.";
+            ModuleInfo module5 = new ModuleInfo();
+            module5.module = "Emergency Teleport";
+            module5.moduleDescription = "Teleport to a random nearby location.";
+            modules = new ModuleInfo[5] { module1, module2, module3, module4, module5 };
             SaveModules();
         }
     }
