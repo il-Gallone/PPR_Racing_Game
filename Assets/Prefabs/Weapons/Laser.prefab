@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8919c2c224fef16439e23cda49beed0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9be167b868aefb479f503c5c8b735cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4068430988874545017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 719748952}
@@ -518,7 +518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 5
-  bulletPrefab: {fileID: 0}
+  bulletPrefab:
+  - {fileID: 0}
   shootPos: {fileID: 4068430988874545022}
   isPlayerWeapon: 1
   automatic: 1
@@ -527,6 +528,8 @@ MonoBehaviour:
   maxSpread: 0.5
   projectileCount: 1
   timeSinceLastShot: 0
+  shakeIntensity: 0.5
+  shakeDuration: 0.25
   gunAudioPlayer: {fileID: 5315439120028759087}
   damage: 0.0225
   maxRange: 10
@@ -538,3 +541,4 @@ MonoBehaviour:
   laserStart: {fileID: 8300000, guid: 09f85dd868151604aacf757002862d5c, type: 3}
   laserContinue: {fileID: 8300000, guid: 1e602eb63e376a74e8b358ec992d795b, type: 3}
   sparksPrefab: {fileID: 1647762899515617532, guid: 6dc8abb18fe52df40998b1d9f5be4945, type: 3}
+  sparkScale: 0.25
