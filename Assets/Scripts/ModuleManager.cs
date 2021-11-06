@@ -36,7 +36,10 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module6 = new ModuleInfo();
             module6.module = "Solar Collector";
             module6.moduleDescription = "Recharges energy while not moving.";
-            modules = new ModuleInfo[6] { module1, module2, module3, module4, module5, module6 };
+            ModuleInfo module7 = new ModuleInfo();
+            module7.module = "Ramming Armour";
+            module7.moduleDescription = "Take less damage upon impact and deal damage to enemies+objects";
+            modules = new ModuleInfo[7] { module1, module2, module3, module4, module5, module6, module7 };
             SaveModules();
         }
     }

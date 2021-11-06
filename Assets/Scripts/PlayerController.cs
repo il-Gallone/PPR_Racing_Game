@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     public float nanobot_repairAmount = 25f;
     public float teleport_minRadius = 10f, teleport_maxRadius = 20f;
     public float energy_rechargeAmount = .5f;
+    public float ramming_protection = .65f; // percentage
+    public float ramming_damageMultiplier = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -249,7 +251,24 @@ public class PlayerController : MonoBehaviour
             }
         }
         else
-            HP -= collision.relativeVelocity.magnitude* 5 / armourMultiplier;
+        {
+            if (GameManager.instance.stats.currentModuleID == "Ramming Armour")
+            {
+                HP -= (collision.relativeVelocity.magnitude * 5 / armourMultiplier) * ramming_protection;
+                if (collision.gameObject.GetComponentInChildren<RadarPing>().CompareTag("Enemy"))
+                {
+                    collision.gameObject.GetComponent<EnemyBase>().HP -= collision.relativeVelocity.magnitude * ramming_damageMultiplier;
+                    collision.gameObject.GetComponent<EnemyBase>().CheckHP();
+                }
+                else if (collision.gameObject.CompareTag("EnergyAsteroid") || collision.gameObject.CompareTag("RepairAsteroid"))
+                {
+                    collision.gameObject.GetComponent<Asteroid>().asteroidHealth -= collision.relativeVelocity.magnitude * ramming_damageMultiplier;
+                }
+            }
+            else
+                HP -= collision.relativeVelocity.magnitude * 5 / armourMultiplier;
+        }
+            
 
         audioPlayer.PlayClipAt(audioPlayer.audioToPlay, 1f);
     }

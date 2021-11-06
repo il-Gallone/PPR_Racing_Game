@@ -84,7 +84,8 @@ public class Asteroid : MonoBehaviour
         audioPlayer.PlayClipAt(hitSounds, .25f);
 
         //check asteroid health
-        asteroidHealth -= collision.GetComponent<BulletController>().damage;
+        if (collision.GetComponent<BulletController>())
+            asteroidHealth -= collision.GetComponent<BulletController>().damage;
         if (disable)
             collision.GetComponent<BulletController>().DisableBullet();
         if (asteroidHealth > 0)
@@ -125,7 +126,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Rebounder"))
+        if (collision.collider.CompareTag("Rebounder")) //|| (collision.collider.CompareTag("Player") && GameManager.instance.stats.currentModuleID == "Ramming Armour")
         {
             OnHit(collision.collider, false);
         }
