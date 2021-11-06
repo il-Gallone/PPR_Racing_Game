@@ -27,6 +27,12 @@ public class Scrap : Collectible
     {
 
         int randomNum = Random.Range(2, 9);
+        if (GameManager.instance.stats.currentModuleID=="Scrap Recycler")
+        {
+            randomNum /= 2;
+            player.GetComponent<PlayerController>().recycler_scrap += randomNum;
+            player.GetComponent<PlayerController>().CheckRecycler();
+        }
         GameManager.instance.scrapCollected += randomNum;
         parent.scrapTotal--;
 

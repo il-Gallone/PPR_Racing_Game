@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     public float energy_rechargeAmount = .5f;
     public float ramming_protection = .65f; // percentage
     public float ramming_damageMultiplier = 1.5f;
+    public int recycler_scrap = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -272,6 +273,40 @@ public class PlayerController : MonoBehaviour
 
         audioPlayer.PlayClipAt(audioPlayer.audioToPlay, 1f);
     }
+
+    public void CheckRecycler()
+    {
+        print("scrap: " + recycler_scrap);
+        if (recycler_scrap >= 100)
+        {
+            int parts = recycler_scrap / 100;
+            recycler_scrap -= 100 * parts;
+
+            print("scrap: " + recycler_scrap);
+            print("parts: " + parts);
+
+            for (int i = 0; i < parts; i++)
+            {
+                int partChance = Random.Range(1, 3);
+                if (partChance == 1)
+                {
+                    GameManager.instance.weaponPartsCollected++;
+                    PopupText("+1 Weapon Part", Color.blue, 2f);
+                }
+                else if (partChance == 2)
+                {
+                    GameManager.instance.enginePartsCollected++;
+                    PopupText("+1 Engine Part", Color.blue, 2f);
+                }
+                else if (partChance == 3)
+                {
+                    GameManager.instance.armourPartsCollected++;
+                    PopupText("+1 Armour Part", Color.blue, 2f);
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Objective"))
@@ -296,6 +331,12 @@ public class PlayerController : MonoBehaviour
             else
             {
                 int randomNum = Random.Range(20, 81);
+                if (GameManager.instance.stats.currentModuleID=="Scrap Recycler")
+                {
+                    randomNum /= 2;
+                    recycler_scrap += randomNum;
+                    CheckRecycler();
+                }
                 GameManager.instance.scrapCollected += randomNum;
                 PopupText("+" + randomNum + " Scrap", Color.yellow, 2f);
             }

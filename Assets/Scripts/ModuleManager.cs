@@ -39,7 +39,10 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module7 = new ModuleInfo();
             module7.module = "Ramming Armour";
             module7.moduleDescription = "Take less damage upon impact and deal damage to enemies+objects";
-            modules = new ModuleInfo[7] { module1, module2, module3, module4, module5, module6, module7 };
+            ModuleInfo module8 = new ModuleInfo();
+            module8.module = "Scrap Recycler";
+            module8.moduleDescription = "Recycle 50% of scrap collected. For every 100 recycled scrap gain a random part.";
+            modules = new ModuleInfo[8] { module1, module2, module3, module4, module5, module6, module7, module8 };
             SaveModules();
         }
     }
