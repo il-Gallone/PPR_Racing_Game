@@ -194,8 +194,8 @@ public class PlayerController : MonoBehaviour
                         randomY *= -1;
 
                     transform.position = new Vector3(randomX, randomY, 1);
-                    hyperspeed.gameObject.SetActive(true);
-                    hyperspeed.Play("Hyperspeed");
+                    //hyperspeed.gameObject.SetActive(true);
+                    //hyperspeed.Play("Hyperspeed");
                 }
             }
             if (GameManager.instance.stats.currentModuleID == "Solar Collector" && !PauseMenu.gamePaused)
@@ -276,14 +276,10 @@ public class PlayerController : MonoBehaviour
 
     public void CheckRecycler()
     {
-        print("scrap: " + recycler_scrap);
         if (recycler_scrap >= 100)
         {
             int parts = recycler_scrap / 100;
             recycler_scrap -= 100 * parts;
-
-            print("scrap: " + recycler_scrap);
-            print("parts: " + parts);
 
             for (int i = 0; i < parts; i++)
             {

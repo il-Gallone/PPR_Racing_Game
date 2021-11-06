@@ -20,6 +20,8 @@ public class Asteroid : MonoBehaviour
 
     public float shakeIntensity = .4f, shakeDuration = .5f;
 
+    float dropMultiplier = 1f;
+
     private void Start()
     {
         audioPlayer = GetComponent<AudioPlayer>();
@@ -30,6 +32,14 @@ public class Asteroid : MonoBehaviour
         rigid2D.velocity = new Vector2(Random.Range(-0.2f,0.2f),Random.Range(-0.2f, 0.2f));
         rigid2D.velocity /= gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
         rigid2D.angularVelocity = Random.Range(-45f, 45f);
+
+        if (GameManager.instance.stats.currentModuleID == "Ore Purifier")
+        {
+            dropMultiplier = 1.5f;
+        }
+        else
+            dropMultiplier = 1f;
+            
     }
 
     private void Update()
@@ -57,8 +67,8 @@ public class Asteroid : MonoBehaviour
 
         // resource gets damaged depending on the weapon
         GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
-        pickup.GetComponent<ResourcePickup>().hpGiven = health * miningPrecision;
-        pickup.GetComponent<ResourcePickup>().energyGiven = energy * miningPrecision;
+        pickup.GetComponent<ResourcePickup>().hpGiven = (health * miningPrecision) * dropMultiplier;
+        pickup.GetComponent<ResourcePickup>().energyGiven = (energy * miningPrecision) * dropMultiplier;
         float totalResources = energy + health;
         SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
         for (int i = 0; i < renderers.Length; i++)
@@ -97,8 +107,8 @@ public class Asteroid : MonoBehaviour
 
         // resource gets damaged depending on the weapon
         GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
-        pickup.GetComponent<ResourcePickup>().hpGiven = health * collision.GetComponent<BulletController>().miningPrecision;
-        pickup.GetComponent<ResourcePickup>().energyGiven = energy * collision.GetComponent<BulletController>().miningPrecision;
+        pickup.GetComponent<ResourcePickup>().hpGiven = (health * collision.GetComponent<BulletController>().miningPrecision) * dropMultiplier;
+        pickup.GetComponent<ResourcePickup>().energyGiven = (energy * collision.GetComponent<BulletController>().miningPrecision) * dropMultiplier;
         float totalResources = energy + health;
         SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
         for (int i = 0; i < renderers.Length; i++)

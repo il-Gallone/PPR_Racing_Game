@@ -125,7 +125,7 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemName == "Repair Nanobots Blueprint")
         {
-            text = "A module that repairs your ship between levels. \nScrap Cost: 75 \nEngine Part Cost: 7";
+            text = "A module that repairs your ship between levels. \nScrap Cost: 75 \nArmour Part Cost: 7";
         }
         if (itemName == "Emergency Teleport Blueprint")
         {
@@ -137,11 +137,15 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemName == "Ramming Armour Blueprint")
         {
-            text = "A module that protects your ship upon impacts and deals damage to enemies+objects \nScrap Cost: 75 \nEngine Part Cost: 7";
+            text = "A module that protects your ship upon impacts and deals damage to enemies+objects \nScrap Cost: 75 \nArmour Part Cost: 7";
         }
         if (itemName == "Scrap Recycler Blueprint")
         {
             text = "A module that recycles 50% of scrap collected. For every 100 recycled scrap gain a random part \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
+        if (itemName == "Ore Purifier Blueprint")
+        {
+            text = "Asteroid Drops are 50% more effective. \nScrap Cost: 75 \nEngine Part Cost: 7";
         }
         return text;
     }
@@ -153,7 +157,7 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
             || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
-            || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint")
+            || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint")
         {
             return true;
         }
@@ -356,7 +360,8 @@ public class InventoryManager : MonoBehaviour
             
         }
         else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint"
-            || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Scrap Recycler Blueprint")
+            || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Scrap Recycler Blueprint"
+            || GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -402,6 +407,16 @@ public class InventoryManager : MonoBehaviour
                     {
                         GameManager.instance.stats.currentModuleIDNumber = 0;
                         GameManager.instance.stats.currentModuleID = "Scrap Recycler";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Ore Purifier");
+                    GameManager.instance.stats.inventory.Remove("Ore Purifier Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Ore Purifier";
                     }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)

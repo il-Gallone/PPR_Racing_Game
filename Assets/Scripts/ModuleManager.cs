@@ -38,11 +38,14 @@ public class ModuleManager : MonoBehaviour
             module6.moduleDescription = "Recharges energy while not moving.";
             ModuleInfo module7 = new ModuleInfo();
             module7.module = "Ramming Armour";
-            module7.moduleDescription = "Take less damage upon impact and deal damage to enemies+objects";
+            module7.moduleDescription = "Take less damage upon impact and deal damage to enemies+objects.";
             ModuleInfo module8 = new ModuleInfo();
             module8.module = "Scrap Recycler";
             module8.moduleDescription = "Recycle 50% of scrap collected. For every 100 recycled scrap gain a random part.";
-            modules = new ModuleInfo[8] { module1, module2, module3, module4, module5, module6, module7, module8 };
+            ModuleInfo module9 = new ModuleInfo();
+            module9.module = "Ore Purifier";
+            module9.moduleDescription = "Asteroid Drops are 50% more effective.";
+            modules = new ModuleInfo[9] { module1, module2, module3, module4, module5, module6, module7, module8, module9 };
             SaveModules();
         }
     }
