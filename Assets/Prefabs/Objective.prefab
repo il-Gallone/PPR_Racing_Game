@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2587992831309344846}
   - component: {fileID: 809034653}
   - component: {fileID: 809034652}
+  - component: {fileID: -3023232885713841874}
   m_Layer: 9
   m_Name: Objective
   m_TagString: Objective
@@ -4843,6 +4844,27 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!50 &-3023232885713841874
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333194738571058419}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3554288652414902663
 GameObject:
   m_ObjectHideFlags: 0

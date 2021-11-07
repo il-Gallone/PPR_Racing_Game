@@ -163,6 +163,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "All Ship Upgrades are boosted by two levels. \nScrap Cost: 75 \nEngine Part Cost: 7 \nArmour Part Cost: 7";
         }
+        if (itemName == "Tractor Beam Blueprint")
+        {
+            text = "Collectables are pulled in when nearby. \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
         return text;
     }
 
@@ -175,7 +179,7 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
             || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint"
             || itemName == "Secure Storage Blueprint" || itemName == "Ore Refiner Blueprint" || itemName == "Defective Super Enhancer Blueprint"
-            || itemName == "Super Enhancer Blueprint")
+            || itemName == "Super Enhancer Blueprint" || itemName == "Tractor Beam Blueprint")
         {
             return true;
         }
@@ -390,7 +394,7 @@ public class InventoryManager : MonoBehaviour
         else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint"
             || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Scrap Recycler Blueprint"
             || GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Ore Refiner Blueprint"
-            )
+            || GameManager.instance.stats.inventory[activePopUp] == "Tractor Beam Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -458,7 +462,16 @@ public class InventoryManager : MonoBehaviour
                         GameManager.instance.stats.currentModuleID = "Ore Refiner";
                     }
                 }
-                
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Tractor Beam Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Tractor Beam");
+                    GameManager.instance.stats.inventory.Remove("Tractor Beam Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Tractor Beam";
+                    }
+                }
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
                     inventoryButtons[i].GetComponent<Button>().interactable = false;

@@ -57,8 +57,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module13 = new ModuleInfo();
             module13.module = "Super Enhancer";
             module13.moduleDescription = "All Ship Upgrades are boosted by two levels.";
-            modules = new ModuleInfo[13] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
-                                           module11, module12, module13 };
+            ModuleInfo module14 = new ModuleInfo();
+            module14.module = "Tractor Beam";
+            module14.moduleDescription = "Collectibles get pulled in when nearby.";
+            modules = new ModuleInfo[14] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
+                                           module11, module12, module13, module14 };
             SaveModules();
         }
     }

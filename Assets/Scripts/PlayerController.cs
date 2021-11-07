@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     public float storage_percent = .25f;
     public float enhancer_levels = .5f;
     int defect = 1; // 1 == normal, -1 == reversed controls
+    public CircleCollider2D tractorBeam;
 
     // Start is called before the first frame update
     void Start()

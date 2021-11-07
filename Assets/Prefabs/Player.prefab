@@ -156,6 +156,7 @@ MonoBehaviour:
   recycler_scrap: 0
   storage_percent: 0.25
   enhancer_levels: 0.5
+  tractorBeam: {fileID: 0}
 --- !u!50 &5856908964848828851
 Rigidbody2D:
   serializedVersion: 4
