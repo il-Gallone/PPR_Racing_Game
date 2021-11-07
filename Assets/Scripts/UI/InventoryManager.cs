@@ -157,7 +157,11 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemName == "Defective Super Enhancer Blueprint")
         {
-            text = "All Ship Upgrades are boosted by two levels. Controls are reversed. \nScrap Cost: 75 \nEngine Part Cost: 7";
+            text = "All Ship Upgrades are boosted by two levels. Controls are reversed. \nScrap Cost: 75 \nEngine Part Cost: 7 \nArmour Part Cost: 7";
+        }
+        if (itemName == "Super Enhancer Blueprint")
+        {
+            text = "All Ship Upgrades are boosted by two levels. \nScrap Cost: 75 \nEngine Part Cost: 7 \nArmour Part Cost: 7";
         }
         return text;
     }
@@ -170,7 +174,8 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
             || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint"
-            || itemName == "Secure Storage Blueprint" || itemName == "Ore Refiner Blueprint" || itemName == "Defective Super Enhancer Blueprint")
+            || itemName == "Secure Storage Blueprint" || itemName == "Ore Refiner Blueprint" || itemName == "Defective Super Enhancer Blueprint"
+            || itemName == "Super Enhancer Blueprint")
         {
             return true;
         }
@@ -385,7 +390,7 @@ public class InventoryManager : MonoBehaviour
         else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint"
             || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Scrap Recycler Blueprint"
             || GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Ore Refiner Blueprint"
-            || GameManager.instance.stats.inventory[activePopUp] == "Defective Super Enhancer Blueprint")
+            )
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -453,16 +458,7 @@ public class InventoryManager : MonoBehaviour
                         GameManager.instance.stats.currentModuleID = "Ore Refiner";
                     }
                 }
-                else if (GameManager.instance.stats.inventory[activePopUp] == "Defective Super Enhancer Blueprint")
-                {
-                    GameManager.instance.stats.unlockedModuleIDs.Add("Defective Super Enhancer");
-                    GameManager.instance.stats.inventory.Remove("Defective Super Enhancer Blueprint");
-                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
-                    {
-                        GameManager.instance.stats.currentModuleIDNumber = 0;
-                        GameManager.instance.stats.currentModuleID = "Defective Super Enhancer";
-                    }
-                }
+                
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
                     inventoryButtons[i].GetComponent<Button>().interactable = false;
@@ -476,6 +472,49 @@ public class InventoryManager : MonoBehaviour
                 }
             }
             
+        }
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Defective Super Enhancer Blueprint"
+                || GameManager.instance.stats.inventory[activePopUp] == "Super Enhancer Blueprint")
+        {
+            if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7 && GameManager.instance.stats.armourParts >= 7)
+            {
+                GameManager.instance.stats.scrap -= 75;
+                GameManager.instance.stats.engineParts -= 7;
+                hubManager.UpdateInventory();
+                fadeIn = false;
+                if (GameManager.instance.stats.inventory[activePopUp] == "Defective Super Enhancer Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Defective Super Enhancer");
+                    GameManager.instance.stats.inventory.Remove("Defective Super Enhancer Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Defective Super Enhancer";
+                    }
+                } 
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Super Enhancer Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Super Enhancer");
+                    GameManager.instance.stats.inventory.Remove("Super Enhancer Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Super Enhancer";
+                    }
+                }
+
+                for (int i = 0; i < inventoryButtons.Length; i++)
+                {
+                    inventoryButtons[i].GetComponent<Button>().interactable = false;
+                }
+                for (int i = 0; i < GameManager.instance.stats.inventory.Count; i++)
+                {
+                    if (i < inventoryButtons.Length)
+                    {
+                        inventoryButtons[i].GetComponent<Button>().interactable = true;
+                    }
+                }
+            }
         }
     }
 }

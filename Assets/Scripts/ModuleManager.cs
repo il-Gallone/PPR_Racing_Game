@@ -54,8 +54,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module12 = new ModuleInfo();
             module12.module = "Defective Super Enhancer";
             module12.moduleDescription = "All Ship Upgrades are boosted by two levels. Controls are reversed.";
-            modules = new ModuleInfo[12] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
-                                           module11, module12 };
+            ModuleInfo module13 = new ModuleInfo();
+            module13.module = "Super Enhancer";
+            module13.moduleDescription = "All Ship Upgrades are boosted by two levels.";
+            modules = new ModuleInfo[13] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
+                                           module11, module12, module13 };
             SaveModules();
         }
     }
