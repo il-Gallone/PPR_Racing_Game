@@ -45,7 +45,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module9 = new ModuleInfo();
             module9.module = "Ore Purifier";
             module9.moduleDescription = "Asteroid Drops are 50% more effective.";
-            modules = new ModuleInfo[9] { module1, module2, module3, module4, module5, module6, module7, module8, module9 };
+            ModuleInfo module10 = new ModuleInfo();
+            module10.module = "Secure Storage";
+            module10.moduleDescription = "Retain some of your scrap and parts if defeated.";
+            modules = new ModuleInfo[10] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10
+                                            };
             SaveModules();
         }
     }

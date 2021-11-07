@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public float ramming_protection = .65f; // percentage
     public float ramming_damageMultiplier = 1.5f;
     public int recycler_scrap = 0;
+    public float storage_percent = .25f;
 
     // Start is called before the first frame update
     void Start()
@@ -209,6 +210,13 @@ public class PlayerController : MonoBehaviour
             }
             if (HP <= 0 || energy <= 0)
             {
+                if (GameManager.instance.stats.currentModuleID=="Secure Storage")
+                {
+                    GameManager.instance.stats.scrap += (int)(GameManager.instance.scrapCollected * storage_percent);
+                    GameManager.instance.stats.engineParts += (int)(GameManager.instance.enginePartsCollected * storage_percent);
+                    GameManager.instance.stats.weaponParts += (int)(GameManager.instance.weaponPartsCollected * storage_percent);
+                    GameManager.instance.stats.armourParts += (int)(GameManager.instance.armourPartsCollected * storage_percent);
+                }
                 GameManager.instance.scrapCollected = 0;
                 GameManager.instance.weaponPartsCollected = 0;
                 GameManager.instance.enginePartsCollected = 0;

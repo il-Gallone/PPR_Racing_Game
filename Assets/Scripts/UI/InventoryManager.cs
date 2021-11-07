@@ -147,6 +147,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "Asteroid Drops are 50% more effective. \nScrap Cost: 75 \nEngine Part Cost: 7";
         }
+        if (itemName == "Secure Storage Blueprint")
+        {
+            text = "Retain some of your scrap and parts if defeated. \nScrap Cost: 75 \nArmour Part Cost: 7";
+        }
         return text;
     }
 
@@ -157,7 +161,8 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Missile Launcher Blueprint" || itemName == "Laser Blueprint" || itemName == "Junk Blaster Blueprint" || itemName == "Ion Cannon Blueprint" 
             || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
-            || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint")
+            || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint"
+            || itemName == "Secure Storage Blueprint" )
         {
             return true;
         }
@@ -307,7 +312,7 @@ public class InventoryManager : MonoBehaviour
             
         }
         else if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Repair Nanobots Blueprint"
-            || GameManager.instance.stats.inventory[activePopUp] == "Ramming Armour Blueprint")
+            || GameManager.instance.stats.inventory[activePopUp] == "Ramming Armour Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Secure Storage Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.armourParts >= 7)
             {
@@ -343,6 +348,16 @@ public class InventoryManager : MonoBehaviour
                     {
                         GameManager.instance.stats.currentModuleIDNumber = 0;
                         GameManager.instance.stats.currentModuleID = "Ramming Armour";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Secure Storage Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Secure Storage");
+                    GameManager.instance.stats.inventory.Remove("Secure Storage Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Secure Storage";
                     }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)
