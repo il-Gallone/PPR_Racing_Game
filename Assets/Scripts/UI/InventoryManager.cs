@@ -151,6 +151,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "Retain some of your scrap and parts if defeated. \nScrap Cost: 75 \nArmour Part Cost: 7";
         }
+        if (itemName == "Ore Refiner Blueprint")
+        {
+            text = "Refine 50% of asteroid drops. Gain a small amount of scrap from refined drops. \nScrap Cost: 75 \nEngine Part Cost: 7";
+        }
         return text;
     }
 
@@ -162,7 +166,7 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Shield Generator Blueprint" || itemName == "Speed Booster Blueprint" || itemName == "Rebounder Weapon Blueprint" 
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
             || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint"
-            || itemName == "Secure Storage Blueprint" )
+            || itemName == "Secure Storage Blueprint" || itemName == "Ore Refiner Blueprint")
         {
             return true;
         }
@@ -376,7 +380,7 @@ public class InventoryManager : MonoBehaviour
         }
         else if (GameManager.instance.stats.inventory[activePopUp] == "Speed Booster Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Emergency Teleport Blueprint"
             || GameManager.instance.stats.inventory[activePopUp] == "Solar Collector Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Scrap Recycler Blueprint"
-            || GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint")
+            || GameManager.instance.stats.inventory[activePopUp] == "Ore Purifier Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Ore Refiner Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.engineParts >= 7)
             {
@@ -432,6 +436,16 @@ public class InventoryManager : MonoBehaviour
                     {
                         GameManager.instance.stats.currentModuleIDNumber = 0;
                         GameManager.instance.stats.currentModuleID = "Ore Purifier";
+                    }
+                }
+                else if (GameManager.instance.stats.inventory[activePopUp] == "Ore Refiner Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Ore Refiner");
+                    GameManager.instance.stats.inventory.Remove("Ore Refiner Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Ore Refiner";
                     }
                 }
                 for (int i = 0; i < inventoryButtons.Length; i++)

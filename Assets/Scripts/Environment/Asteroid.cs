@@ -107,14 +107,18 @@ public class Asteroid : MonoBehaviour
 
         // resource gets damaged depending on the weapon
         GameObject pickup = Instantiate(pickupPrefab, transform.position, transform.rotation);
+        
         pickup.GetComponent<ResourcePickup>().hpGiven = (health * collision.GetComponent<BulletController>().miningPrecision) * dropMultiplier;
         pickup.GetComponent<ResourcePickup>().energyGiven = (energy * collision.GetComponent<BulletController>().miningPrecision) * dropMultiplier;
         float totalResources = energy + health;
+        
         SpriteRenderer[] renderers = pickup.GetComponentsInChildren<SpriteRenderer>();
         for (int i = 0; i < renderers.Length; i++)
         {
             renderers[i].color = new Color(health / totalResources, energy / totalResources, energy / totalResources);
         }
+
+        
 
         //play destroy sound
         audioPlayer.PlayClipAt(destroySounds, .2f);

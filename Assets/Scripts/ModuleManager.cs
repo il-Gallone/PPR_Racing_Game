@@ -48,8 +48,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module10 = new ModuleInfo();
             module10.module = "Secure Storage";
             module10.moduleDescription = "Retain some of your scrap and parts if defeated.";
-            modules = new ModuleInfo[10] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10
-                                            };
+            ModuleInfo module11 = new ModuleInfo();
+            module11.module = "Ore Refiner";
+            module11.moduleDescription = "Refine 50% of asteroid drops. Gain a small amount of scrap from refined drops.";
+            modules = new ModuleInfo[11] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
+                                           module11 };
             SaveModules();
         }
     }
