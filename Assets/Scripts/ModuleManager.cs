@@ -51,8 +51,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module11 = new ModuleInfo();
             module11.module = "Ore Refiner";
             module11.moduleDescription = "Refine 50% of asteroid drops. Gain a small amount of scrap from refined drops.";
-            modules = new ModuleInfo[11] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
-                                           module11 };
+            ModuleInfo module12 = new ModuleInfo();
+            module12.module = "Defective Super Enhancer";
+            module12.moduleDescription = "All Ship Upgrades are boosted by two levels. Controls are reversed.";
+            modules = new ModuleInfo[12] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
+                                           module11, module12 };
             SaveModules();
         }
     }

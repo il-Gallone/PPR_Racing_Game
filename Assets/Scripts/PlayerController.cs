@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
     public float ramming_damageMultiplier = 1.5f;
     public int recycler_scrap = 0;
     public float storage_percent = .25f;
+    public float enhancer_levels = .5f;
+    int defect = 1; // 1 == normal, -1 == reversed controls
 
     // Start is called before the first frame update
     void Start()
@@ -60,8 +62,8 @@ public class PlayerController : MonoBehaviour
 
         audioPlayer = GetComponent<AudioPlayer>();
 
-        engineMultiplier = 1 + PlayerPrefs.GetInt("PlayerEngineLevel")*0.1f;
-        armourMultiplier = 1 + PlayerPrefs.GetInt("PlayerArmourLevel")*0.1f;
+        engineMultiplier = 1 + (GameManager.instance.stats.engineLevel * 0.1f);
+        armourMultiplier = 1 + (GameManager.instance.stats.engineLevel * 0.1f);
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
         maxHP *= armourMultiplier;
         maxEnergy *= engineMultiplier;
@@ -86,12 +88,23 @@ public class PlayerController : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Shield").SetActive(false);
         }
-
         if (GameManager.instance.stats.currentModuleID == "Repair Nanobots")
         {
             HP += nanobot_repairAmount;
             if (HP > maxHP)
                 HP = maxHP;
+        }
+        else if (GameManager.instance.stats.currentModuleID == "Defective Super Enhancer")
+        {
+            engineMultiplier += enhancer_levels;
+            armourMultiplier += enhancer_levels;
+
+            defect = -1;
+        }
+        else if (GameManager.instance.stats.currentModuleID == "Super Enhancer")
+        {
+            engineMultiplier += enhancer_levels;
+            armourMultiplier += enhancer_levels;
         }
     }
 
@@ -121,8 +134,8 @@ public class PlayerController : MonoBehaviour
         {
             if (energy > 0)
             {
-                rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical") * engineMultiplier);
-                rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal") * engineMultiplier;
+                rigid2D.AddForce(acceleration * Time.deltaTime * transform.up * Input.GetAxis("Vertical") * engineMultiplier * defect);
+                rigid2D.angularVelocity = handling * -Input.GetAxis("Horizontal") * engineMultiplier * defect;
                 energy -= (acceleration * Mathf.Abs(Input.GetAxis("Vertical") * 0.25f) + rigid2D.angularVelocity * 0.1f) * Time.deltaTime / engineMultiplier;
 
                 energyBar.SetFloat("Energy", energy);
