@@ -60,8 +60,11 @@ public class ModuleManager : MonoBehaviour
             ModuleInfo module14 = new ModuleInfo();
             module14.module = "Tractor Beam";
             module14.moduleDescription = "Collectibles get pulled in when nearby.";
-            modules = new ModuleInfo[14] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
-                                           module11, module12, module13, module14 };
+            ModuleInfo module15 = new ModuleInfo();
+            module15.module = "Weapon Overcharger";
+            module15.moduleDescription = "Temporarily increase weapon fire-rate and allow automatic fire.";
+            modules = new ModuleInfo[15] { module1, module2, module3, module4, module5, module6, module7, module8, module9, module10,
+                                           module11, module12, module13, module14, module15 };
             SaveModules();
         }
     }

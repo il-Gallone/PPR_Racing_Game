@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     public float enhancer_levels = .5f;
     int defect = 1; // 1 == normal, -1 == reversed controls
     public CircleCollider2D tractorBeam;
+    public float overcharger_increase = .7f;
+    public float overcharger_duration = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -220,6 +222,15 @@ public class PlayerController : MonoBehaviour
                     energy += energy_rechargeAmount;
                     if (energy > maxEnergy)
                         energy = maxEnergy;
+                }
+            }
+            if (GameManager.instance.stats.currentModuleID == "Weapon Overcharger")
+            {
+                if (Input.GetButtonDown("Module") && moduleCooldown <= 0)
+                {
+                    moduleCooldown = 30;
+
+                    GetComponentInChildren<WeaponController>().StartOvercharger(overcharger_increase, overcharger_duration);
                 }
             }
             if (HP <= 0 || energy <= 0)

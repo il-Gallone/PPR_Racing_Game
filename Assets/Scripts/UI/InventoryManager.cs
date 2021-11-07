@@ -167,6 +167,10 @@ public class InventoryManager : MonoBehaviour
         {
             text = "Collectables are pulled in when nearby. \nScrap Cost: 75 \nEngine Part Cost: 7";
         }
+        if (itemName == "Weapon Overcharger Blueprint")
+        {
+            text = "Temporarily increase weapon fire-rate and allow automatic fire. \nScrap Cost: 75 \nWeapon Part Cost: 7";
+        }
         return text;
     }
 
@@ -179,7 +183,7 @@ public class InventoryManager : MonoBehaviour
             || itemName == "Repair Nanobots Blueprint" || itemName == "Emergency Teleport Blueprint" || itemName == "Solar Collector Blueprint"
             || itemName == "Ramming Armour Blueprint" || itemName == "Scrap Recycler Blueprint" || itemName == "Ore Purifier Blueprint"
             || itemName == "Secure Storage Blueprint" || itemName == "Ore Refiner Blueprint" || itemName == "Defective Super Enhancer Blueprint"
-            || itemName == "Super Enhancer Blueprint" || itemName == "Tractor Beam Blueprint")
+            || itemName == "Super Enhancer Blueprint" || itemName == "Tractor Beam Blueprint" || itemName == "Weapon Overcharger Blueprint")
         {
             return true;
         }
@@ -296,6 +300,39 @@ public class InventoryManager : MonoBehaviour
             }
             
         }
+        
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Weapon Overcharger Blueprint")
+        {
+            if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.weaponParts >= 7)
+            {
+                GameManager.instance.stats.scrap -= 75;
+                GameManager.instance.stats.weaponParts -= 7;
+                hubManager.UpdateInventory();
+                fadeIn = false;
+                if (GameManager.instance.stats.inventory[activePopUp] == "Weapon Overcharger Blueprint")
+                {
+                    GameManager.instance.stats.unlockedModuleIDs.Add("Weapon Overcharger");
+                    GameManager.instance.stats.inventory.Remove("Weapon Overcharger Blueprint");
+                    if (GameManager.instance.stats.currentModuleIDNumber == -1)
+                    {
+                        GameManager.instance.stats.currentModuleIDNumber = 0;
+                        GameManager.instance.stats.currentModuleID = "Weapon Overcharger";
+                    }
+                }
+                for (int i = 0; i < inventoryButtons.Length; i++)
+                {
+                    inventoryButtons[i].GetComponent<Button>().interactable = false;
+                }
+                for (int i = 0; i < GameManager.instance.stats.inventory.Count; i++)
+                {
+                    if (i < inventoryButtons.Length)
+                    {
+                        inventoryButtons[i].GetComponent<Button>().interactable = true;
+                    }
+                }
+            }
+
+        }
         else if (GameManager.instance.stats.inventory[activePopUp] == "Scattergun Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Auto-Rifle Blueprint")
         {
             if (GameManager.instance.stats.scrap >= 50 && GameManager.instance.stats.weaponParts >= 5)
@@ -329,7 +366,8 @@ public class InventoryManager : MonoBehaviour
             
         }
         else if (GameManager.instance.stats.inventory[activePopUp] == "Shield Generator Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Repair Nanobots Blueprint"
-            || GameManager.instance.stats.inventory[activePopUp] == "Ramming Armour Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Secure Storage Blueprint")
+            || GameManager.instance.stats.inventory[activePopUp] == "Ramming Armour Blueprint" || GameManager.instance.stats.inventory[activePopUp] == "Secure Storage Blueprint"
+            )
         {
             if (GameManager.instance.stats.scrap >= 75 && GameManager.instance.stats.armourParts >= 7)
             {

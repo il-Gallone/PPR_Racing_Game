@@ -14,8 +14,12 @@ public class WeaponController : MonoBehaviour
 
     public bool automatic = true;
 
+
     public float shootInterval = .5f, minSpread = 0f, maxSpread = 0f;
     public int projectileCount = 1;
+
+    float original_shootInterval;
+    bool original_automatic;
 
     public float timeSinceLastShot;
 
@@ -23,6 +27,12 @@ public class WeaponController : MonoBehaviour
     public float shakeIntensity = .5f, shakeDuration = .25f;
 
     public AudioPlayer gunAudioPlayer;
+
+    private void Start()
+    {
+        original_shootInterval = shootInterval;
+        original_automatic = automatic;
+    }
 
     private void Update()
     {
@@ -58,6 +68,18 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public void StartOvercharger(float fireRate_increase, float duration)
+    {
+        Invoke("EndOvercharger", duration);
+
+        shootInterval = fireRate_increase * original_shootInterval;
+        automatic = true;
+    }
+    protected void EndOvercharger()
+    {
+        shootInterval = original_shootInterval;
+        automatic = original_automatic;
+    }
     protected void RotateWeapon()
     {
         // Rotate weapon to mouse
