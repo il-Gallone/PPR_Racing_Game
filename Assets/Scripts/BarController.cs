@@ -11,8 +11,15 @@ public class BarController : MonoBehaviour
     public Slider bar;
     public barType type;
 
+    public float delay = 0.5f;
+
     // Start is called before the first frame update
     void Start()
+    {
+        Invoke("SetMaxValues", delay);
+    }
+
+    void SetMaxValues()
     {
         switch (type)
         {
@@ -28,7 +35,7 @@ public class BarController : MonoBehaviour
                 }
             case barType.SHLD:
                 {
-                    if(GameManager.instance.stats.currentModuleID == "Shield Generator")
+                    if (GameManager.instance.stats.currentModuleID == "Shield Generator")
                     {
                         bar.maxValue = 20;
                     }
@@ -38,8 +45,7 @@ public class BarController : MonoBehaviour
                     }
                     break;
                 }
-    }
-
+        }
     }
 
     // Update is called once per frame
