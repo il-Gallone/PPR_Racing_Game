@@ -220,8 +220,7 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-
-        if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint"
+        else if (GameManager.instance.stats.inventory[activePopUp] == "Missile Launcher Blueprint"
              || GameManager.instance.stats.inventory[activePopUp] == "Laser Blueprint"
               || GameManager.instance.stats.inventory[activePopUp] == "Junk Blaster Blueprint"
                || GameManager.instance.stats.inventory[activePopUp] == "Ion Cannon Blueprint")

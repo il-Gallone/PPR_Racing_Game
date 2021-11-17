@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         indicator = GameObject.Find("ObjectiveIndicator").GetComponent<ObjectiveIndicator>();
 
         audioPlayer = GetComponent<AudioPlayer>();
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
         maxHP *= armourMultiplier;
         maxEnergy *= engineMultiplier;
-        HP = maxHP;
+        HP = GameManager.instance.stats.health;
         energy = maxEnergy;
 
         // set selected weapon - make sure availableWeapons is in correct order
@@ -235,6 +236,7 @@ public class PlayerController : MonoBehaviour
             }
             if (HP <= 0 || energy <= 0)
             {
+                GameManager.instance.stats.health = HP;
                 if (GameManager.instance.stats.currentModuleID=="Secure Storage")
                 {
                     GameManager.instance.stats.scrap += (int)(GameManager.instance.scrapCollected * storage_percent);
@@ -252,6 +254,7 @@ public class PlayerController : MonoBehaviour
             }
             if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
             {
+                GameManager.instance.stats.health = HP;
                 GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
                 GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
                 GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
@@ -264,7 +267,9 @@ public class PlayerController : MonoBehaviour
                 hyperspeed.Play("Hyperspeed");
                 isAnimationRunning = true;
             }
-        }
+        }   
+
+        GameManager.instance.stats.health = HP;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameStats
 {
+    public float health = 100; // player now has permanent health
+
     //Player Resources
     public int scrap = 0;
     public int weaponParts = 0;
