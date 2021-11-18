@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameObject[] availableWeapons;
 
     public float moduleResource;
-    public float moduleCooldown;
+    public float moduleCooldown, moduleCooldownMax;
     public string currentModule;
 
     AudioPlayer audioPlayer;
@@ -58,9 +58,20 @@ public class PlayerController : MonoBehaviour
     public float overcharger_increase = .7f;
     public float overcharger_duration = 5f;
 
+    public GameObject moduleStatus;
+    public Text moduleText;
+    public Image cooldown;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (GameManager.instance.stats.currentModuleID == "Ion Pulse Emitter" || GameManager.instance.stats.currentModuleID == "Decoy Buoy"
+            || GameManager.instance.stats.currentModuleID == "Emergency Battery" || GameManager.instance.stats.currentModuleID == "Speed Booster"
+            || GameManager.instance.stats.currentModuleID == "Emergency Teleport" || GameManager.instance.stats.currentModuleID == "Weapon Overcharger")
+        {
+            moduleStatus.SetActive(true);
+            moduleText.text = GameManager.instance.stats.currentModuleID + ": 'Spacebar' to activate";
+        }
 
         indicator = GameObject.Find("ObjectiveIndicator").GetComponent<ObjectiveIndicator>();
 
@@ -162,6 +173,7 @@ public class PlayerController : MonoBehaviour
             if (moduleCooldown > 0)
             {
                 moduleCooldown -= Time.deltaTime;
+                cooldown.fillAmount = moduleCooldown / moduleCooldownMax;
             }
             if (GameManager.instance.stats.currentModuleID == "Shield Generator")
             {
@@ -196,6 +208,7 @@ public class PlayerController : MonoBehaviour
                     acceleration *= 3;
                     speedThreshold *= 2;
                     moduleCooldown = 15;
+                    moduleCooldownMax = 15;
                 }
             }
             if (GameManager.instance.stats.currentModuleID == "Emergency Teleport")
@@ -203,6 +216,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonDown("Module") && moduleCooldown <= 0)
                 {
                     moduleCooldown = 15;
+                    moduleCooldownMax = 15;
 
                     float randomX = Random.Range(teleport_minRadius, teleport_maxRadius);
                     float randomY = Random.Range(teleport_minRadius, teleport_maxRadius);
@@ -230,6 +244,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonDown("Module") && moduleCooldown <= 0)
                 {
                     moduleCooldown = 30;
+                    moduleCooldownMax = 30;
 
                     GetComponentInChildren<WeaponController>().StartOvercharger(overcharger_increase, overcharger_duration);
                 }
