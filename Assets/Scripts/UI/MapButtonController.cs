@@ -78,7 +78,7 @@ public class MapButtonController : MonoBehaviour
         }
         if (ID == "hp")
         {
-            buttonText.text = "HP: " + GameManager.instance.stats.health.ToString() + "/" + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f)))).ToString();
+            buttonText.text = "HP: " + ((int)GameManager.instance.stats.health).ToString() + "/" + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f)))).ToString();
         }
         if (ID == "scrap")
         {
