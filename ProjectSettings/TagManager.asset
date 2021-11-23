@@ -22,6 +22,7 @@ TagManager:
   - Rebounder
   - Resource
   - TractorBeam
+  - Planet
   layers:
   - Default
   - TransparentFX

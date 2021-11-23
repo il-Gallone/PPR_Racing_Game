@@ -12,11 +12,15 @@ public class MapManager : MonoBehaviour
     public static int targetedPlanet;
     public static int targetedFaction;
     public PlanetStats[] planets = new PlanetStats[5];
-    public List<Map_PlanetController> planetButtons;
+    public Map_PlanetController[] planetButtons = new Map_PlanetController[5];
     public GameObject travelButton;
+    public bool travelState = true;
     public GameObject raidButton;
+    public bool raidState = false;
     public GameObject repairButtons;
+    public bool repairState = false;
     public GameObject shopButton;
+    public bool shopState = false;
     void Awake()
     {
         if (instance == null)
@@ -35,8 +39,8 @@ public class MapManager : MonoBehaviour
         else
         {
             planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
-            planetButtons[0].PlanetUpdate();
             instance.RandomizePlanets();
+            SaveData();
         }
     }
 
@@ -48,20 +52,29 @@ public class MapManager : MonoBehaviour
             instance.planetButtons[0].PlanetUpdate();
             instance.planetButtons[0].ChangeScene();
             instance.travelButton.SetActive(false);
+            instance.travelState = false;
             instance.RandomizePlanets();
+            instance.SaveData();
+            for (int i = 1; i < instance.planetButtons.Length; i++)
+            {
+                instance.planetButtons[i].PlanetUpdate();
+            }
             if (instance.planets[0].planetFaction == 6)
             {
                 instance.shopButton.SetActive(true);
+                instance.shopState = true;
             }
             if (instance.planets[0].planetFaction <= 5)
             {
                 instance.raidButton.SetActive(true);
+                instance.raidState = true;
             }
             if (instance.planets[0].planetFaction == 1)
             {
                 if (GameManager.instance.stats.faction1Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
+                    instance.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 2)
@@ -69,6 +82,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction2Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
+                    instance.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 3)
@@ -76,6 +90,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction3Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
+                    instance.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 4)
@@ -83,6 +98,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction4Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
+                    instance.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 5)
@@ -90,6 +106,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction5Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
+                    instance.repairState = true;
                 }
             }
         }
@@ -97,7 +114,7 @@ public class MapManager : MonoBehaviour
 
     void RandomizePlanets()
     {
-        for (int i = 1; i < planetButtons.Count; i++)
+        for (int i = 1; i < planets.Length; i++)
         {
             int diff = 1;
             int limits = 25;
@@ -241,7 +258,6 @@ public class MapManager : MonoBehaviour
             string name = "Outpost"; //TODO randomize name
             PlanetStats stats = new PlanetStats(diff, limits, weaponPartChance, enginePartChance, armourPartChance, faction, seed, enemy, repair, name);
             planets[i] = stats;
-            planetButtons[i].PlanetUpdate();
         }
     }
 
@@ -255,7 +271,9 @@ public class MapManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= instance.planets[0].planetRepairCost * repairAmount;
                 GameManager.instance.stats.health += repairAmount;
                 instance.raidButton.SetActive(false);
+                instance.raidState = false;
                 instance.travelButton.SetActive(true);
+                instance.travelState = true;
             }
         }
     }
@@ -269,16 +287,22 @@ public class MapManager : MonoBehaviour
             GameManager.instance.stats.scrap -= instance.planets[0].planetRepairCost * (int)repairAmount;
             GameManager.instance.stats.health += repairAmount;
             instance.raidButton.SetActive(false);
+            instance.raidState = false;
             instance.travelButton.SetActive(true);
+            instance.travelState = true;
         }
     }
 
     public static void LoadSceneByName()
     {
         instance.travelButton.SetActive(true);
+        instance.travelState = true;
         instance.shopButton.SetActive(false);
+        instance.shopState = false;
         instance.raidButton.SetActive(false);
+        instance.raidState = false;
         instance.repairButtons.SetActive(false);
+        instance.repairState = false;
         switch (targetedFaction)
         {
             case 1:
@@ -336,7 +360,7 @@ public class MapManager : MonoBehaviour
     }
     public void SaveData()
     {
-        string dataPath = Path.Combine(Application.dataPath, "saveData.txt");
+        string dataPath = Path.Combine(Application.dataPath, "planetData.txt");
         using (StreamWriter streamWriter = File.CreateText(dataPath))
         {
             string jsonString;
@@ -347,7 +371,7 @@ public class MapManager : MonoBehaviour
 
     public void LoadData()
     {
-        string dataPath = Path.Combine(Application.dataPath, "saveData.txt");
+        string dataPath = Path.Combine(Application.dataPath, "planetData.txt");
         using (StreamReader streamReader = File.OpenText(dataPath))
         {
             string jsonString;

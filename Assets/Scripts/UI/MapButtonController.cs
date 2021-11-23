@@ -14,31 +14,22 @@ public class MapButtonController : MonoBehaviour
         if (ID == "allRepair")
         {
             MapManager.instance.repairButtons = gameObject;
+            gameObject.SetActive(MapManager.instance.repairState);
         }
         if (ID == "raid")
         {
             MapManager.instance.raidButton = gameObject;
+            gameObject.SetActive(MapManager.instance.raidState);
         }
         if (ID == "travel")
         {
             MapManager.instance.travelButton = gameObject;
+            gameObject.SetActive(MapManager.instance.travelState);
         }
         if (ID == "shop")
         {
             MapManager.instance.shopButton = gameObject;
-        }
-        if (ID == "repair1")
-        {
-            buttonText.text = "Repair 1: " + MapManager.instance.planets[0].planetRepairCost.ToString();
-        }
-        if (ID == "repair10")
-        {
-            buttonText.text = "Repair 10: " + (10*MapManager.instance.planets[0].planetRepairCost).ToString();
-        }
-        if (ID == "repairAll")
-        {
-            buttonText.text = "Repair All: " + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
-            - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString();
+            gameObject.SetActive(MapManager.instance.shopState);
         }
     }
 
@@ -63,6 +54,19 @@ public class MapButtonController : MonoBehaviour
         if (ID == "travel")
         {
             MapManager.TravelPlanets();
+            if (ID == "repair1")
+            {
+                buttonText.text = "Repair 1: " + MapManager.instance.planets[0].planetRepairCost.ToString();
+            }
+            if (ID == "repair10")
+            {
+                buttonText.text = "Repair 10: " + (10 * MapManager.instance.planets[0].planetRepairCost).ToString();
+            }
+            if (ID == "repairAll")
+            {
+                buttonText.text = "Repair All: " + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
+                - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString();
+            }
         }
     }
 }

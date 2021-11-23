@@ -13,6 +13,7 @@ public class Map_PlanetController : MonoBehaviour
     public int planetID;
     public PlanetStats stats;
     public Text planetName;
+    public Text planetDescription;
 
     bool fadeIn = false;
     public float fadeSpeed = 5f;
@@ -26,6 +27,7 @@ public class Map_PlanetController : MonoBehaviour
     public void PlanetUpdate()
     {
         stats = MapManager.instance.planets[planetID];
+        MapManager.instance.planetButtons[planetID] = this;
         string name = "Neutral Territory";
         switch (stats.planetFaction)
         {
@@ -61,6 +63,107 @@ public class Map_PlanetController : MonoBehaviour
                 }
         }
         planetName.text = name;
+        string favour = "Neutral";
+        if (stats.planetFaction == 1)
+        {
+            if (GameManager.instance.stats.faction1Favour <= 15)
+            {
+                favour = "Enemy";
+            }
+            else if (GameManager.instance.stats.faction1Favour <= 35)
+            {
+                favour = "Unfriendly";
+            }
+            if (GameManager.instance.stats.faction1Favour >= 65)
+            {
+                favour = "Friendly";
+            }
+            if (GameManager.instance.stats.faction1Favour >= 90)
+            {
+                favour = "Allied";
+            }
+        }
+        if (stats.planetFaction == 2)
+        {
+            if (GameManager.instance.stats.faction2Favour <= 15)
+            {
+                favour = "Enemy";
+            }
+            else if (GameManager.instance.stats.faction2Favour <= 35)
+            {
+                favour = "Unfriendly";
+            }
+            if (GameManager.instance.stats.faction2Favour >= 65)
+            {
+                favour = "Friendly";
+            }
+            if (GameManager.instance.stats.faction2Favour >= 90)
+            {
+                favour = "Allied";
+            }
+        }
+        if (stats.planetFaction == 3)
+        {
+            if (GameManager.instance.stats.faction3Favour <= 15)
+            {
+                favour = "Enemy";
+            }
+            else if (GameManager.instance.stats.faction3Favour <= 35)
+            {
+                favour = "Unfriendly";
+            }
+            if (GameManager.instance.stats.faction3Favour >= 65)
+            {
+                favour = "Friendly";
+            }
+            if (GameManager.instance.stats.faction3Favour >= 90)
+            {
+                favour = "Allied";
+            }
+        }
+        if (stats.planetFaction == 4)
+        {
+            if (GameManager.instance.stats.faction4Favour <= 15)
+            {
+                favour = "Enemy";
+            }
+            else if (GameManager.instance.stats.faction4Favour <= 35)
+            {
+                favour = "Unfriendly";
+            }
+            if (GameManager.instance.stats.faction4Favour >= 65)
+            {
+                favour = "Friendly";
+            }
+            if (GameManager.instance.stats.faction4Favour >= 90)
+            {
+                favour = "Allied";
+            }
+        }
+        if (stats.planetFaction == 5)
+        {
+            if (GameManager.instance.stats.faction5Favour <= 15)
+            {
+                favour = "Enemy";
+            }
+            else if (GameManager.instance.stats.faction5Favour <= 35)
+            {
+                favour = "Unfriendly";
+            }
+            if (GameManager.instance.stats.faction5Favour >= 65)
+            {
+                favour = "Friendly";
+            }
+            if (GameManager.instance.stats.faction5Favour >= 90)
+            {
+                favour = "Allied";
+            }
+        }
+        string description = "Favour: " + favour + "\n" + "Weapon Parts: " + stats.planetWeaponPartChance.ToString() + "\n"
+            + "Engine Parts: " + stats.planetEnginePartChance.ToString() + "\n"
+            + "Armour Parts: " + stats.planetArmourPartChance.ToString() + "\n"
+            + "Scrap: " + (100 - stats.planetWeaponPartChance - stats.planetEnginePartChance - stats.planetArmourPartChance).ToString();
+        planetDescription.text = description;
     }
 
     public void ChangePlanet()
