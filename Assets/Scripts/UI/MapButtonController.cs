@@ -54,19 +54,27 @@ public class MapButtonController : MonoBehaviour
         if (ID == "travel")
         {
             MapManager.TravelPlanets();
-            if (ID == "repair1")
-            {
-                buttonText.text = "Repair 1: " + MapManager.instance.planets[0].planetRepairCost.ToString();
-            }
-            if (ID == "repair10")
-            {
-                buttonText.text = "Repair 10: " + (10 * MapManager.instance.planets[0].planetRepairCost).ToString();
-            }
-            if (ID == "repairAll")
-            {
-                buttonText.text = "Repair All: " + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
-                - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString();
-            }
+        }
+        if(ID == "back")
+        {
+            MapManager.LoadSceneByIndex(0);
+        }
+    }
+
+    public void Update()
+    {
+        if (ID == "repair1")
+        {
+            buttonText.text = "Repair 1: " + MapManager.instance.planets[0].planetRepairCost.ToString();
+        }
+        if (ID == "repair10")
+        {
+            buttonText.text = "Repair 10: " + (10 * MapManager.instance.planets[0].planetRepairCost).ToString();
+        }
+        if (ID == "repairAll")
+        {
+            buttonText.text = "Repair All: " + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
+            - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString();
         }
     }
 }

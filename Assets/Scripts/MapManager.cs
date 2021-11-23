@@ -354,7 +354,7 @@ public class MapManager : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void LoadSceneByIndex(int buildIndex)
+    public static void LoadSceneByIndex(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
     }
