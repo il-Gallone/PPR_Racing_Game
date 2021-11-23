@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameStats
 {
     public float health = 100; // player now has permanent health
+    public float maxHealth = 100;
 
     //Player Resources
     public int scrap = 0;

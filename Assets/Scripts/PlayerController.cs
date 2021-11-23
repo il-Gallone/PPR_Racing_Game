@@ -78,9 +78,9 @@ public class PlayerController : MonoBehaviour
         audioPlayer = GetComponent<AudioPlayer>();
 
         engineMultiplier = 1 + (GameManager.instance.stats.engineLevel * 0.1f);
-        armourMultiplier = 1 + (GameManager.instance.stats.engineLevel * 0.1f);
+        armourMultiplier = 1 + (GameManager.instance.stats.armourLevel * 0.1f);
         rigid2D = gameObject.GetComponent<Rigidbody2D>();
-        maxHP *= armourMultiplier;
+        maxHP = GameManager.instance.stats.maxHealth * armourMultiplier;
         maxEnergy *= engineMultiplier;
         HP = GameManager.instance.stats.health;
         energy = maxEnergy;

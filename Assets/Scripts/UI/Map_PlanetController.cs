@@ -10,16 +10,9 @@ public class Map_PlanetController : MonoBehaviour
     public GameObject planetInfo;
 
     CanvasGroup canvasGroup;
-
-    public string sceneToLoad = "SCENE_NAME";
-    public int planetDifficulty = 1;
-    public int planetLevelLimits = 25;
-    public int planetWeaponPartChance;
-    public int planetEnginePartChance;
-    public int planetArmourPartChance;
-    public int planetFaction; //1 = Alpha, 2 = Beta, 3 = Gamma, 4 = Omega, 5 = Epsilon
-    public int planetMapSeed; //0 = Alpha Homeworld, 1 = Beta Homeworld, 2 = Gamma Homeworld, 3 = Omega Homeworld, 4 = Epsilon Hideout
-    public int planetDefaultEnemy; //0 = Swarmer, 1 = Detonator, 2 = Collector, 3 = CollectorPacifist
+    public int planetID;
+    public PlanetStats stats;
+    public Text planetName;
 
     bool fadeIn = false;
     public float fadeSpeed = 5f;
@@ -27,25 +20,62 @@ public class Map_PlanetController : MonoBehaviour
     private void Start()
     {
         // set planet info?
+        PlanetUpdate();
         canvasGroup = planetInfo.GetComponent<CanvasGroup>();
     }
+    public void PlanetUpdate()
+    {
+        stats = MapManager.instance.planets[planetID];
+        string name = "Neutral Territory";
+        switch (stats.planetFaction)
+        {
+            case 1:
+                {
+                    name = "Alpha " + stats.planetName;
+                    break;
+                }
+            case 2:
+                {
+                    name = "Beta " + stats.planetName;
+                    break;
+                }
+            case 3:
+                {
+                    name = "Gamma " + stats.planetName;
+                    break;
+                }
+            case 4:
+                {
+                    name = "Omega " + stats.planetName;
+                    break;
+                }
+            case 5:
+                {
+                    name = "Epsilon " + stats.planetName;
+                    break;
+                }
+            case 6:
+                {
+                    name = "Merchant " + stats.planetName;
+                    break;
+                }
+        }
+        planetName.text = name;
+    }
 
+    public void ChangePlanet()
+    {
+        MapManager.targetedPlanet = planetID;
+    }
     public void ChangeScene()
     {
-        if (sceneToLoad == "" || sceneToLoad == null)
-        {
-            Debug.Log("Please enter a scene name to load");
-            return;
-        }
-        //SceneManager.LoadScene(sceneToLoad);
-        MapManager.sceneToLoad = sceneToLoad;
-        MapManager.targetedFaction = planetFaction;
-        GameManager.instance.mapGenerationSeed = planetMapSeed;
-        GameManager.instance.primaryEnemySpawn = planetDefaultEnemy;
-        GameManager.instance.levelLimits = planetLevelLimits;
-        GameManager.instance.weaponPartChance = planetWeaponPartChance;
-        GameManager.instance.enginePartChance = planetEnginePartChance;
-        GameManager.instance.armourPartChance = planetArmourPartChance;
+        MapManager.targetedFaction = stats.planetFaction;
+        GameManager.instance.mapGenerationSeed = stats.planetMapSeed;
+        GameManager.instance.primaryEnemySpawn = stats.planetDefaultEnemy;
+        GameManager.instance.levelLimits = stats.planetLevelLimits;
+        GameManager.instance.weaponPartChance = stats.planetWeaponPartChance;
+        GameManager.instance.enginePartChance = stats.planetEnginePartChance;
+        GameManager.instance.armourPartChance = stats.planetArmourPartChance;
     }
 
     private bool IsMouseOverUI()
