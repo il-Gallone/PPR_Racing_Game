@@ -48,12 +48,12 @@ public class MapManager : MonoBehaviour
     {
         if (targetedPlanet != 0)
         {
-            targetedPlanet = 0;
             instance.planets[0] = instance.planets[targetedPlanet];
             instance.planetButtons[0].PlanetUpdate();
             instance.planetButtons[0].ChangeScene();
             instance.travelButton.SetActive(false);
             instance.travelState = false;
+            targetedPlanet = 0;
             instance.RandomizePlanets();
             instance.SaveData();
             for (int i = 1; i < instance.planetButtons.Length; i++)
