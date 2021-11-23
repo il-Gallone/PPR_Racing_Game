@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public int enginePartsCollected = 0;
     public int armourPartsCollected = 0;
 
+    public static bool saveInitialized = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
             SaveData();
             PlayerPrefs.SetInt("SaveExists", 0);
         }
+        GameManager.saveInitialized = true;
     }
 
     public void SaveData()

@@ -39,8 +39,8 @@ public class MapManager : MonoBehaviour
         else
         {
             planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
-            instance.RandomizePlanets();
-            SaveData();
+            Invoke("RandomizePlanets", 0.5f);
+            Invoke("SaveData", 0.6f);
         }
     }
 

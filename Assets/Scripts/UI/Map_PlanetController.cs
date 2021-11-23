@@ -159,10 +159,10 @@ public class Map_PlanetController : MonoBehaviour
                 favour = "Allied";
             }
         }
-        string description = "Favour: " + favour + "\n" + "Weapon Parts: " + stats.planetWeaponPartChance.ToString() + "\n"
-            + "Engine Parts: " + stats.planetEnginePartChance.ToString() + "\n"
-            + "Armour Parts: " + stats.planetArmourPartChance.ToString() + "\n"
-            + "Scrap: " + (100 - stats.planetWeaponPartChance - stats.planetEnginePartChance - stats.planetArmourPartChance).ToString();
+        string description = "Favour: " + favour + "\n" + "Weapon Parts: " + stats.planetWeaponPartChance.ToString() + "%\n"
+            + "Engine Parts: " + stats.planetEnginePartChance.ToString() + "%\n"
+            + "Armour Parts: " + stats.planetArmourPartChance.ToString() + "%\n"
+            + "Scrap: " + (100 - stats.planetWeaponPartChance - stats.planetEnginePartChance - stats.planetArmourPartChance).ToString() + "%";
         planetDescription.text = description;
     }
 
