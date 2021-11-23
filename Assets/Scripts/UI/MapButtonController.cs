@@ -65,16 +65,24 @@ public class MapButtonController : MonoBehaviour
     {
         if (ID == "repair1")
         {
-            buttonText.text = "Repair 1: " + MapManager.instance.planets[0].planetRepairCost.ToString();
+            buttonText.text = "Repair 1 HP: -" + MapManager.instance.planets[0].planetRepairCost.ToString() + " Scrap";
         }
         if (ID == "repair10")
         {
-            buttonText.text = "Repair 10: " + (10 * MapManager.instance.planets[0].planetRepairCost).ToString();
+            buttonText.text = "Repair 10 HP: -" + (10 * MapManager.instance.planets[0].planetRepairCost).ToString() + " Scrap";
         }
         if (ID == "repairAll")
         {
-            buttonText.text = "Repair All: " + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
-            - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString();
+            buttonText.text = "Repair All HP: -" + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f))
+            - GameManager.instance.stats.health) * MapManager.instance.planets[0].planetRepairCost).ToString() + " Scrap";
+        }
+        if (ID == "hp")
+        {
+            buttonText.text = "HP: " + GameManager.instance.stats.health.ToString() + "/" + ((int)(GameManager.instance.stats.maxHealth * (1 + (GameManager.instance.stats.armourLevel * 0.1f)))).ToString();
+        }
+        if (ID == "scrap")
+        {
+            buttonText.text = "Scrap: " + GameManager.instance.stats.scrap.ToString();
         }
     }
 }

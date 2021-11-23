@@ -9,7 +9,7 @@ public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
     public static string sceneToLoad;
-    public static int targetedPlanet;
+    public static int targetedPlanet = 0;
     public static int targetedFaction;
     public PlanetStats[] planets = new PlanetStats[5];
     public Map_PlanetController[] planetButtons = new Map_PlanetController[5];
@@ -48,6 +48,7 @@ public class MapManager : MonoBehaviour
     {
         if (targetedPlanet != 0)
         {
+            targetedPlanet = 0;
             instance.planets[0] = instance.planets[targetedPlanet];
             instance.planetButtons[0].PlanetUpdate();
             instance.planetButtons[0].ChangeScene();
