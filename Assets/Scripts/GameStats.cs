@@ -34,4 +34,18 @@ public class GameStats
     public int faction5Favour = 50; //Epsilon Faction
 
     public bool firstTime = true;
+
+    public int planetsTraveled = 0;
+    public bool travelState = true;
+    public bool raidState = false;
+    public bool repairState = false;
+    public bool shopState = false;
+
+    public List<string> shopBlueprintsT1 = new List<string>();
+    public List<string> shopBlueprintsT2 = new List<string>();
+    public List<string> shopBlueprintsT3 = new List<string>();
+    public List<string> shopBlueprintsT4 = new List<string>();
+    public List<string> shopBlueprintsT5 = new List<string>();
+
+    public List<string> availableShopBlueprints = new List<string>();
 }

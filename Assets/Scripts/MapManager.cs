@@ -14,13 +14,9 @@ public class MapManager : MonoBehaviour
     public PlanetStats[] planets = new PlanetStats[5];
     public Map_PlanetController[] planetButtons = new Map_PlanetController[5];
     public GameObject travelButton;
-    public bool travelState = true;
     public GameObject raidButton;
-    public bool raidState = false;
     public GameObject repairButtons;
-    public bool repairState = false;
     public GameObject shopButton;
-    public bool shopState = false;
     void Awake()
     {
         if (instance == null)
@@ -52,7 +48,10 @@ public class MapManager : MonoBehaviour
             instance.planetButtons[0].PlanetUpdate();
             instance.planetButtons[0].ChangeScene();
             instance.travelButton.SetActive(false);
-            instance.travelState = false;
+            GameManager.instance.stats.travelState = false;
+            GameManager.instance.stats.planetsTraveled++;
+            GameManager.instance.ShopStock(1);
+            GameManager.instance.SaveData();
             targetedPlanet = 0;
             instance.RandomizePlanets();
             instance.SaveData();
@@ -63,19 +62,19 @@ public class MapManager : MonoBehaviour
             if (instance.planets[0].planetFaction == 6)
             {
                 instance.shopButton.SetActive(true);
-                instance.shopState = true;
+                GameManager.instance.stats.shopState = true;
             }
             if (instance.planets[0].planetFaction <= 5)
             {
                 instance.raidButton.SetActive(true);
-                instance.raidState = true;
+                GameManager.instance.stats.raidState = true;
             }
             if (instance.planets[0].planetFaction == 1)
             {
                 if (GameManager.instance.stats.faction1Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
-                    instance.repairState = true;
+                    GameManager.instance.stats.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 2)
@@ -83,7 +82,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction2Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
-                    instance.repairState = true;
+                    GameManager.instance.stats.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 3)
@@ -91,7 +90,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction3Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
-                    instance.repairState = true;
+                    GameManager.instance.stats.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 4)
@@ -99,7 +98,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction4Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
-                    instance.repairState = true;
+                    GameManager.instance.stats.repairState = true;
                 }
             }
             else if (instance.planets[0].planetFaction == 5)
@@ -107,7 +106,7 @@ public class MapManager : MonoBehaviour
                 if (GameManager.instance.stats.faction5Favour > 15)
                 {
                     instance.repairButtons.SetActive(true);
-                    instance.repairState = true;
+                    GameManager.instance.stats.repairState = true;
                 }
             }
         }
@@ -272,9 +271,9 @@ public class MapManager : MonoBehaviour
                 GameManager.instance.stats.scrap -= instance.planets[0].planetRepairCost * repairAmount;
                 GameManager.instance.stats.health += repairAmount;
                 instance.raidButton.SetActive(false);
-                instance.raidState = false;
+                GameManager.instance.stats.raidState = false;
                 instance.travelButton.SetActive(true);
-                instance.travelState = true;
+                GameManager.instance.stats.travelState = true;
             }
         }
     }
@@ -288,22 +287,22 @@ public class MapManager : MonoBehaviour
             GameManager.instance.stats.scrap -= instance.planets[0].planetRepairCost * (int)repairAmount;
             GameManager.instance.stats.health += repairAmount;
             instance.raidButton.SetActive(false);
-            instance.raidState = false;
+            GameManager.instance.stats.raidState = false;
             instance.travelButton.SetActive(true);
-            instance.travelState = true;
+            GameManager.instance.stats.travelState = true;
         }
     }
 
     public static void LoadSceneByName()
     {
         instance.travelButton.SetActive(true);
-        instance.travelState = true;
+        GameManager.instance.stats.travelState = true;
         instance.shopButton.SetActive(false);
-        instance.shopState = false;
+        GameManager.instance.stats.shopState = false;
         instance.raidButton.SetActive(false);
-        instance.raidState = false;
+        GameManager.instance.stats.raidState = false;
         instance.repairButtons.SetActive(false);
-        instance.repairState = false;
+        GameManager.instance.stats.repairState = false;
         switch (targetedFaction)
         {
             case 1:

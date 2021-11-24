@@ -14,22 +14,22 @@ public class MapButtonController : MonoBehaviour
         if (ID == "allRepair")
         {
             MapManager.instance.repairButtons = gameObject;
-            gameObject.SetActive(MapManager.instance.repairState);
+            gameObject.SetActive(GameManager.instance.stats.repairState);
         }
         if (ID == "raid")
         {
             MapManager.instance.raidButton = gameObject;
-            gameObject.SetActive(MapManager.instance.raidState);
+            gameObject.SetActive(GameManager.instance.stats.raidState);
         }
         if (ID == "travel")
         {
             MapManager.instance.travelButton = gameObject;
-            gameObject.SetActive(MapManager.instance.travelState);
+            gameObject.SetActive(GameManager.instance.stats.travelState);
         }
         if (ID == "shop")
         {
             MapManager.instance.shopButton = gameObject;
-            gameObject.SetActive(MapManager.instance.shopState);
+            gameObject.SetActive(GameManager.instance.stats.shopState);
         }
     }
 
