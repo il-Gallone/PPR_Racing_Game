@@ -269,6 +269,7 @@ public class PlayerController : MonoBehaviour
             }
             if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
             {
+                GameManager.instance.stats.levelsCompleted++;
                 GameManager.instance.stats.health = HP;
                 GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
                 GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;

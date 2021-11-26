@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameStats
 {
+    public int levelsCompleted = 0;
     public float health = 100; // player now has permanent health
     public float maxHealth = 100;
 
