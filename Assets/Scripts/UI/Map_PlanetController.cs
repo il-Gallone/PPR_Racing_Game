@@ -61,6 +61,11 @@ public class Map_PlanetController : MonoBehaviour
                     name = "Merchant " + stats.planetName;
                     break;
                 }
+            case 7:
+                {
+                    name = "Boss " + stats.planetName;
+                    break;
+                }
         }
         planetName.text = name;
         string favour = "Neutral";
