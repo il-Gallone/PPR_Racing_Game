@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GenerationManager : MonoBehaviour
 {
@@ -28,6 +29,15 @@ public class GenerationManager : MonoBehaviour
 
     void GenerateMap(int mapGenerationSeed)
     {
+        if (SceneManager.GetActiveScene().name == "BossLevel")
+        {
+            RandomlySpawnObjects(mapTerrainPrefabs[2], 1, Vector3.zero, 10, GameManager.instance.levelLimits - 6);
+            RandomlySpawnObjects(mapTerrainPrefabs[0], 20, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
+            RandomlySpawnObjects(mapTerrainPrefabs[1], 20, Vector3.zero, 1, GameManager.instance.levelLimits - 5);
+
+            return;
+        }
+
         switch (mapGenerationSeed)
         {
             case 0: //Alpha Homeworld

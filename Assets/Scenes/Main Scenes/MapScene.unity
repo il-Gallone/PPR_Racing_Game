@@ -1870,8 +1870,8 @@ GameObject:
   - component: {fileID: 510691721}
   - component: {fileID: 510691720}
   - component: {fileID: 510691719}
-  - component: {fileID: 510691718}
   - component: {fileID: 510691717}
+  - component: {fileID: 510691722}
   m_Layer: 5
   m_Name: BossLevelButton
   m_TagString: Planet
@@ -1929,23 +1929,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &510691718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510691715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54dbfe3bb27568f4c9bec90705ca4309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planetInfo: {fileID: 1308417522}
-  planetID: 6
-  planetName: {fileID: 526558504}
-  planetDescription: {fileID: 1614924425}
-  fadeSpeed: 5
 --- !u!114 &510691719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2002,6 +1985,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 510691722}
+        m_TargetAssemblyTypeName: BossLevelCheck, Assembly-CSharp
+        m_MethodName: LoadBossLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &510691720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,6 +2035,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510691715}
   m_CullTransparentMesh: 1
+--- !u!114 &510691722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510691715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb675b0e0d510e43a14c4e4c6565596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossThreshold: 10
 --- !u!1 &522464453
 GameObject:
   m_ObjectHideFlags: 0

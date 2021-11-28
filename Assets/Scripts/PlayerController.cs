@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     public float shakeIntensity = .6f, shakeDuration = .3f;
 
+    bool bossLevel;
+
     [Header("Modules Settings")]
     public float nanobot_repairAmount = 25f;
     public float teleport_minRadius = 10f, teleport_maxRadius = 20f;
@@ -65,6 +68,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "BossLevel")
+            bossLevel = true;
+        else
+            bossLevel = false;
+
         if (GameManager.instance.stats.currentModuleID == "Ion Pulse Emitter" || GameManager.instance.stats.currentModuleID == "Decoy Buoy"
             || GameManager.instance.stats.currentModuleID == "Emergency Battery" || GameManager.instance.stats.currentModuleID == "Speed Booster"
             || GameManager.instance.stats.currentModuleID == "Emergency Teleport" || GameManager.instance.stats.currentModuleID == "Weapon Overcharger")
@@ -267,7 +275,7 @@ public class PlayerController : MonoBehaviour
                 hyperspeed.Play("Hyperspeed");
                 isAnimationRunning = true;
             }
-            if (objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
+            if (!bossLevel && objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
             {
                 GameManager.instance.stats.levelsCompleted++;
                 GameManager.instance.stats.health = HP;

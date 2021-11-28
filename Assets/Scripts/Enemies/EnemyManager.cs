@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
+    public int hordeCount = 20;
+
     public static int numOfEnemiesInScene = 0;
 
     int enemiesToSpawn = 1;
@@ -32,6 +35,16 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "BossLevel")
+        {
+            //spawn horde
+            RandomlySpawnObjects(enemyPrefabs[primaryEnemy], hordeCount);
+
+            //spawn captain
+
+
+            return;
+        }
         RandomlySpawnObjects(enemyPrefabs[primaryEnemy], 1);
         enemiesToSpawn++;
     }
@@ -39,6 +52,9 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "BossLevel")
+            return;
+
         timer += Time.deltaTime;
 
         if (timer >= timeUntilSpawn)
@@ -57,7 +73,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < objectCount; i++)
         {
-            if (numOfEnemiesInScene < maxEnemiesAllowed)
+            if (numOfEnemiesInScene < maxEnemiesAllowed || SceneManager.GetActiveScene().name == "BossLevel")
             {
                 Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 direction /= direction.magnitude;
