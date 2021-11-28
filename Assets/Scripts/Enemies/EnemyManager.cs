@@ -21,6 +21,10 @@ public class EnemyManager : MonoBehaviour
     public int primaryEnemy = 0;
 
     Transform player;
+    [Header("Boss Settings")]
+    float bossScale = 3f;
+    float bossDamageMultiplier = 3f;
+    float bossHealth = 1000f;
 
     private void Awake()
     {
@@ -41,7 +45,15 @@ public class EnemyManager : MonoBehaviour
             RandomlySpawnObjects(enemyPrefabs[primaryEnemy], hordeCount);
 
             //spawn captain
+            Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+            direction /= direction.magnitude;
+            Vector3 randomPos = direction * Random.Range(minSpawnRadius, maxSpawnRadius);
 
+            GameObject captain = Instantiate(enemyPrefabs[primaryEnemy], player.position + randomPos, Quaternion.identity);
+
+            captain.transform.localScale = new Vector3(bossScale, bossScale, bossScale);
+            captain.GetComponentInChildren<WeaponController>().damageMultiplier = 3f;
+            captain.GetComponent<EnemyBase>().HP = bossHealth;
 
             return;
         }

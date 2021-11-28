@@ -14,6 +14,7 @@ public class WeaponController : MonoBehaviour
 
     public bool automatic = true;
 
+    public float damageMultiplier = 1f;
 
     public float shootInterval = .5f, minSpread = 0f, maxSpread = 0f;
     public int projectileCount = 1;
@@ -104,8 +105,9 @@ public class WeaponController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab[randomBullet], shootPos.position, shootPos.rotation);
 
         bullet.transform.Rotate(0, 0, spread);
+        bullet.GetComponent<BulletController>().damage = bullet.GetComponent<BulletController>().damage * damageMultiplier;
         //print("shoot");
-        
+
     }
 
     public void PlayShootSound()

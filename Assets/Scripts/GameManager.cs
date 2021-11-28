@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("SaveExists", 0);
         }
         GameManager.saveInitialized = true;
+        instance.stats.health = 100;
     }
 
     public void ShopStock(int repeats)
