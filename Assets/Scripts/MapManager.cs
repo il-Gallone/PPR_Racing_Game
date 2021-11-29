@@ -351,6 +351,7 @@ public class MapManager : MonoBehaviour
                     break;
                 }
         }
+        GameManager.instance.SaveData();
         SceneManager.LoadScene(2);
     }
 
