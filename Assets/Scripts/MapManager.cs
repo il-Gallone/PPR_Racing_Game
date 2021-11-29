@@ -51,10 +51,8 @@ public class MapManager : MonoBehaviour
             GameManager.instance.stats.travelState = false;
             GameManager.instance.stats.planetsTraveled++;
             GameManager.instance.ShopStock(1);
-            GameManager.instance.SaveData();
             targetedPlanet = 0;
             instance.RandomizePlanets();
-            instance.SaveData();
             for (int i = 1; i < instance.planetButtons.Length; i++)
             {
                 instance.planetButtons[i].PlanetUpdate();
@@ -109,6 +107,8 @@ public class MapManager : MonoBehaviour
                     GameManager.instance.stats.repairState = true;
                 }
             }
+            GameManager.instance.SaveData();
+            instance.SaveData();
         }
     }
 
@@ -351,7 +351,6 @@ public class MapManager : MonoBehaviour
                     break;
                 }
         }
-        GameManager.instance.SaveData();
         SceneManager.LoadScene(2);
     }
 
