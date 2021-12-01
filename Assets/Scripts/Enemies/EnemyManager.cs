@@ -22,13 +22,33 @@ public class EnemyManager : MonoBehaviour
 
     Transform player;
     [Header("Boss Settings")]
-    float bossScale = 3f;
-    float bossDamageMultiplier = 3f;
-    float bossHealth = 1000f;
+    public float bossScale = 3f;
+    public float bossDamageMultiplier = 3f;
+    public float bossHealth = 500f;
 
     private void Awake()
     {
-        primaryEnemy = GameManager.instance.primaryEnemySpawn;
+        if (SceneManager.GetActiveScene().name == "BossLevel")
+        {
+            float minFavour = Mathf.Min(    GameManager.instance.stats.faction1Favour,
+                                            GameManager.instance.stats.faction2Favour,
+                                            GameManager.instance.stats.faction3Favour,
+                                            GameManager.instance.stats.faction4Favour,
+                                            GameManager.instance.stats.faction5Favour);
+            if (minFavour == GameManager.instance.stats.faction1Favour)
+                primaryEnemy = 3;
+            else if (minFavour == GameManager.instance.stats.faction2Favour)
+                primaryEnemy = 3;
+            else if (minFavour == GameManager.instance.stats.faction3Favour)
+                primaryEnemy = 0;
+            else if (minFavour == GameManager.instance.stats.faction4Favour)
+                primaryEnemy = 1;
+            else if (minFavour == GameManager.instance.stats.faction5Favour)
+                primaryEnemy = 2;
+        }
+        else
+            primaryEnemy = GameManager.instance.primaryEnemySpawn;
+        
         if(primaryEnemy == 2 || primaryEnemy == 3)
         {
             maxEnemiesSpawned = 1;

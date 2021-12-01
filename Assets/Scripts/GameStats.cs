@@ -28,11 +28,11 @@ public class GameStats
     public List<string> inventory = new List<string>();
 
     //Player Favour
-    public int faction1Favour = 50; //Alpha Faction
-    public int faction2Favour = 50; //Beta Faction
-    public int faction3Favour = 50; //Gamma Faction
-    public int faction4Favour = 50; //Omega Faction
-    public int faction5Favour = 50; //Epsilon Faction
+    public int faction1Favour = 50; //Alpha Faction     - pacifist
+    public int faction2Favour = 50; //Beta Faction      - pacifist
+    public int faction3Favour = 50; //Gamma Faction     - swarmer
+    public int faction4Favour = 50; //Omega Faction     - detonator
+    public int faction5Favour = 50; //Epsilon Faction   - collector
 
     public bool firstTime = true;
 

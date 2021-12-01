@@ -1085,6 +1085,9 @@ MonoBehaviour:
   - {fileID: 6415922411721323699, guid: dea2755a55be27547ba57d7695ec97b1, type: 3}
   - {fileID: 46258191275305821, guid: 68e42dfb7175e864f8aca41ea6c5abb0, type: 3}
   primaryEnemy: 0
+  bossScale: 3
+  bossDamageMultiplier: 3
+  bossHealth: 500
 --- !u!4 &367465290
 Transform:
   m_ObjectHideFlags: 0
