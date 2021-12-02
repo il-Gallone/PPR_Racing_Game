@@ -7,6 +7,7 @@ public class UITextController : MonoBehaviour
 {
     public string ID;
     public Text uiText;
+    public ShopManager shopManager;
 
 
     private void Start()
@@ -90,51 +91,51 @@ public class UITextController : MonoBehaviour
         }
         if (ID == "weapon")
         {
-            uiText.text = "Weapon Parts: " + ShopManager.weaponStock.ToString();
+            uiText.text = "Weapon Parts: " + shopManager.weaponStock.ToString();
         }
         if (ID == "engine")
         {
-            uiText.text = "Engine Parts: " + ShopManager.engineStock.ToString();
+            uiText.text = "Engine Parts: " + shopManager.engineStock.ToString();
         }
         if (ID == "armour")
         {
-            uiText.text = "Armour Parts: " + ShopManager.armourStock.ToString();
+            uiText.text = "Armour Parts: " + shopManager.armourStock.ToString();
         }
         if (ID == "weaponBuy")
         {
-            uiText.text = "Buy: -" + ShopManager.weaponCost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.weaponCost.ToString() + " Scrap";
         }
         if (ID == "engineBuy")
         {
-            uiText.text = "Buy: -" + ShopManager.engineCost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.engineCost.ToString() + " Scrap";
         }
         if (ID == "armourBuy")
         {
-            uiText.text = "Buy: -" + ShopManager.armourCost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.armourCost.ToString() + " Scrap";
         }
         if (ID == "blueprint1")
         {
-            uiText.text = ShopManager.blueprint1;
+            uiText.text = shopManager.blueprint1;
         }
         if (ID == "blueprint2")
         {
-            uiText.text = ShopManager.blueprint2;
+            uiText.text = shopManager.blueprint2;
         }
         if (ID == "blueprint3")
         {
-            uiText.text = ShopManager.blueprint3;
+            uiText.text = shopManager.blueprint3;
         }
         if (ID == "bp1Buy")
         {
-            uiText.text = "Buy: -" + ShopManager.bp1Cost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.bp1Cost.ToString() + " Scrap";
         }
         if (ID == "bp2Buy")
         {
-            uiText.text = "Buy: -" + ShopManager.bp2Cost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.bp2Cost.ToString() + " Scrap";
         }
         if (ID == "bp3Buy")
         {
-            uiText.text = "Buy: -" + ShopManager.bp3Cost.ToString() + " Scrap";
+            uiText.text = "Buy: -" + shopManager.bp3Cost.ToString() + " Scrap";
         }
     }
 }

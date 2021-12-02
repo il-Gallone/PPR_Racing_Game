@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: bp2Buy
   uiText: {fileID: 453718228}
+  shopManager: {fileID: 644201022}
 --- !u!114 &103371454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -267,6 +268,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -663,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: weaponBuy
   uiText: {fileID: 1797100134}
+  shopManager: {fileID: 644201022}
 --- !u!114 &348786070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +694,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -752,6 +766,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -931,6 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: armour
   uiText: {fileID: 504010842}
+  shopManager: {fileID: 644201022}
 --- !u!114 &504010842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,6 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: blueprint1
   uiText: {fileID: 527380696}
+  shopManager: {fileID: 644201022}
 --- !u!114 &527380696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,6 +1124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdbce5eb2c7bc54d9660d7c9dbba80a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponStock: 0
+  engineStock: 0
+  armourStock: 0
+  weaponCost: 0
+  engineCost: 0
+  armourCost: 0
+  blueprint1: 
+  blueprint2: 
+  blueprint3: 
+  bp1Cost: 0
+  bp2Cost: 0
+  bp3Cost: 0
 --- !u!4 &644201023
 Transform:
   m_ObjectHideFlags: 0
@@ -1246,6 +1286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: armourBuy
   uiText: {fileID: 722771212}
+  shopManager: {fileID: 644201022}
 --- !u!114 &792686092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1304,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -1335,6 +1376,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1433,6 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: engine
   uiText: {fileID: 912441019}
+  shopManager: {fileID: 644201022}
 --- !u!114 &912441019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,7 +1814,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -1786,6 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: shopBack
   uiText: {fileID: 0}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1355813251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1842,7 +1897,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 265807117}
         m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
         m_MethodName: PlayClipAt
         m_Mode: 4
@@ -2244,6 +2299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: blueprint2
   uiText: {fileID: 1534344997}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1534344997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,6 +2543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: bp3Buy
   uiText: {fileID: 177547101}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1557893103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2504,7 +2561,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -2576,6 +2633,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2677,6 +2746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: bp1Buy
   uiText: {fileID: 1197053073}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1694578774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2694,7 +2764,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -2766,6 +2836,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3059,6 +3141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: blueprint3
   uiText: {fileID: 1806686814}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1806686814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3153,6 +3236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: scrap
   uiText: {fileID: 1842319826}
+  shopManager: {fileID: 0}
 --- !u!114 &1842319826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3329,6 +3413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: engineBuy
   uiText: {fileID: 1376751477}
+  shopManager: {fileID: 644201022}
 --- !u!114 &1995435944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3346,7 +3431,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1549349994}
           m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
           m_MethodName: PlayClipAt
           m_Mode: 4
@@ -3418,6 +3503,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MapButtonController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 265807117}
+        m_TargetAssemblyTypeName: AudioPlayer, Assembly-CSharp
+        m_MethodName: PlayClipAt
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3516,6 +3613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: weapon
   uiText: {fileID: 2077057028}
+  shopManager: {fileID: 644201022}
 --- !u!114 &2077057028
 MonoBehaviour:
   m_ObjectHideFlags: 0

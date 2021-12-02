@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public static int weaponStock;
-    public static int engineStock;
-    public static int armourStock;
-    public static int weaponCost;
-    public static int engineCost;
-    public static int armourCost;
-    public static string blueprint1;
-    public static string blueprint2;
-    public static string blueprint3;
-    public static int bp1Cost;
-    public static int bp2Cost;
-    public static int bp3Cost;
+    public int weaponStock;
+    public int engineStock;
+    public int armourStock;
+    public int weaponCost;
+    public int engineCost;
+    public int armourCost;
+    public string blueprint1;
+    public string blueprint2;
+    public string blueprint3;
+    public int bp1Cost;
+    public int bp2Cost;
+    public int bp3Cost;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +60,7 @@ public class ShopManager : MonoBehaviour
             {
                 weaponStock--;
                 GameManager.instance.stats.scrap -= weaponCost;
+                GameManager.instance.stats.weaponParts++;
             }
         }
         if (stockID == "engine")
@@ -68,6 +69,7 @@ public class ShopManager : MonoBehaviour
             {
                 engineStock--;
                 GameManager.instance.stats.scrap -= engineCost;
+                GameManager.instance.stats.engineParts++;
             }
         }
         if (stockID == "armour")
@@ -76,6 +78,7 @@ public class ShopManager : MonoBehaviour
             {
                 armourStock--;
                 GameManager.instance.stats.scrap -= armourCost;
+                GameManager.instance.stats.armourParts++;
             }
         }
         if (stockID == "blueprint1")

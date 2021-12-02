@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/ShopScene.unity
     guid: 05de5af3a820c874aa3f19a6821ce919
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/TestLoseScene.unity
+    guid: 5787d7da171f543428cc644c45d21ccb
   m_configObjects: {}
