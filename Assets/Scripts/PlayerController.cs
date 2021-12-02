@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    float sessionCount = 0;
+
     Rigidbody2D rigid2D;
     public float acceleration;
     public float handling;
@@ -134,6 +136,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sessionCount += Time.deltaTime;
+
         if(isAnimationRunning && isFadingIn)
         {
             gameObject.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 6f / 9f * Time.deltaTime);
@@ -280,7 +284,8 @@ public class PlayerController : MonoBehaviour
                 hyperspeed.Play("Hyperspeed");
                 isAnimationRunning = true;
             }
-            if (!bossLevel && objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount)
+            if ((!bossLevel && objectiveCount >= GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount
+                ))
             {
                 GameManager.instance.stats.levelsCompleted++;
                 GameManager.instance.stats.health = HP;
@@ -299,6 +304,24 @@ public class PlayerController : MonoBehaviour
         }   
 
         GameManager.instance.stats.health = HP;
+
+        if (EnemyManager.numOfEnemiesInScene == 0 && sessionCount >= 5f)
+            print("All enemies destroyed");
+        {
+            GameManager.instance.stats.levelsCompleted++;
+            GameManager.instance.stats.health = HP;
+            GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
+            GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
+            GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
+            GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
+            GameManager.instance.scrapCollected = 0;
+            GameManager.instance.weaponPartsCollected = 0;
+            GameManager.instance.enginePartsCollected = 0;
+            GameManager.instance.armourPartsCollected = 0;
+            hyperspeed.gameObject.SetActive(true);
+            hyperspeed.Play("Hyperspeed");
+            isAnimationRunning = true;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

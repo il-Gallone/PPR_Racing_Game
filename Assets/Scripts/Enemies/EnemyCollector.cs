@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCollector : EnemyBase
 {
@@ -85,7 +86,7 @@ public class EnemyCollector : EnemyBase
     {
         potentialTargets = GameObject.FindGameObjectsWithTag("Objective");
         float targetDistance = Mathf.Infinity;
-        if (potentialTargets.Length == 0)
+        if (potentialTargets.Length == 0 && SceneManager.GetActiveScene().name != "BossLevel")
         {
             Escape();
         }
