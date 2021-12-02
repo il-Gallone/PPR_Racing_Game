@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: repairAll
-  buttonText: {fileID: 354725183}
+  uiText: {fileID: 354725183}
 --- !u!114 &215318543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: scrap
-  buttonText: {fileID: 430077968}
+  uiText: {fileID: 430077968}
 --- !u!114 &430077968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,7 +2919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: hp
-  buttonText: {fileID: 800738368}
+  uiText: {fileID: 800738368}
 --- !u!114 &800738368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: travel
-  buttonText: {fileID: 0}
+  uiText: {fileID: 691689217}
 --- !u!114 &816533290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: repair1
-  buttonText: {fileID: 827735989}
+  uiText: {fileID: 827735989}
 --- !u!114 &952949453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4473,7 +4473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: allRepair
-  buttonText: {fileID: 0}
+  uiText: {fileID: 0}
 --- !u!1 &1614924423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: repair10
-  buttonText: {fileID: 1176365993}
+  uiText: {fileID: 1176365993}
 --- !u!114 &1766219553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: shop
-  buttonText: {fileID: 381178931}
+  uiText: {fileID: 381178931}
 --- !u!114 &1952314594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5477,7 +5477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: back
-  buttonText: {fileID: 0}
+  uiText: {fileID: 0}
 --- !u!1 &2014415847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,4 +5750,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: raid
-  buttonText: {fileID: 628367318}
+  uiText: {fileID: 628367318}

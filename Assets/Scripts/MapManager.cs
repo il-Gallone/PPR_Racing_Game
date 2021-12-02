@@ -32,12 +32,6 @@ public class MapManager : MonoBehaviour
         {
             LoadData();
         }
-        else
-        {
-            planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
-            Invoke("RandomizePlanets", 0.5f);
-            Invoke("SaveData", 0.6f);
-        }
     }
 
     public static void TravelPlanets()
@@ -112,7 +106,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void RandomizePlanets()
+    public void RandomizePlanets()
     {
         for (int i = 1; i < planets.Length; i++)
         {
@@ -352,6 +346,19 @@ public class MapManager : MonoBehaviour
                 }
         }
         SceneManager.LoadScene(2);
+    }
+
+    public static void OpenShop()
+    {
+        instance.travelButton.SetActive(true);
+        GameManager.instance.stats.travelState = true;
+        instance.shopButton.SetActive(false);
+        GameManager.instance.stats.shopState = false;
+        instance.raidButton.SetActive(false);
+        GameManager.instance.stats.raidState = false;
+        instance.repairButtons.SetActive(false);
+        GameManager.instance.stats.repairState = false;
+        LoadSceneByIndex(4);
     }
 
     public static void LoadSceneByIndex(int buildIndex)

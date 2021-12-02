@@ -150,7 +150,12 @@ public class PlayerController : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 6f / 9f * Time.deltaTime);
             if (gameObject.GetComponent<SpriteRenderer>().color.a <= 0)
             {
-                SceneController.UpdateScene(0);
+                if (GameManager.instance.stats.health <= 0)
+                {
+                    SceneController.UpdateScene(5);
+                }
+                else
+                    SceneController.UpdateScene(0);
             }
         }
         if (!isAnimationRunning)
