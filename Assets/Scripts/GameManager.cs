@@ -41,15 +41,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            stats.unlockedWeaponIDs = new List<string> { "Rifle" };
-            stats.shopBlueprintsT1 = new List<string> {"Scattergun Blueprint", "Auto-Rifle Blueprint", "Secure Storage Blueprint", "Ion Cannon Blueprint", "Emergency Teleport Blueprint", "Tractor Beam Blueprint"};
-            stats.shopBlueprintsT2 = new List<string> {"Ore Purifier Blueprint", "Repair Nanobots Blueprint", "Machinegun Blueprint", "Shotgun Blueprint", "Speed Booster Blueprint"/*, "Emergency Battery Blueprint"*/};
-            stats.shopBlueprintsT3 = new List<string> {"Shield Generator Blueprint", "Solar Collector Blueprint", "Defective Super Enhancer Blueprint", "Junk Blaster Blueprint", "Scrap Recycler Blueprint"/*, "Ion Pulse Emitter Blueprint"*/};
-            stats.shopBlueprintsT4 = new List<string> {"Weapon Overcharger Blueprint", "Laser Blueprint", "Missile Launcher Blueprint", "Ramming Armour Blueprint"/*, "Decoy Buoy Blueprint"*/ };
-            stats.shopBlueprintsT5 = new List<string> {"Super Enhancer Blueprint", "Rebounder Blueprint"/*, "Grenade Launcher Blueprint"*/};
-            ShopStock(3);
-            SaveData();
-            PlayerPrefs.SetInt("SaveExists", 0);
+            NewSave();
         }
         GameManager.saveInitialized = true;
 
@@ -99,6 +91,22 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void NewSave()
+    {
+        stats.unlockedWeaponIDs = new List<string> { "Rifle" };
+        stats.shopBlueprintsT1 = new List<string> { "Scattergun Blueprint", "Auto-Rifle Blueprint", "Ion Cannon Blueprint", "Emergency Teleport Blueprint", "Tractor Beam Blueprint" };
+        stats.shopBlueprintsT2 = new List<string> { "Ore Purifier Blueprint", "Repair Nanobots Blueprint", "Machinegun Blueprint", "Shotgun Blueprint", "Speed Booster Blueprint"/*, "Emergency Battery Blueprint"*/};
+        stats.shopBlueprintsT3 = new List<string> { "Shield Generator Blueprint", "Solar Collector Blueprint", "Defective Super Enhancer Blueprint", "Junk Blaster Blueprint", "Scrap Recycler Blueprint"/*, "Ion Pulse Emitter Blueprint"*/};
+        stats.shopBlueprintsT4 = new List<string> { "Weapon Overcharger Blueprint", "Laser Blueprint", "Missile Launcher Blueprint", "Ramming Armour Blueprint"/*, "Decoy Buoy Blueprint"*/ };
+        stats.shopBlueprintsT5 = new List<string> { "Super Enhancer Blueprint", "Rebounder Blueprint"/*, "Grenade Launcher Blueprint"*/};
+        ShopStock(3);
+        MapManager.instance.planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
+        MapManager.instance.RandomizePlanets();
+        SaveData();
+        MapManager.instance.SaveData();
+        PlayerPrefs.SetInt("SaveExists", 0);
     }
 
     public void SaveData()

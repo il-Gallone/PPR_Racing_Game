@@ -32,12 +32,6 @@ public class MapManager : MonoBehaviour
         {
             LoadData();
         }
-        else
-        {
-            planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
-            Invoke("RandomizePlanets", 0.5f);
-            Invoke("SaveData", 0.6f);
-        }
     }
 
     public static void TravelPlanets()
@@ -112,7 +106,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void RandomizePlanets()
+    public void RandomizePlanets()
     {
         for (int i = 1; i < planets.Length; i++)
         {

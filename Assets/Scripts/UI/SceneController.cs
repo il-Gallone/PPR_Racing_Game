@@ -8,8 +8,14 @@ public class SceneController : MonoBehaviour
     public static void UpdateScene(int sceneIndex)
     {
         GameManager.instance.SaveData();
-        if (sceneIndex >= 0)
+        if (sceneIndex >= 0) 
+        {
+            if (sceneIndex == 0 && GameManager.instance.stats.health <= 0)
+            {
+                GameManager.instance.NewSave();
+            }
             SceneManager.LoadScene(sceneIndex);
+        }
         else
             Application.Quit();
     }
