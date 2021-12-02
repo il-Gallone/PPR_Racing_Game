@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BulletController : MonoBehaviour
@@ -22,6 +23,12 @@ public class BulletController : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        if (SceneManager.GetActiveScene().name == "BossLevel" && damage == 0)
+        {
+            damage = energyDamage;
+            energyDamage = 0;
+        }
+
         rb = GetComponent<Rigidbody2D>();
         bulletCollider = GetComponent<Collider2D>();
 

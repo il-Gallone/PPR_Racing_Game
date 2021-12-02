@@ -111,10 +111,11 @@ public class EnemyManager : MonoBehaviour
                 direction /= direction.magnitude;
                 Vector3 randomPos = direction * Random.Range(minSpawnRadius, maxSpawnRadius);
 
-                Instantiate(objectToSpawn, player.position + randomPos, Quaternion.identity);
+                GameObject enemy = Instantiate(objectToSpawn, player.position + randomPos, Quaternion.identity);
+
                 // add player position to randomPos
             }
-            
+
         }
     }
 }
