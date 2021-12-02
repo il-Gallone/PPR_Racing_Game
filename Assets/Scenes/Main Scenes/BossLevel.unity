@@ -1084,6 +1084,9 @@ MonoBehaviour:
   - {fileID: 8236001184385939128, guid: 518e2549bf0a25046bfa9126c8eb9a9f, type: 3}
   - {fileID: 6415922411721323699, guid: dea2755a55be27547ba57d7695ec97b1, type: 3}
   - {fileID: 46258191275305821, guid: 68e42dfb7175e864f8aca41ea6c5abb0, type: 3}
+  - {fileID: 6415922411721323699, guid: ccd10c55d1f15d94ea5a812f34143b4e, type: 3}
+  - {fileID: 46258191275305821, guid: 981fcdcc4f6f34749a0d9301510cdfcf, type: 3}
+  - {fileID: 8236001184385939128, guid: 0b6f3ea34fa7002419c87321993d0a0c, type: 3}
   primaryEnemy: 0
   bossScale: 3
   bossDamageMultiplier: 3

@@ -25,7 +25,7 @@ public class BulletController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "BossLevel" && damage == 0)
         {
-            damage = energyDamage;
+            damage = 5;
             energyDamage = 0;
         }
 

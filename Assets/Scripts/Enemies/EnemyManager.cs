@@ -36,15 +36,15 @@ public class EnemyManager : MonoBehaviour
                                             GameManager.instance.stats.faction4Favour,
                                             GameManager.instance.stats.faction5Favour);
             if (minFavour == GameManager.instance.stats.faction1Favour)
-                primaryEnemy = 3;
+                primaryEnemy = 5;
             else if (minFavour == GameManager.instance.stats.faction2Favour)
-                primaryEnemy = 3;
+                primaryEnemy = 5;
             else if (minFavour == GameManager.instance.stats.faction3Favour)
                 primaryEnemy = 0;
             else if (minFavour == GameManager.instance.stats.faction4Favour)
-                primaryEnemy = 1;
+                primaryEnemy = 6;
             else if (minFavour == GameManager.instance.stats.faction5Favour)
-                primaryEnemy = 2;
+                primaryEnemy = 4;
         }
         else
             primaryEnemy = GameManager.instance.primaryEnemySpawn;
