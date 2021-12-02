@@ -154,7 +154,8 @@ public class PlayerController : MonoBehaviour
                 {
                     SceneController.UpdateScene(5);
                 }
-                SceneController.UpdateScene(0);
+                else
+                    SceneController.UpdateScene(0);
             }
         }
         if (!isAnimationRunning)
