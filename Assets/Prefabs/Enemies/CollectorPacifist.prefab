@@ -134,6 +134,7 @@ MonoBehaviour:
   shootPos: {fileID: 46258190749955581}
   isPlayerWeapon: 0
   automatic: 1
+  damageMultiplier: 1
   shootInterval: 2.5
   minSpread: 0
   maxSpread: 0
@@ -358,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4adcc57726075e499af4d3a1f77e750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 14
+  HP: 13
   maxSpeed: 5
   acceleration: 50
   handling: 135

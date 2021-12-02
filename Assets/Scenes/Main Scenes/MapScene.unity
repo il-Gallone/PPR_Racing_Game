@@ -477,6 +477,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 510691716}
   - {fileID: 1573102742}
   - {fileID: 2134437728}
   - {fileID: 1952314592}
@@ -487,7 +488,6 @@ RectTransform:
   - {fileID: 522464454}
   - {fileID: 1480659858}
   - {fileID: 1829899047}
-  - {fileID: 510691716}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: repairAll
   uiText: {fileID: 354725183}
+  shopManager: {fileID: 0}
 --- !u!114 &215318543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +723,7 @@ RectTransform:
   - {fileID: 1289051741}
   - {fileID: 1367007317}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1389,6 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: scrap
   uiText: {fileID: 430077968}
+  shopManager: {fileID: 0}
 --- !u!114 &430077968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,7 +1701,7 @@ RectTransform:
   - {fileID: 1096832533}
   - {fileID: 1914814721}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1893,7 +1895,7 @@ RectTransform:
   - {fileID: 526558503}
   - {fileID: 1308417523}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2083,7 +2085,7 @@ RectTransform:
   - {fileID: 634920702}
   - {fileID: 728207314}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2920,6 +2922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: hp
   uiText: {fileID: 800738368}
+  shopManager: {fileID: 0}
 --- !u!114 &800738368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3081,7 +3084,7 @@ RectTransform:
   m_Children:
   - {fileID: 691689216}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3102,6 +3105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: travel
   uiText: {fileID: 691689217}
+  shopManager: {fileID: 0}
 --- !u!114 &816533290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3371,6 +3375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: repair1
   uiText: {fileID: 827735989}
+  shopManager: {fileID: 0}
 --- !u!114 &952949453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4260,7 +4265,7 @@ RectTransform:
   - {fileID: 373735530}
   - {fileID: 45383711}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4453,7 +4458,7 @@ RectTransform:
   - {fileID: 800738366}
   - {fileID: 430077966}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4474,6 +4479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: allRepair
   uiText: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!1 &1614924423
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,6 +4620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: repair10
   uiText: {fileID: 1176365993}
+  shopManager: {fileID: 0}
 --- !u!114 &1766219553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4784,7 +4791,7 @@ RectTransform:
   - {fileID: 1242336439}
   - {fileID: 14514156}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5132,7 +5139,7 @@ RectTransform:
   m_Children:
   - {fileID: 381178930}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5153,6 +5160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: shop
   uiText: {fileID: 381178931}
+  shopManager: {fileID: 0}
 --- !u!114 &1952314594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5322,7 +5330,7 @@ RectTransform:
   m_Children:
   - {fileID: 976742220}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5478,6 +5486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: back
   uiText: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!1 &2014415847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,7 +5604,7 @@ RectTransform:
   m_Children:
   - {fileID: 628367317}
   m_Father: {fileID: 104139773}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5751,3 +5760,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: raid
   uiText: {fileID: 628367318}
+  shopManager: {fileID: 0}
