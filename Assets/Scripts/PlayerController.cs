@@ -301,28 +301,28 @@ public class PlayerController : MonoBehaviour
                 hyperspeed.Play("Hyperspeed");
                 isAnimationRunning = true;
             }
+            if (EnemyManager.numOfEnemiesInScene == 0 && sessionCount >= 5f && bossLevel)
+            {
+                print("All enemies destroyed");
+
+                GameManager.instance.stats.levelsCompleted++;
+                GameManager.instance.stats.health = HP;
+                GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
+                GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
+                GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
+                GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
+                GameManager.instance.scrapCollected = 0;
+                GameManager.instance.weaponPartsCollected = 0;
+                GameManager.instance.enginePartsCollected = 0;
+                GameManager.instance.armourPartsCollected = 0;
+                hyperspeed.gameObject.SetActive(true);
+                hyperspeed.Play("Hyperspeed");
+                isAnimationRunning = true;
+            }
         }   
 
         GameManager.instance.stats.health = HP;
 
-        if (EnemyManager.numOfEnemiesInScene == 0 && sessionCount >= 5f && bossLevel)
-        {
-            print("All enemies destroyed");
-
-            GameManager.instance.stats.levelsCompleted++;
-            GameManager.instance.stats.health = HP;
-            GameManager.instance.stats.scrap += GameManager.instance.scrapCollected;
-            GameManager.instance.stats.engineParts += GameManager.instance.enginePartsCollected;
-            GameManager.instance.stats.weaponParts += GameManager.instance.weaponPartsCollected;
-            GameManager.instance.stats.armourParts += GameManager.instance.armourPartsCollected;
-            GameManager.instance.scrapCollected = 0;
-            GameManager.instance.weaponPartsCollected = 0;
-            GameManager.instance.enginePartsCollected = 0;
-            GameManager.instance.armourPartsCollected = 0;
-            hyperspeed.gameObject.SetActive(true);
-            hyperspeed.Play("Hyperspeed");
-            isAnimationRunning = true;
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
