@@ -305,7 +305,7 @@ public class PlayerController : MonoBehaviour
 
         GameManager.instance.stats.health = HP;
 
-        if (EnemyManager.numOfEnemiesInScene == 0 && sessionCount >= 5f)
+        if (EnemyManager.numOfEnemiesInScene == 0 && sessionCount >= 5f && bossLevel)
         {
             print("All enemies destroyed");
 
