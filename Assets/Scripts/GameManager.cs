@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             shopBlueprintsT2 = new List<string> { "Ore Purifier Blueprint", "Repair Nanobots Blueprint", "Machinegun Blueprint", "Shotgun Blueprint", "Speed Booster Blueprint"/*, "Emergency Battery Blueprint"*/},
             shopBlueprintsT3 = new List<string> { "Shield Generator Blueprint", "Solar Collector Blueprint", "Defective Super Enhancer Blueprint", "Junk Blaster Blueprint", "Scrap Recycler Blueprint"/*, "Ion Pulse Emitter Blueprint"*/},
             shopBlueprintsT4 = new List<string> { "Weapon Overcharger Blueprint", "Laser Blueprint", "Missile Launcher Blueprint", "Ramming Armour Blueprint"/*, "Decoy Buoy Blueprint"*/ },
-            shopBlueprintsT5 = new List<string> { "Super Enhancer Blueprint", "Rebounder Blueprint"/*, "Grenade Launcher Blueprint"*/}
+            shopBlueprintsT5 = new List<string> { "Super Enhancer Blueprint", "Rebounder Weapon Blueprint"/*, "Grenade Launcher Blueprint"*/}
         };
         ShopStock(3);
         MapManager.instance.planets[0] = new PlanetStats(1, 25, 0, 0, 0, 0, 0, 0, 0, "Teritory");
