@@ -75,7 +75,7 @@ public class EnemyCollector : EnemyBase
 
     void Escape()
     {
-        GetComponent<Collider>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         GameObject.FindGameObjectWithTag("GenerationManager").GetComponent<GenerationManager>().objectiveCount -= objectivesStolen;
         rigid2D.velocity += (Vector2)transform.up * 8;
         isEscaping = true;
