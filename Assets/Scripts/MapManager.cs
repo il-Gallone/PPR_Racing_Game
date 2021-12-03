@@ -40,7 +40,6 @@ public class MapManager : MonoBehaviour
         {
             instance.planets[0] = instance.planets[targetedPlanet];
             instance.planetButtons[0].PlanetUpdate();
-            instance.planetButtons[0].ChangeScene();
             instance.travelButton.SetActive(false);
             GameManager.instance.stats.travelState = false;
             GameManager.instance.stats.planetsTraveled++;
@@ -297,6 +296,7 @@ public class MapManager : MonoBehaviour
         GameManager.instance.stats.raidState = false;
         instance.repairButtons.SetActive(false);
         GameManager.instance.stats.repairState = false;
+        instance.planetButtons[0].ChangeScene();
         switch (targetedFaction)
         {
             case 1:
