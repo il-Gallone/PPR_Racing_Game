@@ -523,6 +523,7 @@ MonoBehaviour:
   shootPos: {fileID: 4068430988874545022}
   isPlayerWeapon: 1
   automatic: 1
+  damageMultiplier: 1
   shootInterval: 0.1
   minSpread: 0.5
   maxSpread: 0.5
@@ -531,7 +532,7 @@ MonoBehaviour:
   shakeIntensity: 0.5
   shakeDuration: 0.25
   gunAudioPlayer: {fileID: 5315439120028759087}
-  damage: 0.0225
+  damage: 0.025
   maxRange: 10
   width: 0.05
   widthFadeAmount: 0.1
