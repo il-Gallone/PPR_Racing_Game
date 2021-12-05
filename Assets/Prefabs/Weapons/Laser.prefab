@@ -532,7 +532,7 @@ MonoBehaviour:
   shakeIntensity: 0.5
   shakeDuration: 0.25
   gunAudioPlayer: {fileID: 5315439120028759087}
-  damage: 0.025
+  damage: 1
   maxRange: 10
   width: 0.05
   widthFadeAmount: 0.1
